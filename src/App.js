@@ -1,12 +1,17 @@
-
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import AdminLogInPage from "./components/AdminLoginPage";
 
 
 function App() {
-  return (
-    <div>
-  <h1>HELLO WORLD! </h1>
-    </div>
-  );
+    return(
+      <Router>
+        <Routes>
+          <Route path="/adminlogin" element={<AdminLogInPage />} />
+        </Routes>
+      </Router>
+    )
+  
 }
 
 export default App;
