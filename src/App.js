@@ -4,7 +4,6 @@ import wideImage from "./wider-image.jpg";
 
 function App() {
   return (
-   
     <div className="app-container">
       <div className="left-section">
         <div className="title-section">
@@ -24,6 +23,13 @@ function App() {
         </div>
       </div>
       <div className="right-section">
+        <p>
+          {" "}
+          Already have an account?
+          <a href="#" onClick={() => window.location.reload()}>
+            Log in
+          </a>
+        </p>
         <div className="cta-section">
           <div className="cta-tab">
             <h2>Connect, Collaborate, Learn</h2>
