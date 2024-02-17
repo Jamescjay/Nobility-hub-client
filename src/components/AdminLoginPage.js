@@ -12,38 +12,35 @@ function AdminLogInPage() {
   
     const [loginStatus, setLoginStatus] = useState("");
 
-    const adminlogin = () => {
+      useEffect(() => {
+        Axios.get("http://localhost:3001/adminlogin")
+        .then((response) => {
+          if (response.data && response.data.loggedIn === true && response.data.user && response.data.user.length > 0) {
+            setLoginStatus(response.data.user[0].username);
+          }
+        })
+        .catch(error => {
+          if (error.response && error.response.status === 404) {
+            console.error('Resource not found:', error.response.config.url);
+          } else {
+            console.error('An error occurred:', error);
+          }
+        });
+      }, []);
+      
+      const adminlogin = () => {
         Axios.post("http://localhost:3001/adminlogin", {
           email: email,
           password: password,
         })
         .then((response) => {
-          if (response.data.message) {
+          if (response.data && response.data.message) {
             setLoginStatus(response.data.message);
-          } else {
+          } else if (response.data && response.data.length > 0) {
             setLoginStatus(response.data[0].username);
           }
         });
       };
-    
-      useEffect(() => {
-        Axios.get("http://localhost:3001/login")
-        .then((response) => {
-          if (response.data.loggedIn === true) {
-            setLoginStatus(response.data.user[0].username);
-          }
-        })
-        .catch(error => {
-            if (error.response.status === 404) {
-              // Handle 404 error
-              console.error('Resource not found:', error.response.config.url);
-            } else {
-              // Handle other errors
-              console.error('An error occurred:', error);
-            }
-          });
-        
-      }, []);
     
   
      return(
