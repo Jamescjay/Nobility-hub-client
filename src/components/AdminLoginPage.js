@@ -16,7 +16,8 @@ function AdminLogInPage() {
         Axios.post("http://localhost:3001/adminlogin", {
           email: email,
           password: password,
-        }).then((response) => {
+        })
+        .then((response) => {
           if (response.data.message) {
             setLoginStatus(response.data.message);
           } else {
@@ -31,7 +32,8 @@ function AdminLogInPage() {
           if (response.data.loggedIn === true) {
             setLoginStatus(response.data.user[0].username);
           }
-        }).catch(error => {
+        })
+        .catch(error => {
             if (error.response.status === 404) {
               // Handle 404 error
               console.error('Resource not found:', error.response.config.url);
