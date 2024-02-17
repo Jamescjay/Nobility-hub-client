@@ -1,65 +1,75 @@
-import React from "react";
-import { useEffect, useState } from "react";
-import Axios from "axios";
+// src/components/AdminLogin.js
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
-import * as Components from '../style/admin';
+const AdminLogin = () => {
+  const navigate = useNavigate();
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
 
-function AdminLogInPage() {
-    const [loginin] = React.useState(true);
+  const handleLogin = async () => {
+    try {
+      const response = await fetch('http://localhost:5000/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+        }),
+      });
 
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-  
-    const [loginStatus, setLoginStatus] = useState("");
+      const data = await response.json();
 
-    const adminlogin = () => {
-        Axios.post("http://127.0.0.1:5000/login", {
-          email: email,
-          password: password,
-        })
-        .then((response) => {
-          if (response.data.message) {
-            setLoginStatus(response.data.message);
-          } else {
-            setLoginStatus(response.data[0].username);
-          }
-        });
-      };
-    
-      useEffect(() => {
-        Axios.get("http://127.0.0.1:5000/login")
-        .then((response) => {
-          if (response.data.loggedIn === true) {
-            setLoginStatus(response.data.user[0].username);
-          }
-        })
-        .catch(error => {
-            if (error.response.status === 404) {
-              // Handle 404 error
-              console.error('Resource not found:', error.response.config.url);
-            } else {
-              // Handle other errors
-              console.error('An error occurred:', error);
-            }
-          });
-        
-      }, []);
-    
-  
-     return(
-         <Components.Container>
-             <Components.LogInContainer loginin={loginin.toString()}>
-                  <Components.Form>
-                      <Components.Title>Log in</Components.Title>
-                      <Components.Input type='email' placeholder='Email' onChange={(e) => {setEmail(e.target.value);}} />
-                      <Components.Input type='password' placeholder='Password' onChange={(e) => { setPassword(e.target.value);}} />
-                      <Components.Anchor href='#'>Forgot your password?</Components.Anchor>
-                      <Components.Button onClick={adminlogin}>Log In</Components.Button>
-                      <h1>{loginStatus}</h1>
-                  </Components.Form>
-             </Components.LogInContainer>
-         </Components.Container>
-     )
-}
+      const { success, token, user_email, role } = data;
 
-export default AdminLogInPage;
+      if (success) {
+        localStorage.setItem('token', token);
+        navigate('/dashboard');
+      } else {
+        setErrorMessage('Invalid credentials');
+      }
+    } catch (error) {
+      console.error('Error during login:', error);
+      setErrorMessage('An error occurred during login');
+    }
+  };
+
+  return (
+    <div>
+      <h1 style={{ color: '#333', marginBottom: '20px' }}>Admin Login</h1>
+      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
+      <label style={{ color: '#333', display: 'block', marginBottom: '8px' }}>Email:</label>
+      <input
+        type="text"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)}
+        style={{ width: '100%', padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '5px' }}
+      />
+      <label style={{ color: '#333', display: 'block', marginBottom: '8px' }}>Password:</label>
+      <input
+        type="password"
+        value={password}
+        onChange={(e) => setPassword(e.target.value)}
+        style={{ width: '100%', padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '5px' }}
+      />
+      <button
+        onClick={handleLogin}
+        style={{
+          background: '#ff4b2b',
+          color: '#fff',
+          padding: '12px',
+          borderRadius: '5px',
+          border: 'none',
+          cursor: 'pointer',
+        }}
+      >
+        Login
+      </button>
+    </div>
+  );
+};
+
+export default AdminLogin;
