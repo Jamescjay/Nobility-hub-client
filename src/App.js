@@ -6,7 +6,7 @@ function App() {
   const handleSignIn = () => {
     const clientId =
       "903014081128-03ap17fghal5cugp545qt6uu315lf7e4.apps.googleusercontent.com";
-    const redirectUri = encodeURIComponent(window.location.origin);
+    const redirectUri = `http://localhost:3000`;
 
       window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=email profile openid`;
   };
@@ -41,7 +41,7 @@ function App() {
           <div className="cta-tab">
             <h2>Connect, Collaborate, Learn</h2>
             <button className="sign-in-button" onClick={handleSignIn}>
-              Sign In with Nob Account
+              Sign In with Nob Hub Account
             </button>
           </div>
         </div>
