@@ -30,7 +30,7 @@ body {
   margin-bottom: 15px;
   text-align: center;
   font-family: "Helvetica", sans-serif;
-  font-size: 1.4em;
+  font-size: 1.3em; 
   font-weight: bold;
   color: #333;
 }
@@ -49,27 +49,27 @@ body {
 
 .wide-image {
   width: 100%;
-  max-width: 500px;
-  border-radius: 15px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  max-width: 600px; 
+  border-radius: 20px; 
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
   transition: transform 0.3s ease;
 }
 
 .wide-image:hover {
-  transform: scale(1.05);
+  transform: scale(1.08); 
 }
 
 .cta-section {
   display: flex;
   justify-content: center;
-  margin-top: 80px;
+  margin-top: 50px;
 }
 
 .cta-tab {
   background-color: #fff;
-  border-radius: 15px;
-  padding: 80px;
-  box-shadow: 0 0 20px rgba(18, 18, 18, 0.2);
+  border-radius: 20px; 
+  padding: 25px; 
+  box-shadow: 0 0 20px rgba(18, 18, 18, 0.3); 
   text-align: center;
 }
 
@@ -81,15 +81,49 @@ h2 {
 .sign-in-button {
   background-color: #f16f10;
   color: white;
-  padding: 20px 30px;
-  font-size: 18px;
+  padding: 20px 40px; 
+  font-size: 20px; 
   cursor: pointer;
   border: none;
   outline: none;
-  border-radius: 8px;
+  border-radius: 10px; 
   transition: background-color 0.3s ease;
+  margin-bottom: 10px; 
 }
 
 .sign-in-button:hover {
   background-color: #cc3700;
+}
+
+.google-logo {
+  margin-right: 10px; 
+  width: 24px; 
+  height: 24px; 
+}
+
+.sign-in-button-google {
+  background-color: #4285f4; 
+  color: #ffffff;
+  padding: 19px 70px;
+  font-size: 20px;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  border-radius: 10px;
+  transition: background-color 0.3s ease;
+  align-items: center;
+}
+
+.sign-in-button-google:hover {
+  background-color: #3b79cb; 
+}
+
+input {
+  width: 100%;
+  padding: 15px; 
+  margin-bottom: 20px; 
+  box-sizing: border-box;
+  border: 1px solid #ccc; 
+  border-radius: 8px; 
+  font-size: 16px; 
 }
