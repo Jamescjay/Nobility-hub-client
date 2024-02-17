@@ -13,7 +13,7 @@ function AdminLogInPage() {
     const [loginStatus, setLoginStatus] = useState("");
 
     const adminlogin = () => {
-        Axios.post("http://localhost:3001/adminlogin", {
+        Axios.post("http://127.0.0.1:5000/login", {
           email: email,
           password: password,
         })
@@ -27,7 +27,7 @@ function AdminLogInPage() {
       };
     
       useEffect(() => {
-        Axios.get("http://localhost:3001/login")
+        Axios.get("http://127.0.0.1:5000/login")
         .then((response) => {
           if (response.data.loggedIn === true) {
             setLoginStatus(response.data.user[0].username);
