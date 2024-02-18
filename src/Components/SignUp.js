@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
-// import './Css/Signup.css';
-import { Link, useNavigate } from 'react-router-dom';
-//import Navbar from './Components/Navbar'
-
 
 const SignupForm = () => {
-  const navigate = useNavigate();
   const [formData, setFormData] = useState({
+    first_name: '',
+    last_name: '',
+    gender: '',
     username: '',
     email: '',
     password: '',
+    phone_number: '',
     role: '',
   });
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [successMessage, setSuccessMessage] = useState(null);
+  const [error, setError] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleChange = (e) => {
     setFormData({
@@ -25,7 +24,7 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+  // console.log(formData)
     // Basic client-side validation
     if (!formData.username || !formData.email || !formData.password || !formData.role) {
       setError('All fields are required');
@@ -44,14 +43,16 @@ const SignupForm = () => {
 
       if (response.ok) {
         setSuccessMessage('Signup successful');
-        navigate('/login');
-        setError(null);
+        setError('');
+        setTimeout(() => {
+         // Data collected is passed to the Database
+        }, 2000); // Wait for 2 seconds and give an acceptance feedback
       } else {
         const errorData = await response.json();
-        setError(errorData.error || 'Signup failed');
+        setError(errorData.error || 'failed to key in data');
       }
     } catch (error) {
-      console.error('Error during signup:', error);
+      console.error('Error during keying in data:', error);
       setError('An unexpected error occurred');
     } finally {
       setLoading(false);
@@ -60,12 +61,33 @@ const SignupForm = () => {
 
   return (
     <div className='loginpage'>
-      {/* <nav className='navbar'>
-        <Navbar />
-      </nav> */}
+      <div className='navbar'>
+        {/* Navbar content */}
+      </div>
       <div className='signup'>
         <h2>Sign Up</h2>
         <form onSubmit={handleSubmit}>
+          <label>
+            First Name:
+            <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
+          </label>
+          <br />
+          <label>
+            Last Name:
+            <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
+          </label>
+          <br />
+          <label>
+            Gender:
+            <select name="gender" value={formData.gender} onChange={handleChange}>
+              <option value="">Select Gender</option>
+              <option value="male">Male</option>
+              <option value="female">Female</option>
+              <option value="other">Other</option>
+            </select>
+          </label>
+          <br />
+          {/* Existing fields */}
           <label>
             Username:
             <input type="text" name="username" value={formData.username} onChange={handleChange} />
@@ -79,6 +101,11 @@ const SignupForm = () => {
           <label>
             Password:
             <input type="password" name="password" value={formData.password} onChange={handleChange} />
+          </label>
+          <br />
+          <label>
+            Phone Number:
+            <input type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} />
           </label>
           <br />
           <label>
@@ -97,12 +124,12 @@ const SignupForm = () => {
           {error && <p style={{ color: 'red' }}>{error}</p>}
         </form>
         {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
-        <p>
-          Already have an account? <Link to="/login">Login</Link>
-        </p>
+        
       </div>
     </div>
   );
 };
 
 export default SignupForm;
+
+
