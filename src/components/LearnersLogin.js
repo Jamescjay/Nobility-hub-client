@@ -1,44 +1,30 @@
-import React, { useState } from "react";
-import "../App.css"; 
-import wideImage from "./wider-image.jpg"; 
+import React, { useState, useEffect } from "react";
+import "../App.css";
+import wideImage from "./wider-image.jpg";
 import { FcGoogle } from "react-icons/fc";
-
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [successMessage, setSuccessMessage] = useState("");
-  const [errorMessage, setErrorMessage] = useState("");
 
   const handleSignIn = (e) => {
     e.preventDefault();
 
-    if (email && password) {
-      const apiUrl = ""; 
+    const validEmail = "janeDoe@learners.nobilityhub.com";
+    const validPassword = "Password!";
 
-      fetch(apiUrl, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
+    if (email === validEmail && password === validPassword) {
+      
+      toast.success("Successfully signed in", {
+        autoClose: 100,
+        onClose: () => {
+          window.location.href = "about:blank";
         },
-        body: JSON.stringify({ email, password }),
-      })
-        .then((response) => response.json())
-        .then((data) => {
-          if (data.success) {
-            setSuccessMessage("Successfully signed in: " + data.message);
-            setErrorMessage(""); 
-          } else {
-            setErrorMessage("Error signing in: " + data.message);
-            setSuccessMessage(""); 
-          }
-        })
-        .catch((error) => {
-          setErrorMessage("Error signing in: " + error.message);
-          setSuccessMessage("");
-        });
+      });
     } else {
-      initiateGoogleAuthentication();
+      toast.error("Invalid email or password");
     }
   };
 
@@ -61,12 +47,11 @@ const LearnersLogin = () => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
     if (!emailRegex.test(emailInput)) {
-      alert("Please enter a valid email address");
+      toast.error("Please enter a valid email address");
       return;
     }
 
-    console.log("Form submitted with email:", emailInput);
-
+    toast.info("Form submitted with email: " + emailInput);
     setEmail("");
     setPassword("");
   };
@@ -101,11 +86,8 @@ const LearnersLogin = () => {
           <div className="cta-tab">
             <h2>Connect, Collaborate, Learn</h2>
             <div>
-              {successMessage && (
-                <p className="success-message">{successMessage}</p>
-              )}
-              {errorMessage && <p className="error-message">{errorMessage}</p>}
-              <form onSubmit={handleFormSubmit}>
+              <ToastContainer />
+              <form onSubmit={handleSignIn}>
                 <input
                   type="email"
                   name="email"
