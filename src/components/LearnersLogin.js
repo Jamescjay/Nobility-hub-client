@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "../App.css";
 import wideImage from "./wider-image.jpg";
 import { FcGoogle } from "react-icons/fc";
@@ -9,22 +9,36 @@ const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const handleSignIn = (e) => {
+  const handleSignIn = async (e) => {
     e.preventDefault();
 
-    const validEmail = "janeDoe@learners.nobilityhub.com";
-    const validPassword = "Password!";
+    const customServerUrl = "URL"; 
 
-    if (email === validEmail && password === validPassword) {
+    try {
       
-      toast.success("Successfully signed in", {
-        autoClose: 100,
-        onClose: () => {
-          window.location.href = "about:blank";
+      const response = await fetch(customServerUrl, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
         },
+        body: JSON.stringify({ email, password }),
       });
-    } else {
-      toast.error("Invalid email or password");
+
+      const data = await response.json();
+
+      if (data.success) {
+        toast.success("Successfully signed in", {
+          autoClose: 100,
+          onClose: () => {
+            window.location.href = "about:blank";
+          },
+        });
+      } else {
+        toast.error("Invalid email or password");
+      }
+    } catch (error) {
+      console.error("Error during authentication:", error);
+      toast.error("An error occurred during authentication");
     }
   };
 
