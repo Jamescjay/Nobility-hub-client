@@ -8,8 +8,7 @@ const SignupForm = () => {
     username: '',
     email: '',
     password: '',
-    phone_number: '',
-    role: '',
+    phone: '',
   });
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
@@ -52,7 +51,7 @@ const SignupForm = () => {
         setError(errorData.error || 'failed to key in data');
       }
     } catch (error) {
-      console.error('Error during keying in data:', error);
+      console.error('Error during keying in :', error);
       setError('An unexpected error occurred');
     } finally {
       setLoading(false);
@@ -104,18 +103,11 @@ const SignupForm = () => {
           </label>
           <br />
           <label>
-            Phone Number:
-            <input type="text" name="phone_number" value={formData.phone_number} onChange={handleChange} />
+            Phone:
+            <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
           </label>
           <br />
-          <label>
-            Role:
-            <select name="role" value={formData.role} onChange={handleChange}>
-              <option value="">Select Role</option>
-              <option value="student">Student</option>
-              <option value="mentor">Technical Mentor</option>
-            </select>
-          </label>
+         
           <br />
           <button type="submit" disabled={loading}>
             {loading ? 'Signing Up...' : 'Sign Up'}
