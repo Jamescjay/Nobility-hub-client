@@ -6,6 +6,7 @@ import AdminLoginPage from "./components/AdminLoginPage";
 import LearnersLogin from "./components/LearnersLogin";
 import Dashboard from "./components/Dashboard";
 import Courses from "./components/Courses";
+import CourseDetails from "./components/CourseDetails";
 
 
 function App() { 
@@ -16,6 +17,8 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/LearnersLogin" element={<LearnersLogin />} />
         <Route path="/courses" element={<Courses />} />
+        <Route path="/courses/:id" element={<CourseDetails />} />
+       
       </Routes>
     </Router>
   );
