@@ -25,7 +25,7 @@ const LearnersLogin = () => {
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
-            window.location.href = "about:blank";
+            window.location.href = "Learnersdashboard";
           },
         });
       } else {
