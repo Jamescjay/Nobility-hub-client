@@ -4,6 +4,7 @@ import wideImage from "./wider-image.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+//import  { useNavigate }  from "react-router-dom";
 
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
@@ -25,7 +26,7 @@ const LearnersLogin = () => {
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
-            window.location.href = "about:blank";
+            window.location.href = "dashboard";
           },
         });
       } else {
