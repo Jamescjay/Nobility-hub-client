@@ -76,7 +76,7 @@ const LearnersLogin = () => {
         <div className="description-section">
           <p>
             We firmly believe in granting everyone the chance to thrive in the
-            technology sector. Through our groundbreaking educational methods,
+            technology and programming sector. Through our groundbreaking educational methods,
             we equip students with the essential skills and expertise required
             to embark on prosperous career paths. Come join us and be a pioneer
             of tomorrow!
