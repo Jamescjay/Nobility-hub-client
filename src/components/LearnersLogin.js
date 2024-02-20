@@ -12,11 +12,8 @@ const LearnersLogin = () => {
   const handleSignIn = async (e) => {
     e.preventDefault();
 
-    const customServerUrl = "URL"; 
-
     try {
-      
-      const response = await fetch(customServerUrl, {
+      const response = await fetch("http://127.0.0.1:5555/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -24,9 +21,7 @@ const LearnersLogin = () => {
         body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
-      if (data.success) {
+      if (response.ok) {
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
@@ -37,8 +32,7 @@ const LearnersLogin = () => {
         toast.error("Invalid email or password");
       }
     } catch (error) {
-      console.error("Error during authentication:", error);
-      toast.error("An error occurred during authentication");
+      console.error("Error:", error);
     }
   };
 
@@ -50,25 +44,25 @@ const LearnersLogin = () => {
     window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=email profile openid`;
   };
 
-  const handleLoginClick = () => {
-    initiateGoogleAuthentication();
-  };
+  // const handleLoginClick = () => {
+  //   initiateGoogleAuthentication();
+  // };
 
-  const handleFormSubmit = (e) => {
-    e.preventDefault();
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
 
-    const emailInput = e.target.elements.email.value;
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+  //   const emailInput = e.target.elements.email.value;
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
-    if (!emailRegex.test(emailInput)) {
-      toast.error("Please enter a valid email address");
-      return;
-    }
+  //   if (!emailRegex.test(emailInput)) {
+  //     toast.error("Please enter a valid email address");
+  //     return;
+  //   }
 
-    toast.info("Form submitted with email: " + emailInput);
-    setEmail("");
-    setPassword("");
-  };
+  //   toast.info("Form submitted with email: " + emailInput);
+  //   setEmail("");
+  //   setPassword("");
+  // };
 
   return (
     <div className="app-container">
@@ -90,12 +84,12 @@ const LearnersLogin = () => {
         </div>
       </div>
       <div className="right-section">
-        <p>
+        {/* <p>
           Already have an account?
           <a href="#" onClick={handleLoginClick}>
             Log in
           </a>
-        </p>
+        </p> */}
         <div className="cta-section">
           <div className="cta-tab">
             <h2>Connect, Collaborate, Learn</h2>
