@@ -1,0 +1,135 @@
+Dashboard.css
+
+.learners-dashboard-container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  
+  /* Top Navigation Bar */
+  .learners-top-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .learners-left-section {
+    display: flex;
+    align-items: center;
+  }
+  
+  .learners-channels-icon,
+  .learners-search-bar,
+  .learners-user-profile {
+    margin: 0 1rem;
+  }
+  
+  /* Sidebar */
+  .learners-sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 250px;
+    height: 650px;
+    background-color: #f1f1f1;
+    padding: 1rem;
+  }
+  
+  /* Nobility Hub */
+  .learners-nobility-hub {
+    margin-bottom: 1rem;
+  }
+  
+  .learners-hub-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .learners-hub-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Set an initial max-height value */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .learners-hub-dropdown:hover ul {
+    max-height: 200px; /* Adjust the value based on your content height */
+  }
+  
+  .learners-hub-dropdown li {
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+  }
+  
+  .learners-hub-dropdown li:hover {
+    background-color: #ddd;
+  }
+  
+  /* Channels Section */
+  .learners-channels-section {
+    margin-bottom: 1rem;
+  }
+  
+  .learners-channels-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  .learners-channels-dropdown ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    max-height: 200px; /* Set an initial max-height value */
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+  }
+  
+  .learners-channels-dropdown:hover ul {
+    max-height: 200px; /* Adjust the value based on your content height */
+  }
+  
+  .learners-channels-dropdown li {
+    cursor: pointer;
+    padding: 0.5rem;
+    transition: background-color 0.3s;
+  }
+  
+  .learners-channels-dropdown li:hover {
+    background-color: #ddd;
+  }
+  
+  /* Direct Messages */
+  .learners-direct-messages {
+    margin-bottom: 1rem;
+  }
+  
+  .learners-dm-label {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+  }
+  
+  /* Search Bar Styles */
+  .learners-search-bar {
+    display: flex;
+    align-items: center;
+  }
+  
+  .learners-search-bar input {
+    margin-left: 5px;
+    border: none;
+    outline: none;
+    padding: 5px;
+    font-size: 14px;
+    flex: 1; /* Allow input to grow and take available space */
+  }
+  
+  .learners-search-bar i {
+    margin-right: 5px;
+    flex-shrink: 0; /* Prevent the icon from shrinking */
+  }
+  

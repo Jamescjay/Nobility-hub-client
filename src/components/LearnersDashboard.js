@@ -4,7 +4,6 @@ import wideImage from "./wider-image.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-//import  { useNavigate }  from "react-router-dom";
 
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
@@ -14,7 +13,7 @@ const LearnersLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:5555/admin-login", {
+      const response = await fetch("http://127.0.0.1:5555/learners-login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -26,7 +25,7 @@ const LearnersLogin = () => {
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
-            window.location.href = "dashboard";
+            window.location.href = "Learnersdashboard";
           },
         });
       } else {
