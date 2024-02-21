@@ -1,72 +1,97 @@
-/* Signup.css */
+/* Body Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f2f2f2;
+  margin: 0;
+  padding: 0;
+}
 
-.signup {
-    max-width: 400px;
-    margin: 0 auto;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
-  
-  .signup h2 {
-    text-align: center;
-    color: #fab907;
-  }
-  
-  .signup label {
-    margin-bottom: 8px;
-    color: #fab907;
-  }
-  
-  
-  .signup input,
-  select {
-    width: 100%;
-    padding: 8px;
-    margin-bottom: 16px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    box-sizing: border-box;
-  }
-  
-  .signup button {
-    width: 100%;
-    padding: 10px;
-    background-color: #fab907;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .signup button:disabled {
-    background-color: #ddd;
-    cursor: not-allowed;
-  }
-  
-  .signup p.error {
-    color: red;
-    margin-top: 8px;
-  }
-  
-  .signup p.success {
-    color: green;
-    margin-top: 8px;
-  }
-  
-  .signup p {
-    margin-top: 16px;
-    text-align: center;
-    color: #fab907;
-  }
-  
-  .signup p a {
-    color: white;
-    text-decoration: none;
-    font-weight: bold;
-  }
-  
-  .signup p a:hover {
-    text-decoration: underline;
-  }
+/* Container Styles */
+.container {
+  max-width: 600px;
+  margin: 50px auto;
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 30px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+/* Form Styles */
+form {
+  margin-bottom: 20px;
+}
+
+form h2 {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+form label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+form input[type="text"],
+form input[type="email"],
+form input[type="password"],
+form select {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+form select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%23333' width='24' height='24'%3E%3Cpath d='M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z'/%3E%3Cpath d='M0 0h24v24H0z' fill='none'/%3E%3C/svg%3E");
+  background-size: 12px;
+  background-repeat: no-repeat;
+  background-position: calc(100% - 10px) center;
+}
+
+form input[type="submit"] {
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 15px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+form input[type="submit"]:hover {
+  background-color: #0056b3;
+}
+
+/* Error Message Styles */
+.error-message {
+  color: red;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+/* Success Message Styles */
+.success-message {
+  color: green;
+  margin-top: -5px;
+  margin-bottom: 10px;
+}
+
+/* Already have an account link Styles */
+.already-have-account {
+  text-align: center;
+}
+
+.already-have-account a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.already-have-account a:hover {
+  text-decoration: underline;
+}

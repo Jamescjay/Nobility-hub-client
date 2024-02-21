@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+// import '../Css/signup.css'
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +24,7 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-  // console.log(formData)
+
     // Basic client-side validation
     if (!formData.username || !formData.email || !formData.password || !formData.role) {
       setError('All fields are required');
@@ -44,14 +45,14 @@ const SignupForm = () => {
         setSuccessMessage('Signup successful');
         setError('');
         setTimeout(() => {
-         // Data collected is passed to the Database
-        }, 2000); // Wait for 2 seconds and give an acceptance feedback
+         // Redirect to login page or perform any other action
+        }, 2000); // Wait for 2 seconds before redirecting
       } else {
         const errorData = await response.json();
-        setError(errorData.error || 'failed to key in data');
+        setError(errorData.error || 'Signup failed');
       }
     } catch (error) {
-      console.error('Error during keying in :', error);
+      console.error('Error during signup:', error);
       setError('An unexpected error occurred');
     } finally {
       setLoading(false);
@@ -65,20 +66,20 @@ const SignupForm = () => {
       </div>
       <div className='signup'>
         <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <label style={styles.label}>
             First Name:
-            <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} />
+            <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} style={styles.input} />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Last Name:
-            <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} />
+            <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} style={styles.input} />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Gender:
-            <select name="gender" value={formData.gender} onChange={handleChange}>
+            <select name="gender" value={formData.gender} onChange={handleChange} style={styles.input}>
               <option value="">Select Gender</option>
               <option value="male">Male</option>
               <option value="female">Female</option>
@@ -87,41 +88,75 @@ const SignupForm = () => {
           </label>
           <br />
           {/* Existing fields */}
-          <label>
+          <label style={styles.label}>
             Username:
-            <input type="text" name="username" value={formData.username} onChange={handleChange} />
+            <input type="text" name="username" value={formData.username} onChange={handleChange} style={styles.input} />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Email:
-            <input type="email" name="email" value={formData.email} onChange={handleChange} />
+            <input type="email" name="email" value={formData.email} onChange={handleChange} style={styles.input} />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Password:
-            <input type="password" name="password" value={formData.password} onChange={handleChange} />
+            <input type="password" name="password" value={formData.password} onChange={handleChange} style={styles.input} />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Phone:
-            <input type="text" name="phone" value={formData.phone} onChange={handleChange} />
+            <input type="text" name="phone" value={formData.phone} onChange={handleChange} style={styles.input} />
           </label>
           <br />
-         
-          <br />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} style={styles.button}>
             {loading ? 'Signing Up...' : 'Sign Up'}
           </button>
 
-          {error && <p style={{ color: 'red' }}>{error}</p>}
+          {error && <p style={styles.error}>{error}</p>}
         </form>
-        {successMessage && <p style={{ color: 'green' }}>{successMessage}</p>}
+        {successMessage && <p style={styles.success}>{successMessage}</p>}
         
       </div>
     </div>
   );
 };
 
+const styles = {
+  form: {
+    maxWidth: '400px',
+    margin: '0 auto',
+    padding: '20px',
+    borderRadius: '5px',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+    backgroundColor: '#fff',
+  },
+  label: {
+    display: 'block',
+    marginBottom: '10px',
+  },
+  input: {
+    width: '100%',
+    padding: '10px',
+    border: '1px solid #ccc',
+    borderRadius: '5px',
+  },
+  button: {
+    width: '100%',
+    padding: '10px',
+    backgroundColor: '#007bff',
+    color: '#fff',
+    border: 'none',
+    borderRadius: '5px',
+    cursor: 'pointer',
+  },
+  error: {
+    color: 'red',
+    marginTop: '10px',
+  },
+  success: {
+    color: 'green',
+    marginTop: '10px',
+  },
+};
+
 export default SignupForm;
-
-
