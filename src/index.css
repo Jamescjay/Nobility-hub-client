@@ -1,4 +1,4 @@
-* {
+  * {
     box-sizing: border-box;
   }
   
@@ -11,4 +11,15 @@
     font-family: "Montserrat", sans-serif;
     height: 100vh;
     margin: -20px 0 50px;
+  }
+
+  .sidebar h2 {
+    margin-bottom: 20px;
+  }
+  
+  .sidebar select {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border-radius: 5px;
   }
