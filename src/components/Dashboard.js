@@ -1,9 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../styling/Dashboard.css';
 import NobilityHubContent from './sidebarAdmin/NobilityHubContent';
 import ChannelsContent from './sidebarAdmin/ChannelsContent';
 import StudentsContent from './sidebarAdmin/StudentsContent';
 import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
+
+// Mock API functions for the sidebar
+const fetchNobilityHubData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ content: 'Nobility Hub Data' });
+    }, 1000);
+  });
+};
+
+const fetchChannelsData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ content: 'Channels Data' });
+    }, 1000);
+  });
+};
+
+const fetchStudentsData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ content: 'Students Data' });
+    }, 1000);
+  });
+};
+
+const fetchDirectMessagesData = () => {
+  return new Promise((resolve) => {
+    setTimeout(() => {
+      resolve({ content: 'Direct Messages Data' });
+    }, 1000);
+  });
+};
 
 const Admindashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
@@ -12,6 +45,50 @@ const Admindashboard = () => {
   const [directMessagesOpen, setDirectMessagesOpen] = useState(false);
 
   const [selectedSection, setSelectedSection] = useState(null);
+  const [sectionData, setSectionData] = useState(null);
+  const [loading, setLoading] = useState(false);
+
+  useEffect(() => {
+    if (!selectedSection) return;
+
+    setLoading(true);
+
+    // Determine which API function to call based on the selected section
+    const fetchData = async () => {
+      switch (selectedSection) {
+        case 'nobilityHub':
+          fetchNobilityHubData().then(data => {
+            setSectionData(data);
+            setLoading(false);
+          });
+          break;
+        case 'channels':
+          fetchChannelsData().then(data => {
+            setSectionData(data);
+            setLoading(false);
+          });
+          break;
+        case 'students':
+          fetchStudentsData().then(data => {
+            setSectionData(data);
+            setLoading(false);
+          });
+          break;
+        case 'directMessages':
+          fetchDirectMessagesData().then(data => {
+            setSectionData(data);
+            setLoading(false);
+          });
+          break;
+        default:
+          setSectionData(null);
+          setLoading(false);
+          break;
+      }
+    };
+
+    fetchData();
+  }, [selectedSection]);
 
   // Placeholder function for logout
   const handleLogout = () => {
@@ -23,6 +100,8 @@ const Admindashboard = () => {
   const handleSectionClick = (section) => {
     setSelectedSection(section);
   };
+
+  
 
   return (
     <div className="learners-dashboard-container">
@@ -136,10 +215,11 @@ const Admindashboard = () => {
 
       {/* Right Content Section */}
       <div className="learners-right-content">
-        {selectedSection === 'nobilityHub' && <NobilityHubContent />}
-        {selectedSection === 'channels' && <ChannelsContent />}
-        {selectedSection === 'students' && <StudentsContent />}
-        {selectedSection === 'directMessages' && <DirectMessagesContent />}
+        {loading && <div> Loading...! </div>} 
+        {!loading && selectedSection === 'nobilityHub' && <NobilityHubContent data={sectionData} />}
+        {!loading && selectedSection === 'channels' && <ChannelsContent data={sectionData} />}
+        {!loading && selectedSection === 'students' && <StudentsContent data={sectionData} />}
+        {!loading && selectedSection === 'directMessages' && <DirectMessagesContent data={sectionData} />}
       </div>
     </div>
   );
