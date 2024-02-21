@@ -8,6 +8,7 @@ import "react-toastify/dist/ReactToastify.css";
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [userId, setUserId] = useState(null); 
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -22,10 +23,14 @@ const LearnersLogin = () => {
       });
 
       if (response.ok) {
+        const { id, access_token } = await response.json();
+        setUserId(id);
+        localStorage.setItem("userId", id);
+        localStorage.setItem("accessToken", access_token);
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
-            window.location.href = "about:blank";
+            window.location.href = "landing-page";
           },
         });
       } else {
@@ -44,26 +49,6 @@ const LearnersLogin = () => {
     window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=email profile openid`;
   };
 
-  // const handleLoginClick = () => {
-  //   initiateGoogleAuthentication();
-  // };
-
-  // const handleFormSubmit = (e) => {
-  //   e.preventDefault();
-
-  //   const emailInput = e.target.elements.email.value;
-  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-
-  //   if (!emailRegex.test(emailInput)) {
-  //     toast.error("Please enter a valid email address");
-  //     return;
-  //   }
-
-  //   toast.info("Form submitted with email: " + emailInput);
-  //   setEmail("");
-  //   setPassword("");
-  // };
-
   return (
     <div className="app-container">
       <div className="left-section">
@@ -76,20 +61,14 @@ const LearnersLogin = () => {
         <div className="description-section">
           <p>
             We firmly believe in granting everyone the chance to thrive in the
-            technology and programming sector. Through our groundbreaking educational methods,
-            we equip students with the essential skills and expertise required
-            to embark on prosperous career paths. Come join us and be a pioneer
-            of tomorrow!
+            technology and programming sector. Through our groundbreaking
+            educational methods, we equip students with the essential skills and
+            expertise required to embark on prosperous career paths. Come join
+            us and be a pioneer of tomorrow!
           </p>
         </div>
       </div>
       <div className="right-section">
-        {/* <p>
-          Already have an account?
-          <a href="#" onClick={handleLoginClick}>
-            Log in
-          </a>
-        </p> */}
         <div className="cta-section">
           <div className="cta-tab">
             <h2>Connect, Collaborate, Learn</h2>
