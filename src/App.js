@@ -1,12 +1,12 @@
 import SignupForm from "./Components/SignUp";
-// import CohortSelection from "./Components/Cohort";
+import CohortSelection from "./Components/Cohort";
 
 
 function App() {
   return (
     <div>
       <SignupForm/>
-      {/* <CohortSelection/> */}
+      <CohortSelection/>
     </div>
   );
 }
