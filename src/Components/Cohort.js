@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../Css/Cohort.css';
 
 
-const Cohort = ({ cohort, onEnroll }) => {
+const Cohort = ({ cohort, onView }) => {
   const { name, status, startDate, endDate } = cohort;
   const isActive = status === 'Active';
   const isApply = status === 'Apply';
@@ -13,7 +13,7 @@ const Cohort = ({ cohort, onEnroll }) => {
       <p>Status: {status}</p>
       <p>Start Date: {startDate}</p>
       <p>End Date: {endDate}</p>
-      <button className="enroll-button" onClick={(e) => onEnroll(e, cohort)}>Enroll</button>
+      <button className="view-button" onClick={(e) => onView(e, cohort)}>view</button>
     </div>
   );
 };
@@ -26,12 +26,12 @@ const CohortSelection = () => {
     // Add more cohort entries as needed
   ];
 
-  const handleEnroll = (e, cohort) => {
+  const handleView = (e, cohort) => {
     e.preventDefault();
     const status = cohort.status;
 
     if (status === 'Active' || status === 'Apply') {
-      window.location.href = '#'; // Replace with the actual enrollment link
+      window.location.href = '#'; // Replace with the actual viewing link
     } else {
       alert('This cohort is currently inactive. Please select another cohort.');
     }
@@ -40,7 +40,7 @@ const CohortSelection = () => {
   return (
     <div className="cohort-container">
       {cohorts.map((cohort, index) => (
-        <Cohort key={index} cohort={cohort} onEnroll={handleEnroll} />
+        <Cohort key={index} cohort={cohort} onView={handleView} />
       ))}
     </div>
   );

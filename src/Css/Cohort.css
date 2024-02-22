@@ -12,7 +12,7 @@ body {
     vertical-align: top;
   }
   
-  .enroll-button {
+  .view-button {
     background-color: #4CAF50;
     border: none;
     color: white;
@@ -25,7 +25,7 @@ body {
     cursor: pointer;
   }
   
-  .enroll-button:hover {
+  .view-button:hover {
     background-color: #45a049;
   }
   
