@@ -92,14 +92,13 @@ const SidebarAdmin = ({
           >
             {studentsDropdownOpen ? '-' : '+'}
           </span>{' '}
-          <i className="uil uil-book-reader"></i>
-          Cohort Placement
+          <i class="uil uil-analysis"></i>
+           Cohort Placement
         </div>
         {studentsDropdownOpen && (
           <div className="learners-students-dropdown">
             <ul>
               <li>cohorts</li>
-              
             </ul>
           </div>
         )}
