@@ -1,9 +1,7 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
-import CourseDetails from "./CourseDetails";
-import "../App.css";
-import "bootstrap/dist/css/bootstrap.min.css"; 
-import { Navbar, Nav, Container } from "react-bootstrap";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faBook } from "@fortawesome/free-solid-svg-icons";
+import { Container, Row, Col } from "react-bootstrap";
 
 const Courses = () => {
   const [courses, setCourses] = useState([
@@ -14,10 +12,7 @@ const Courses = () => {
       description: "Introduction to Software Engineering",
       course_url:
         "https://docs.google.com/document/d/1pwh_MLe5LBgDtsg2c2EI7nAd8kzLg4zN_aQ6Fojh_v8/edit",
-      materials: [
-        { title: "Phase 0 Overview", content: "Your content here" },
-        
-      ],
+      materials: [{ title: "Phase 0 Overview", content: "Your content here" }],
     },
     {
       id: 2,
@@ -25,10 +20,7 @@ const Courses = () => {
       phase: 1,
       description: "Building a Strong Foundation",
       course_url: "https://your-cohort-url.com",
-      materials: [
-        { title: "Phase 1 Overview", content: "Your content here" },
-        
-      ],
+      materials: [{ title: "Phase 1 Overview", content: "Your content here" }],
     },
     {
       id: 3,
@@ -36,10 +28,7 @@ const Courses = () => {
       phase: 2,
       description: "Exploring Advanced Topics",
       course_url: "https://your-cohort-url.com",
-      materials: [
-        { title: "Phase 2 Overview", content: "Your content here" },
-        
-      ],
+      materials: [{ title: "Phase 2 Overview", content: "Your content here" }],
     },
     {
       id: 4,
@@ -47,10 +36,7 @@ const Courses = () => {
       phase: 3,
       description: "Practical Application of Skills",
       course_url: "https://your-cohort-url.com",
-      materials: [
-        { title: "Phase 3 Overview", content: "Your content here" },
-        
-      ],
+      materials: [{ title: "Phase 3 Overview", content: "Your content here" }],
     },
     {
       id: 5,
@@ -58,10 +44,7 @@ const Courses = () => {
       phase: 4,
       description: "Codility",
       course_url: "https://your-cohort-url.com",
-      materials: [
-        { title: "Phase 4 Overview", content: "Your content here" },
-        
-      ],
+      materials: [{ title: "Phase 4 Overview", content: "Your content here" }],
     },
     {
       id: 6,
@@ -69,73 +52,35 @@ const Courses = () => {
       phase: 5,
       description: "Capstone Project Development",
       course_url: "https://your-cohort-url.com",
-      materials: [
-        { title: "Phase 5 Overview", content: "Your content here" },
-        
-      ],
+      materials: [{ title: "Phase 5 Overview", content: "Your content here" }],
     },
   ]);
 
-  const [selectedCourse, setSelectedCourse] = useState(null);
-
   const handleCourseClick = (course) => {
     if (course.course_url) {
-     
       window.open(course.course_url, "_blank");
     } else {
-      
       console.error("Course URL not available");
     }
   };
 
   return (
-    <>
-   
-      <Navbar bg="light" expand="lg">
-        <Container>
-          <Navbar.Brand href="#">Brand</Navbar.Brand>
-          <Navbar.Toggle aria-controls="basic-navbar-nav" />
-          <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-              <Nav.Link href="#">Home</Nav.Link>
-              <Nav.Link href="#">About</Nav.Link>
-             
-            </Nav>
-          </Navbar.Collapse>
-        </Container>
-      </Navbar>
-
-     
-      <Container fluid>
-        <div className="row">
-         
-          <div className="col-md-3 sidebar">
-            <h5>Sidebar Content</h5>
-         
-          </div>
-
-          
-          <div className="col-md-9 courses-container">
-            <div className="course-list">
-              {courses.map((course) => (
-                <div className="course-card" key={course.id}>
-                  <h3>{course.title}</h3>
-                  <p className="phase-info">Phase: {course.phase}</p>
-                  <p className="description">{course.description}</p>
-                  <div className="action-buttons">
-                    <button onClick={() => handleCourseClick(course)}>
-                      View Details
-                    </button>
-                  </div>
-                </div>
-              ))}
+    <div className="courses-container">
+      <div className="course-list">
+        {courses.map((course) => (
+          <div className="course-card" key={course.id}>
+            <h3>{course.title}</h3>
+            <p className="phase-info">Phase: {course.phase}</p>
+            <p className="description">{course.description}</p>
+            <div className="action-buttons">
+              <button onClick={() => handleCourseClick(course)}>
+                View Details
+              </button>
             </div>
-
-            {selectedCourse && <CourseDetails course={selectedCourse} />}
           </div>
-        </div>
-      </Container>
-    </>
+        ))}
+      </div>
+    </div>
   );
 };
 
