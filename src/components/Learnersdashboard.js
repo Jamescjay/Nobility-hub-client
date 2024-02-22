@@ -4,7 +4,7 @@ import SidebarLearner from './SidebarLearner';
 import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
 import '../styling/Dashboard.css';
 
-const Admindashboard = () => {
+const Learnersdashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
   const [channelsOpen, setChannelsOpen] = useState(false);
   const [studentsDropdownOpen, setStudentsDropdownOpen] = useState(false);
@@ -44,4 +44,4 @@ const Admindashboard = () => {
   );
 };
 
-export default Admindashboard;
+export default Learnersdashboard;
