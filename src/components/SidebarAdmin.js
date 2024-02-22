@@ -62,7 +62,7 @@ const SidebarAdmin = ({
         )}
       </div>
 
-      {/* Students Section */}
+      {/* Cohort Section */}
       <div className="learners-students-section" onClick={() => handleSectionClick('students')}>
         <div className="learners-students-label">
           <span
@@ -84,6 +84,26 @@ const SidebarAdmin = ({
         )}
       </div>
 
+      <div className="learners-students-section" onClick={() => handleSectionClick('students')}>
+        <div className="learners-students-label">
+          <span
+            className="dropdown-toggle"
+            onClick={() => setStudentsDropdownOpen(!studentsDropdownOpen)}
+          >
+            {studentsDropdownOpen ? '-' : '+'}
+          </span>{' '}
+          <i className="uil uil-book-reader"></i>
+          Cohort Placement
+        </div>
+        {studentsDropdownOpen && (
+          <div className="learners-students-dropdown">
+            <ul>
+              <li>cohorts</li>
+              
+            </ul>
+          </div>
+        )}
+      </div>
       {/* Direct Messages Section */}
       <div className="learners-direct-messages" onClick={() => handleSectionClick('directMessages')}>
         <div className="learners-dm-label">Direct Messages</div>
