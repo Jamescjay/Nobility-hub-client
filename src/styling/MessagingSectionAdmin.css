@@ -7,7 +7,7 @@
     flex: 1;
     padding: 1rem;
     background-color: #f4f4f4; /* Set a background color if needed */
-    overflow: auto;
+    overflow: auto; 
     margin-left: 250px;
     margin-top: -10%;
     margin-bottom: 10%;
@@ -19,14 +19,6 @@
     margin: 0 auto;
   }
   
-  /* Style for individual messages */
-  .learners-message {
-    padding: 10px;
-    margin-bottom: 10px;
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  }
   
   /* Style for the sender's message */
   .learners-message.sender {
