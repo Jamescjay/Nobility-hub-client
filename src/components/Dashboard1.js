@@ -1,4 +1,3 @@
-
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -8,7 +7,7 @@ import {
   faUser,
   faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
-import Home from "./Home";
+import Home from "./Home1";
 import Courses from "./Courses";
 import Grades from "./Grades";
 import Calendar from "./Calendar";
