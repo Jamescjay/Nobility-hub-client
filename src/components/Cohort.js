@@ -64,7 +64,7 @@ const CohortSelection = () => {
 
   return (
     <div>
-      <button onClick={() => setShowModal(true)}>Open Cohort Modal</button>
+      <button onClick={() => setShowModal(true)}>Cohorts</button>
       <Modal
         isOpen={showModal}
         onRequestClose={handleCloseModal}

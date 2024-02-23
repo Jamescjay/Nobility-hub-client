@@ -62,7 +62,7 @@ const SignupForm = () => {
 
   return (
     <div>
-      <button onClick={() => setShowSignup(true)}>Open Signup Modal</button>
+      <button onClick={() => setShowSignup(true)}>Add New Learners</button>
       <Modal
         isOpen={showSignup}
         onRequestClose={() => setShowSignup(false)}
