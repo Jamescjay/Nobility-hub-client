@@ -1,5 +1,5 @@
 import React from 'react';
-import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
+
 import { Link } from 'react-router-dom';
 
 const SidebarAdmin = ({
@@ -10,7 +10,7 @@ const SidebarAdmin = ({
   setChannelsOpen,
   studentsDropdownOpen,
   setStudentsDropdownOpen,
-  directMessagesOpen
+ 
 }) => {
  
 
@@ -103,15 +103,7 @@ const SidebarAdmin = ({
           </div>
         )}
       </div>
-      {/* Direct Messages Section */}
-      <div className="learners-direct-messages" onClick={() => handleSectionClick('directMessages')}>
-        <div className="learners-dm-label">Direct Messages</div>
-        {directMessagesOpen && (
-          <div className="learners-direct-messages-content">
-            <DirectMessagesContent />
-          </div>
-        )}
-      </div>
+      
     </div>
   );
 };

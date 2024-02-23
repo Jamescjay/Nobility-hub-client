@@ -1,0 +1,48 @@
+/* MessagingSection.css */
+
+/* Add any specific styles for the messaging section here */
+
+/* Example styles */
+.learners-right-content {
+    flex: 1;
+    padding: 1rem;
+    background-color: #f4f4f4; /* Set a background color if needed */
+    overflow: auto;
+  }
+  
+  /* Style for the conversation container */
+  .learners-conversation-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  /* Style for individual messages */
+  .learners-message {
+    padding: 10px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Style for the sender's message */
+  .learners-message.sender {
+    background-color: #3498db; /* Blue color for the sender's messages */
+    color: #ffffff;
+  }
+  
+  /* Style for the message input area */
+  .learners-message-input {
+    margin-top: 20px;
+  }
+  
+  .learners-message-input textarea {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    resize: none;
+  }
+  
+  /* Add any other styling for buttons, icons, etc., as needed */
+  
