@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Modal from "react-modal";
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -13,6 +14,7 @@ const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
+  const [showSignup, setShowSignup] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -23,7 +25,8 @@ const SignupForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-console.log(formData)
+
+    // Basic client-side validation
     if (!formData.username || !formData.email || !formData.password) {
       setError("All fields are required");
       return;
@@ -43,11 +46,11 @@ console.log(formData)
         setSuccessMessage("Signup successful");
         setError("");
         setTimeout(() => {
-          // Data collected is passed to the Database
-        }, 2000);
+          setShowSignup(false);
+        }, 2000); 
       } else {
         const errorData = await response.json();
-        setError(errorData.error || "Failed to sign up");
+        setError(errorData.error || "Signup failed");
       }
     } catch (error) {
       console.error("Error during signup:", error);
@@ -58,12 +61,24 @@ console.log(formData)
   };
 
   return (
-    <div className="loginpage">
-      <div className="navbar">{/* Navbar content */}</div>
-      <div className="signup">
-        <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit}>
-          <label>
+    <div>
+      <button onClick={() => setShowSignup(true)}>Open Signup Modal</button>
+      <Modal
+        isOpen={showSignup}
+        onRequestClose={() => setShowSignup(false)}
+        contentLabel="Signup Modal"
+        style={{
+          content: {
+            width: "600px",
+            height: "400px",
+            margin: "auto",
+          },
+        }}
+      >
+        <button style={{backgroundColor: "red"}} onClick={() => setShowSignup(false)}>Close</button>
+        <h2>Register Learner</h2>
+        <form onSubmit={handleSubmit} style={styles.form}>
+          <label style={styles.label}>
             First Name:
             <input
               type="text"
@@ -73,7 +88,7 @@ console.log(formData)
             />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Last Name:
             <input
               type="text"
@@ -83,7 +98,7 @@ console.log(formData)
             />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Gender:
             <select
               name="gender"
@@ -97,7 +112,7 @@ console.log(formData)
             </select>
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Username:
             <input
               type="text"
@@ -107,7 +122,7 @@ console.log(formData)
             />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Email:
             <input
               type="email"
@@ -117,7 +132,7 @@ console.log(formData)
             />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Password:
             <input
               type="password"
@@ -127,7 +142,7 @@ console.log(formData)
             />
           </label>
           <br />
-          <label>
+          <label style={styles.label}>
             Phone:
             <input
               type="text"
@@ -137,16 +152,55 @@ console.log(formData)
             />
           </label>
           <br />
-          <button type="submit" disabled={loading}>
+          <button type="submit" disabled={loading} style={styles.button}>
             {loading ? "Signing Up..." : "Sign Up"}
           </button>
-
           {error && <p style={{ color: "red" }}>{error}</p>}
+          {successMessage && <p style={styles.success}>{successMessage}</p>}
         </form>
-        {successMessage && <p style={{ color: "green" }}>{successMessage}</p>}
-      </div>
+      </Modal>
     </div>
   );
 };
+
+
+const styles = {
+  form: {
+    maxWidth: "400px",
+    margin: "0 auto",
+    padding: "20px",
+    borderRadius: "5px",
+    boxShadow: "0 0 10px rgba(0, 0, 0, 0.1)",
+    backgroundColor: "#fff",
+  },
+  label: {
+    display: "block",
+    marginBottom: "10px",
+  },
+  input: {
+    width: "100%",
+    padding: "10px",
+    border: "1px solid #ccc",
+    borderRadius: "5px",
+  },
+  button: {
+    width: "100%",
+    padding: "10px",
+    backgroundColor: "#007bff",
+    color: "#fff",
+    border: "none",
+    borderRadius: "5px",
+    cursor: "pointer",
+  },
+  error: {
+    color: "red",
+    marginTop: "10px",
+  },
+  success: {
+    color: "green",
+    marginTop: "10px",
+  },
+};
+
 
 export default SignupForm;

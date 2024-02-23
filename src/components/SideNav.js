@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "../index.css";
+import { Link } from "react-router-dom";
+import SignupForm from "./SignUp";
+import CohortSelection from "./Cohort";
 
 const SideNav = () => {
   const [usernames, setUsernames] = useState([]);
@@ -35,7 +37,8 @@ const SideNav = () => {
             <p>Go To Canvas</p>
           </div>
         </div>
-
+     <button><SignupForm/></button>
+     <button><CohortSelection/></button>
         <h3>Channels</h3>
         <ul className="channel-list">
           {channels.map((channel, index) => (
@@ -46,7 +49,9 @@ const SideNav = () => {
         <h3>Direct Messages</h3>
         <ul className="direct-message-list">
           {usernames.map((username, index) => (
-            <li key={index}>{username}</li>
+            <li key={index}>
+              <Link to="/chat">{username}</Link>
+            </li>
           ))}
         </ul>
       </div>

@@ -1,18 +1,18 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
-import moment from "moment";
+import { useParams } from "react-router-dom";
 import "../index.css";
+import SignupForm from "./SignUp";
 
-const Chat = ({ username, otherUser }) => {
+const Chat = ({ username }) => {
   const [messages, setMessages] = useState([]);
   const [newMessage, setNewMessage] = useState("");
-  const messagesEndRef = useRef(null);
 
   useEffect(() => {
     const fetchMessages = async () => {
       try {
         const response = await axios.get(
-          `/api/messages/${username}/${otherUser}`
+          `http://127.0.0.1:5555/message/${username}`
         );
         setMessages(response.data);
       } catch (error) {
@@ -21,57 +21,40 @@ const Chat = ({ username, otherUser }) => {
     };
 
     fetchMessages();
-  }, [username, otherUser]);
+  }, [username]);
 
-  const sendMessage = async (e) => {
-    e.preventDefault();
+  const sendMessage = async () => {
     try {
-      await axios.post("/api/messages", {
-        sender: username,
-        recipient: otherUser,
+      const response = await axios.post("http://127.0.0.1:5555/message", {
+        sender: "currentUser",
         content: newMessage,
+        recipient: username,
       });
+      setMessages([...messages, response.data]);
       setNewMessage("");
     } catch (error) {
       console.error(error);
     }
   };
 
-  useEffect(() => {
-    messagesEndRef.current.scrollIntoView({ behavior: "smooth" });
-  }, [messages]);
-
   return (
-    <div className="chat-container" >
-      <div className="chat-area">
-        {messages.map((message, index) => (
-          <div
-            key={index}
-            className={`message ${
-              message.sender === username ? "sent" : "received"
-            }`}
-          >
-            <div className="message-content">
-              <div className="message-username">{message.sender}</div>
-              <div className="message-text">{message.content}</div>
-              <div className="message-timestamp">
-                {moment(message.timestamp).format("h:mm A")}
-              </div>
-            </div>
-          </div>
+    <div className="chat-container">
+      <h1>Direct messages with {username}</h1>
+      <ul>
+        {messages.map((message) => (
+          <li key={message.id}>
+            <strong>{message.sender.username}:</strong> {message.content}
+          </li>
         ))}
-        <div ref={messagesEndRef} />
-      </div>
+      </ul>
       <div className="chat-input-container">
-        <div className="chat-input">
-          <input
-            type="text"
-            value={newMessage}
-            onChange={(e) => setNewMessage(e.target.value)}
-            placeholder="Type your message..."
-          />
-          <button onClick={sendMessage}>Send</button>
-        </div>
+        <input
+          type="text"
+          className="chat-input"
+          value={newMessage}
+          onChange={(e) => setNewMessage(e.target.value)}
+        />
+        <button onClick={sendMessage}>Send</button>
       </div>
     </div>
   );

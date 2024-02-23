@@ -11,7 +11,7 @@ const Home = () => {
     <div className="home">
       <Navbar/>
       <SideNav/>
-      {/* <Chat/> */}
+      <Chat/> 
     </div>
   );
 };
