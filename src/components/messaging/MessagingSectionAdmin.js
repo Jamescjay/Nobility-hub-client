@@ -7,8 +7,8 @@ const MessagingSectionAdmin = () => {
     <div className="learners-right-content">
       <div className="learners-conversation-container">
         {/* Your messaging content goes here */}
-        <div className="learners-message">Received message</div>
-        <div className="learners-message sender">Sent message</div>
+        {/* <div className="learners-message">Received message</div>
+        <div className="learners-message sender">Sent message</div> */}
       </div>
       <div className="learners-message-input">
         <textarea placeholder="Type your message..."></textarea>
