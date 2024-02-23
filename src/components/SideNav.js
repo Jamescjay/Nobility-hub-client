@@ -3,6 +3,7 @@ import axios from "axios";
 import { Link } from "react-router-dom";
 import SignupForm from "./SignUp";
 import CohortSelection from "./Cohort";
+import Learners from "./Learners";
 
 const SideNav = () => {
   const [usernames, setUsernames] = useState([]);
@@ -45,7 +46,7 @@ const SideNav = () => {
             <li key={index}>{channel}</li>
           ))}
         </ul>
-
+<button><Learners/></button>
         <h3>Direct Messages</h3>
         <ul className="direct-message-list">
           {usernames.map((username, index) => (
