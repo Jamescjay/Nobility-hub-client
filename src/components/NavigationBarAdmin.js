@@ -34,6 +34,12 @@ const NavigationBarAdmin = ({ handleDirectMessagesToggle }) => {
     }
   };
 
+  // Dummy profile data
+  const dummyProfile = {
+    name: 'Jake Reagan', // Dummy name
+    // Add more dummy information if needed
+  };
+
   return (
     <div className="learners-top-nav">
       <div className="learners-left-section">
@@ -49,7 +55,7 @@ const NavigationBarAdmin = ({ handleDirectMessagesToggle }) => {
         <i className="uil uil-user"></i>
         <div className="learners-user-dropdown">
           <ul>
-            <li><i className="uil uil-user-circle"></i> {userName ? userName : 'Profile'}</li>
+            <li><i className="uil uil-user-circle"></i> {userName ? userName : dummyProfile.name}</li>
             <li><i className="uil uil-setting"></i> Settings</li>
             <li onClick={handleLogout}><i className="uil uil-sign-out-alt"></i> Logout</li>
           </ul>
