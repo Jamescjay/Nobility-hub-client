@@ -6,14 +6,16 @@ import "../styling/Home.css"// Import the custom CSS file
 
 const Home = () => {
   return (
+    
     <div className="home-container">
       <h1 className="main-heading">
-        Nobility HUb {" "}
-        <span className="text-blue-600">worksession</span> innovating through technology.
+        Nobility Hub {" "}
+        <span className="text-blue-600">worksession</span> innovating <br/>
+         through technology.
       </h1>
       <p className="sub-text">
       We firmly believe in granting everyone the chance to thrive in the technology and programming sector.
-      Through our groundbreaking educational methods, we equip students with the essential skills and expertise required to embark on prosperous career paths. 
+      Through our groundbreaking educational methods,<br/> we equip students with the essential skills and expertise required to embark on prosperous career paths. 
       Come join us and be a pioneer of tomorrow!
       </p>
       <div className="button-container">

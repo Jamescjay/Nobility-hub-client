@@ -1,8 +1,25 @@
 // NavigationBar.js
 import React from 'react';
 // import '../styling/NavigationBar.css';
+import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
-const NavigationBarLearner = ({ handleDirectMessagesToggle, handleLogout }) => {
+const NavigationBarLearner = ({ handleDirectMessagesToggle }) => {
+  const navigate = useNavigate();
+
+  //logging out the learner
+  const handleLogout = () => {
+    // Clear user data on logout
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+
+    // Notify the user about successful logout
+    toast.success("Logout successful");
+
+    // Redirect the user to the home page
+    navigate("/");
+  };
+
   return (
     <div className="learners-top-nav">
       <div className="learners-left-section">

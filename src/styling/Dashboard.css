@@ -1,7 +1,7 @@
 /* Dashboard.css */
 
 :root {
-  --primary-color: #3498db; /* Blue as the primary color */
+  --primary-color: #09052a; /* Blue as the primary color */
   --secondary-color: #ecf0f1; /* Light gray as the secondary color */
   --accent-color: #e74c3c; /* Red as the accent color */
 }
@@ -37,9 +37,10 @@
 .learners-sidebar {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 230px;
   height: 650px;
-  background-color: var(--secondary-color);
+  color: #080115;
+  background-color:#0c9e9b;
   padding: 1rem;
 }
 
@@ -220,8 +221,17 @@
 .learners-right-content {
   flex: 1; /* Allow this section to take up the remaining space */
   padding: 1rem;
-  background-color: white; /* Set a background color if needed */
+  color: #080115;
+  background-color: rgb(16, 24, 85); /* Set a background color if needed */
   overflow: auto; /* Allow content to be scrollable if it exceeds the height */
+  margin-left: 20%;
+  margin-top: -54%;
 }
 
 /* ... (remaining styles) ... */
+.dashcard{
+  background-color: aqua;
+  width: 20%;
+  /*height: 10%; */
+  border-radius: 6px;
+}

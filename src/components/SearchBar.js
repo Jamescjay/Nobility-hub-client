@@ -7,55 +7,61 @@ const searchBarStyle = {
   boxShadow: '0 2px 4px rgba(0, 0, 0, 0.1)',
   position: 'fixed',
   top: '20px',
-  left: '54%',
+  left: '50%', // Changed to center
   transform: 'translateX(-50%)',
   display: 'flex',
   alignItems: 'center', // Align items vertically
 };
 
 const inputStyle = {
-  flex: '1', 
+  flex: '1',
   marginRight: '15px',
   padding: '8px',
   border: 'none',
   borderRadius: '5px',
 };
 
-const buttonStyle = {
-  padding: '8px 15px',
-  borderRadius: '5px',
-  border: 'none',
-  backgroundColor: '#007bff',
-  color: '#fff',
-  cursor: 'pointer',
-};
 
 const SearchBar = ({ setDisplay }) => {
   const [searchQuery, setSearchQuery] = useState('');
-  const handleSearch = () => {
-    console.log('Searching for:', searchQuery);
-    // Example: Handle search action
-    setDisplay(searchQuery);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+
+  const handleSearch = async (query) => {
+    try {
+      setLoading(true);
+      const response = await fetch(`/api/search?query=${query}`);
+      if (!response.ok) {
+        throw new Error('Failed to fetch data');
+      }
+      const data = await response.json();
+      setDisplay(data); // Assuming data is the appropriate format for your display
+      setError(null); // Clear error if search is successful
+    } catch (error) {
+      setLoading(false);
+      setError('Error searching. Item not Found.'); // Set custom error message
+    }
   };
 
   const handleChange = (e) => {
-    setSearchQuery(e.target.value);
+    const query = e.target.value;
+    setSearchQuery(query);
+    handleSearch(query); // Call handleSearch on every change
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    handleSearch();
-  };
   return (
-    <form onSubmit={handleSubmit} style={searchBarStyle} className="searchbar">
+    <form style={searchBarStyle} className="searchbar">
       <input
         type="text"
         placeholder="Search..."
         value={searchQuery}
         onChange={handleChange}
         style={inputStyle}
+        disabled={loading}
       />
-      <button type="submit" style={buttonStyle}>Search</button>
+      {error && <div>Error: {error}</div>}
+      {/* Include a button if needed */}
+      {/* <button style={buttonStyle}>Search</button> */}
     </form>
   );
 };

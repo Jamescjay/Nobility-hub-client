@@ -11,18 +11,34 @@ const Admindashboard = () => {
   const [studentsDropdownOpen, setStudentsDropdownOpen] = useState(false);
   const [directMessagesOpen, setDirectMessagesOpen] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
+  const [apiData, setApiData] = useState(null); // State to store fetched API data
 
   const handleLogout = () => {
     console.log('Logout clicked');
     // Implement your logout logic here
   };
 
-  // const handleSectionClick = (section) => {
-  //   setSelectedSection(section);
-  // };
+  const handleSectionClick = async (section) => {
+    setSelectedSection(section);
 
-  const handleSectionClick = (section) => {
-  setSelectedSection(section);
+    // Fetch data from backend API based on the clicked section
+    try {
+      const data = await fetchData(section);
+      setApiData(data);
+    } catch (error) {
+      console.error('Error fetching data:', error);
+    }
+  };
+
+  const fetchData = async (section) => {
+    // Implement logic to fetch data from backend API based on the section
+    // Example:
+    // const response = await fetch(`/api/${section}`);
+    // const data = await response.json();
+    // return data;
+
+    // For demonstration.
+    return { message: `Data for ${section}` };
   };
 
   const handleDirectMessagesToggle = () => {
@@ -46,7 +62,10 @@ const Admindashboard = () => {
         {/* Render content based on selectedSection */}
         {selectedSection === 'Canvas' && <Canvas />} {/* Render Canvas component */}
         {selectedSection === 'directMessages' && <DirectMessagesContent />}
-        {/* Add conditions for other sections if needed */}
+        <div className='dashcard'>
+        {/* Render API data */}
+        {apiData && <div>    {apiData.message} </div>}
+        </div>
       </div>
     </div>
   );
