@@ -1,43 +1,185 @@
-/* MessagingSection.css */
+/* MessagingSectionAdmin.css */
 
-/* Add any specific styles for the messaging section here */
 
-/* Example styles */
-.learners-right-content {
-    flex: 1;
-    padding: 1rem;
-    background-color: #f4f4f4; /* Set a background color if needed */
-    overflow: auto; 
-    margin-left: 250px;
-    margin-top: -10%;
-    margin-bottom: 10%;
-  }
-  
-  /* Style for the conversation container */
-  .learners-conversation-container {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-  
-  
-  /* Style for the sender's message */
-  .learners-message.sender {
-    background-color: #3498db; /* Blue color for the sender's messages */
-    color: #ffffff;
-  }
-  
-  /* Style for the message input area */
-  .learners-message-input {
-    margin-top: 20px;
-  }
-  
-  .learners-message-input textarea {
-    width: 100%;
-    padding: 10px;
-    border: 1px solid #ddd;
-    border-radius: 5px;
-    resize: none;
-  }
-  
-  /* Add any other styling for buttons, icons, etc., as needed */
-  
+.messaging-section {
+  display: flex;
+  flex-direction: column;
+ }
+ 
+ 
+ .notification-area {
+  margin-bottom: 10px;
+ }
+ 
+ 
+ .notification {
+  background-color: #4caf50;
+  color: #fff;
+  padding: 10px;
+  border-radius: 5px;
+ }
+ 
+ 
+ .search-and-recent-chats {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+ }
+ 
+ 
+ .search-and-recent-chats input {
+  padding: 8px;
+  margin-bottom: 5px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+ }
+ 
+ 
+ .recent-chats {
+  display: flex;
+  flex-direction: column;
+ }
+ 
+ 
+ .recent-chats .chat-item {
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  margin-bottom: 5px;
+ }
+ 
+ 
+ .learners-conversation-container {
+  max-width: 800px;
+  margin: 0 auto;
+ }
+ 
+ 
+ .learners-chat-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+ }
+ 
+ 
+ .learners-message {
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 70%;
+  word-wrap: break-word;
+  margin-bottom: 10px;
+ }
+ 
+ 
+ .learners-message.sender {
+  align-self: flex-end;
+  background-color: #3498db;
+  color: #ffffff;
+ }
+ 
+ 
+ .message-text {
+  word-wrap: break-word;
+  font-size: 1rem;
+ }
+ 
+ 
+ .message-timestamp {
+  font-size: 0.8em;
+  color: #888;
+ }
+ 
+ 
+ .learners-message.sent {
+  align-self: flex-end;
+  background-color: #dcf8c6;
+  color: #000;
+ }
+ 
+ 
+ .learners-message-input {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+ }
+ 
+ 
+ .learners-message-input textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  resize: none;
+ }
+ 
+ 
+ .sent-button {
+  font-family: inherit;
+  font-size: 18px;
+  background: linear-gradient(to bottom, #4dc7d9 0%, #66a6ff 100%);
+  color: white;
+  padding: 0.8em 1.2em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  border-radius: 25px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s;
+  cursor: pointer;
+  margin-left: 10px;
+ }
+ 
+ 
+ .sent-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
+ }
+ 
+ 
+ .sent-button:active {
+  transform: scale(0.95);
+  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
+ }
+ 
+ 
+ .sent-button span {
+  display: block;
+  margin-left: 0.4em;
+  transition: all 0.3s;
+ }
+ 
+ 
+ .sent-button svg {
+  width: 18px;
+  height: 18px;
+  fill: white;
+  transition: all 0.3s;
+ }
+ 
+ 
+ .sent-button .svg-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background-color: rgba(255, 255, 255, 0.2);
+  margin-right: 0.5em;
+  transition: all 0.3s;
+ }
+ 
+ 
+ .sent-button:hover .svg-wrapper {
+  background-color: rgba(255, 255, 255, 0.5);
+ }
+ 
+ 
+ .sent-button:hover svg {
+  transform: rotate(45deg);
+ }
+ 
+ 
+ 
+ 
