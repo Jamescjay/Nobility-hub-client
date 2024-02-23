@@ -1,6 +1,7 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faIconName } from "@fortawesome/free-solid-svg-icons";
 import {
   faHome,
   faBook,
