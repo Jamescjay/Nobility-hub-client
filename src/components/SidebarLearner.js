@@ -1,10 +1,10 @@
 import React from 'react';
 // import '../styling/Sidebar.css';
 
-import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
+
 import { Link } from "react-router-dom";
 
-const SidebarLearner = ({ handleSectionClick, nobilityHubOpen, setNobilityHubOpen, channelsOpen, setChannelsOpen, studentsDropdownOpen, setStudentsDropdownOpen, directMessagesOpen }) => {
+const SidebarLearner = ({ handleSectionClick, nobilityHubOpen, setNobilityHubOpen, channelsOpen, setChannelsOpen  }) => {
   return (
     <div className="learners-sidebar">
       {/* Nobility Hub Section */}
@@ -64,18 +64,6 @@ const SidebarLearner = ({ handleSectionClick, nobilityHubOpen, setNobilityHubOpe
         )}
       </div>
 
-      {/* Direct Messages Section */}
-      <div
-        className="learners-direct-messages"
-        onClick={() => handleSectionClick("directMessages")}
-      >
-        <div className="learners-dm-label">Direct Messages</div>
-        {directMessagesOpen && (
-          <div className="learners-direct-messages-content">
-            <DirectMessagesContent />
-          </div>
-        )}
-      </div>
     </div>
   );
 };

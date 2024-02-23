@@ -2,7 +2,7 @@
 import React from 'react';
 // import '../styling/NavigationBar.css';
 
-const NavigationBarAdmin = ({ handleDirectMessagesToggle, handleLogout }) => {
+const NavigationBarAdmin = ({  handleLogout }) => {
   return (
     <div className="learners-top-nav">
       <div className="learners-left-section">
@@ -14,7 +14,7 @@ const NavigationBarAdmin = ({ handleDirectMessagesToggle, handleLogout }) => {
         <i className="uil uil-search-alt"></i>
         <input type="text" placeholder="Type to Search..." />
       </div>
-      <div className="learners-user-profile" onClick={handleDirectMessagesToggle}>
+      <div className="learners-user-profile" >
         <i className="uil uil-user"></i>
         <div className="learners-user-dropdown">
           <ul>
