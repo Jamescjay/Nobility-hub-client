@@ -1,6 +1,8 @@
 import React from 'react';
 
 import { Link } from 'react-router-dom';
+import SignupForm from './SignUp';
+import CohortSelection from './Cohort';
 
 const SidebarAdmin = ({
   handleSectionClick,
@@ -77,7 +79,7 @@ const SidebarAdmin = ({
         {studentsDropdownOpen && (
           <div className="learners-students-dropdown">
             <ul>
-              <li>Add New Learners</li>
+              <li><SignupForm/></li>
               <li>View Learners</li>
             </ul>
           </div>
@@ -98,7 +100,7 @@ const SidebarAdmin = ({
         {studentsDropdownOpen && (
           <div className="learners-students-dropdown">
             <ul>
-              <li>cohorts</li>
+              <li><CohortSelection/></li>
             </ul>
           </div>
         )}
