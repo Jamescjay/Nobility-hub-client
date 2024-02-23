@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 // import '../Css/signup.css'
+// import React, { useState } from 'react';
 
 const SignupForm = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +15,7 @@ const SignupForm = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [successMessage, setSuccessMessage] = useState('');
+  const [showSignup, setShowSignup] = useState(false);
 
   const handleChange = (e) => {
     setFormData({
@@ -26,7 +28,7 @@ const SignupForm = () => {
     e.preventDefault();
 
     // Basic client-side validation
-    if (!formData.username || !formData.email || !formData.password || !formData.role) {
+    if (!formData.username || !formData.email || !formData.password) {
       setError('All fields are required');
       return;
     }
@@ -45,8 +47,8 @@ const SignupForm = () => {
         setSuccessMessage('Signup successful');
         setError('');
         setTimeout(() => {
-         // Redirect to login page or perform any other action
-        }, 2000); // Wait for 2 seconds before redirecting
+          setShowSignup(false); // Hide the sign-up form after successful submission
+        }, 2000); // Wait for 2 seconds before hiding
       } else {
         const errorData = await response.json();
         setError(errorData.error || 'Signup failed');
@@ -62,61 +64,62 @@ const SignupForm = () => {
   return (
     <div className='loginpage'>
       <div className='navbar'>
-        {/* Navbar content */}
+        <button onClick={() => setShowSignup(true)}>AddNewLearner</button>
       </div>
-      <div className='signup'>
-        <h2>Sign Up</h2>
-        <form onSubmit={handleSubmit} style={styles.form}>
-          <label style={styles.label}>
-            First Name:
-            <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} style={styles.input} />
-          </label>
-          <br />
-          <label style={styles.label}>
-            Last Name:
-            <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} style={styles.input} />
-          </label>
-          <br />
-          <label style={styles.label}>
-            Gender:
-            <select name="gender" value={formData.gender} onChange={handleChange} style={styles.input}>
-              <option value="">Select Gender</option>
-              <option value="male">Male</option>
-              <option value="female">Female</option>
-              <option value="other">Other</option>
-            </select>
-          </label>
-          <br />
-          {/* Existing fields */}
-          <label style={styles.label}>
-            Username:
-            <input type="text" name="username" value={formData.username} onChange={handleChange} style={styles.input} />
-          </label>
-          <br />
-          <label style={styles.label}>
-            Email:
-            <input type="email" name="email" value={formData.email} onChange={handleChange} style={styles.input} />
-          </label>
-          <br />
-          <label style={styles.label}>
-            Password:
-            <input type="password" name="password" value={formData.password} onChange={handleChange} style={styles.input} />
-          </label>
-          <br />
-          <label style={styles.label}>
-            Phone:
-            <input type="text" name="phone" value={formData.phone} onChange={handleChange} style={styles.input} />
-          </label>
-          <br />
-          <button type="submit" disabled={loading} style={styles.button}>
-            {loading ? 'Signing Up...' : 'Sign Up'}
-          </button>
+      {showSignup && (
+        <div className='signup'>
+          <h2>Sign Up</h2>
+          <form onSubmit={handleSubmit} style={styles.form}>
+            <label style={styles.label}>
+              First Name:
+              <input type="text" name="first_name" value={formData.first_name} onChange={handleChange} style={styles.input} />
+            </label>
+            <br />
+            <label style={styles.label}>
+              Last Name:
+              <input type="text" name="last_name" value={formData.last_name} onChange={handleChange} style={styles.input} />
+            </label>
+            <br />
+            <label style={styles.label}>
+              Gender:
+              <select name="gender" value={formData.gender} onChange={handleChange} style={styles.input}>
+                <option value="">Select Gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+              </select>
+            </label>
+            <br />
+            {/* Existing fields */}
+            <label style={styles.label}>
+              Username:
+              <input type="text" name="username" value={formData.username} onChange={handleChange} style={styles.input} />
+            </label>
+            <br />
+            <label style={styles.label}>
+              Email:
+              <input type="email" name="email" value={formData.email} onChange={handleChange} style={styles.input} />
+            </label>
+            <br />
+            <label style={styles.label}>
+              Password:
+              <input type="password" name="password" value={formData.password} onChange={handleChange} style={styles.input} />
+            </label>
+            <br />
+            <label style={styles.label}>
+              Phone:
+              <input type="text" name="phone" value={formData.phone} onChange={handleChange} style={styles.input} />
+            </label>
+            <br />
+            <button type="submit" disabled={loading} style={styles.button}>
+              {loading ? 'Signing Up...' : 'Sign Up'}
+            </button>
 
-          {error && <p style={styles.error}>{error}</p>}
-        </form>
-        {successMessage && <p style={styles.success}>{successMessage}</p>}
-        
-      </div>
+            {error && <p style={styles.error}>{error}</p>}
+          </form>
+          {successMessage && <p style={styles.success}>{successMessage}</p>}
+        </div>
+      )}
     </div>
   );
 };
