@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
-import NavigationBar from './NavigationBarAdmin';
-import SidebarAdmin from './SidebarAdmin';
+import NavigationBarLearner from './NavigationBarLearner';
+import SidebarLearner from './SidebarLearner';
 import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
-import Canvas from './sidebarAdmin/Canvas'; // Import Canvas component
 import '../styling/Dashboard.css';
 
-const Admindashboard = () => {
+const Learnersdashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
   const [channelsOpen, setChannelsOpen] = useState(false);
   const [studentsDropdownOpen, setStudentsDropdownOpen] = useState(false);
@@ -17,12 +16,8 @@ const Admindashboard = () => {
     // Implement your logout logic here
   };
 
-  // const handleSectionClick = (section) => {
-  //   setSelectedSection(section);
-  // };
-
   const handleSectionClick = (section) => {
-  setSelectedSection(section);
+    setSelectedSection(section);
   };
 
   const handleDirectMessagesToggle = () => {
@@ -31,8 +26,8 @@ const Admindashboard = () => {
 
   return (
     <div className="learners-dashboard-container">
-      <NavigationBar handleDirectMessagesToggle={handleDirectMessagesToggle} handleLogout={handleLogout} />
-      <SidebarAdmin
+      <NavigationBarLearner handleDirectMessagesToggle={handleDirectMessagesToggle} handleLogout={handleLogout} />
+      <SidebarLearner
         handleSectionClick={handleSectionClick}
         nobilityHubOpen={nobilityHubOpen}
         setNobilityHubOpen={setNobilityHubOpen}
@@ -43,13 +38,10 @@ const Admindashboard = () => {
         directMessagesOpen={directMessagesOpen}
       />
       <div className="learners-right-content">
-        {/* Render content based on selectedSection */}
-        {selectedSection === 'Canvas' && <Canvas />} {/* Render Canvas component */}
         {selectedSection === 'directMessages' && <DirectMessagesContent />}
-        {/* Add conditions for other sections if needed */}
       </div>
     </div>
   );
 };
 
-export default Admindashboard;
+export default Learnersdashboard;

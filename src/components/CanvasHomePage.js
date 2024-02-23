@@ -3,9 +3,10 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import styles from "./home.css";
+import styles from "./CanvasHome.css";
+import CanvasDashboard from "./sidebarLearner/CanvasDashboard";
 
-const Home = () => {
+const CanvasHome = () => {
   return (
     <div className={`${styles.content} ${styles.homeContainer}`}>
       <h2>Welcome to Software Engineering Courses</h2>
@@ -19,13 +20,13 @@ const Home = () => {
 
       <ul className="featured-courses">
         <li>
-          <Link to="/dashboard1/courses">
+          <Link to="/CanvasHome/courses">
             <FontAwesomeIcon icon={faStar} className="star-icon" />
             Software Engineering FT 06 Phase 0
           </Link>
         </li>
         <li>
-          <Link to="/dashboard1/courses">
+          <Link to="/CanvasHome/Courses">
             <FontAwesomeIcon icon={faStar} className="star-icon" />
             Software Engineering FT 06 Phase 1
           </Link>
@@ -39,7 +40,7 @@ const Home = () => {
             Explore our courses and take the first step towards your career in
             software engineering.
           </p>
-          <Link to="/dashboard1/courses" className="button">
+          <Link to="/CanvasHome/Courses" className="button">
             View All Courses
           </Link>
         </div>
@@ -48,4 +49,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default CanvasHome;

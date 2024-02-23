@@ -6,5 +6,7 @@ modules to install:
  5. npm install react-bootstrap bootstrap
  6. npm install --save @fortawesome/fontawesome-svg-core
  7. npm install --save @fortawesome/free-solid-svg-icons
- 8. npm install--save @fortawesome/react-fontawesome
+ 8. npm install --save @fortawesome/react-fontawesome
  9. npm install recharts
+ 2. npm install lucide-react
+ 3. npm install react-icons

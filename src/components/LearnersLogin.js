@@ -13,7 +13,7 @@ const LearnersLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:5555/login", {
+      const response = await fetch("http://127.0.0.1:5555/learners-login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -25,7 +25,7 @@ const LearnersLogin = () => {
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
-            window.location.href = "about:blank";
+            window.location.href = "Learnersdashboard";
           },
         });
       } else {

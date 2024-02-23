@@ -1,75 +1,134 @@
-// src/components/AdminLogin.js
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import "../App.css";
+import wideImage from "./wider-image.jpg";
+import { FcGoogle } from "react-icons/fc";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+//import  { useNavigate }  from "react-router-dom";
 
-const AdminLogin = () => {
-  const navigate = useNavigate();
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [errorMessage, setErrorMessage] = useState('');
+const LearnersLogin = () => {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  const handleLogin = async () => {
+  const handleSignIn = async (e) => {
+    e.preventDefault();
+
     try {
-      const response = await fetch('http://localhost:5000/login', {
-        method: 'POST',
+      const response = await fetch("http://127.0.0.1:5555/admin-login", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
+        body: JSON.stringify({ email, password }),
       });
 
-      const data = await response.json();
-
-      const { success, token, user_email, role } = data;
-
-      if (success) {
-        localStorage.setItem('token', token);
-        navigate('/dashboard');
+      if (response.ok) {
+        toast.success("Successfully signed in", {
+          autoClose: 100,
+          onClose: () => {
+            window.location.href = "dashboard";
+          },
+        });
       } else {
-        setErrorMessage('Invalid credentials');
+        toast.error("Invalid email or password");
       }
     } catch (error) {
-      console.error('Error during login:', error);
-      setErrorMessage('An error occurred during login');
+      console.error("Error:", error);
     }
   };
 
+  const initiateGoogleAuthentication = () => {
+    const clientId =
+      "903014081128-03ap17fghal5cugp545qt6uu315lf7e4.apps.googleusercontent.com";
+    const redirectUri = `http://localhost:3000`;
+
+    window.location.href = `https://accounts.google.com/o/oauth2/auth?client_id=${clientId}&redirect_uri=${redirectUri}&response_type=token&scope=email profile openid`;
+  };
+
+  // const handleLoginClick = () => {
+  //   initiateGoogleAuthentication();
+  // };
+
+  // const handleFormSubmit = (e) => {
+  //   e.preventDefault();
+
+  //   const emailInput = e.target.elements.email.value;
+  //   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+  //   if (!emailRegex.test(emailInput)) {
+  //     toast.error("Please enter a valid email address");
+  //     return;
+  //   }
+
+  //   toast.info("Form submitted with email: " + emailInput);
+  //   setEmail("");
+  //   setPassword("");
+  // };
+
   return (
-    <div>
-      <h1 style={{ color: '#333', marginBottom: '20px' }}>Admin Login</h1>
-      {errorMessage && <p style={{ color: 'red' }}>{errorMessage}</p>}
-      <label style={{ color: '#333', display: 'block', marginBottom: '8px' }}>Email:</label>
-      <input
-        type="text"
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-        style={{ width: '100%', padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '5px' }}
-      />
-      <label style={{ color: '#333', display: 'block', marginBottom: '8px' }}>Password:</label>
-      <input
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        style={{ width: '100%', padding: '10px', marginBottom: '15px', border: '1px solid #ccc', borderRadius: '5px' }}
-      />
-      <button
-        onClick={handleLogin}
-        style={{
-          background: '#ff4b2b',
-          color: '#fff',
-          padding: '12px',
-          borderRadius: '5px',
-          border: 'none',
-          cursor: 'pointer',
-        }}
-      >
-        Login
-      </button>
+    <div className="app-container">
+      <div className="left-section">
+        <div className="title-section">
+          <h1>Welcome to Nobility Hub</h1>
+        </div>
+        <div className="image-section">
+          <img src={wideImage} alt="Wide Image" className="wide-image" />
+        </div>
+        <div className="description-section">
+          <p>
+            We firmly believe in granting everyone the chance to thrive in the
+            technology and programming sector. Through our groundbreaking educational methods,
+            we equip students with the essential skills and expertise required
+            to embark on prosperous career paths. Come join us and be a pioneer
+            of tomorrow!
+          </p>
+        </div>
+      </div>
+      <div className="right-section">
+        {/* <p>
+          Already have an account?
+          <a href="#" onClick={handleLoginClick}>
+            Log in
+          </a>
+        </p> */}
+        <div className="cta-section">
+          <div className="cta-tab">
+            <h2>Connect, Collaborate, Learn</h2>
+            <div>
+              <ToastContainer />
+              <form onSubmit={handleSignIn}>
+                <input
+                  type="email"
+                  name="email"
+                  placeholder="Enter your email"
+                  value={email}
+                  onChange={(e) => setEmail(e.target.value)}
+                  required
+                />
+                <input
+                  type="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                  required
+                />
+                <button className="sign-in-button" type="submit">
+                  Sign In with Nob Hub Account
+                </button>
+              </form>
+              <button
+                className="sign-in-button-google"
+                onClick={initiateGoogleAuthentication}
+              >
+                <FcGoogle className="google-logo" />
+                Sign In with Google
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   );
 };
 
-export default AdminLogin;
+export default LearnersLogin;

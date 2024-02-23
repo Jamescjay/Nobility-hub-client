@@ -1,21 +1,20 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIconName } from "@fortawesome/free-solid-svg-icons";
 import {
   faHome,
   faBook,
   faUser,
   faCalendar,
 } from "@fortawesome/free-solid-svg-icons";
-import Home from "./Home1";
-import Courses from "./Courses";
-import Grades from "./Grades";
-import Calendar from "./Calendar";
+import CanvasHome from "../CanvasHomePage";
+import Courses from "../Courses";
+import Grades from "../Grades";
+import Calendar from "../Calendar";
 import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
-import styles from "./Dashboard.css";
+import styles from "./CanvasDashboard.css";
 
-const Dashboard = () => {
+const CanvasDashboard = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
@@ -26,23 +25,23 @@ const Dashboard = () => {
         <Row>
           <Col md={3} className="sidebar">
             <Nav className="flex-column">
-              <Nav.Link href="/dashboard1">
+              <Nav.Link href="/CanvasHome">
                 <FontAwesomeIcon icon={faHome} /> Home
               </Nav.Link>
-              <Nav.Link href="/dashboard1/courses">
+              <Nav.Link href="/CanvasHome/Courses">
                 <FontAwesomeIcon icon={faBook} /> Courses
               </Nav.Link>
-              <Nav.Link href="/dashboard1/grades">
+              <Nav.Link href="/CanvasHome/grades">
                 <FontAwesomeIcon icon={faUser} /> Grades
               </Nav.Link>
-              <Nav.Link href="/dashboard1/calendar">
+              <Nav.Link href="/CanvasHome/calendar">
                 <FontAwesomeIcon icon={faCalendar} /> Calendar
               </Nav.Link>
             </Nav>
           </Col>
           <Col md={9} className="content">
             <Routes>
-              <Route path="/" element={<Home />} />
+              <Route path="*" element={<CanvasHome />} />
               <Route path="/courses" element={<Courses />} />
               <Route path="/grades" element={<Grades />} />
               <Route path="/calendar" element={<Calendar />} />
@@ -54,4 +53,4 @@ const Dashboard = () => {
   );
 };
 
-export default Dashboard;
+export default CanvasDashboard;
