@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import SignupForm from './SignUp';
 import CohortSelection from './Cohort';
+import Learners from './Learners';
 
 const SidebarAdmin = ({
   handleSectionClick,
@@ -80,7 +81,7 @@ const SidebarAdmin = ({
           <div className="learners-students-dropdown">
             <ul>
               <li><SignupForm/></li>
-              <li>View Learners</li>
+              <li><Learners/></li>
             </ul>
           </div>
         )}
