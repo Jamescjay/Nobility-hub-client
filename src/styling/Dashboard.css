@@ -12,6 +12,10 @@
   height: 100vh;
 }
 
+.learners-main-content {
+  display: flex; /* Use flexbox for layout */
+}
+
 /* Top Navigation Bar */
 .learners-top-nav {
   display: flex;
