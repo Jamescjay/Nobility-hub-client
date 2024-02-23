@@ -8,6 +8,9 @@
     padding: 1rem;
     background-color: #f4f4f4; /* Set a background color if needed */
     overflow: auto;
+    margin-left: 250px;
+    margin-top: -10%;
+    margin-bottom: 10%;
   }
   
   /* Style for the conversation container */
