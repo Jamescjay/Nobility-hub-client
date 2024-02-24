@@ -1,11 +1,8 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCalendar } from "@fortawesome/free-solid-svg-icons";
-
 import React from "react";
-import styles from "./Calendar.css";
 
 const Calendar = () => {
-  
   const calendarEvents = [
     {
       title: "Assignment Deadline",
@@ -29,15 +26,44 @@ const Calendar = () => {
     },
   ];
 
+  const calendarContainerStyle = {
+    padding: "20px",
+  };
+
+  const calendarTitleStyle = {
+    fontSize: "24px",
+    color: "#333",
+    marginBottom: "20px",
+  };
+
+  const eventCardStyle = {
+    backgroundColor: "#f8f8f8",
+    border: "1px solid #ddd",
+    borderRadius: "8px",
+    padding: "20px",
+    marginBottom: "20px",
+  };
+
+  const eventTitleStyle = {
+    fontSize: "20px",
+    color: "#555",
+    marginBottom: "10px",
+  };
+
+  const eventDateDescriptionStyle = {
+    fontSize: "16px",
+    color: "#666",
+  };
+
   return (
-    <div className={styles.calendarContainer}>
-      <h2 className={styles.calendarTitle}>Upcoming Events</h2>
+    <div style={calendarContainerStyle}>
+      <h2 style={calendarTitleStyle}>Upcoming Events</h2>
 
       {calendarEvents.map((event, index) => (
-        <div key={index} className={styles.eventCard}>
-          <h3 className={styles.eventTitle}>{event.title}</h3>
-          <p className={styles.eventDate}>Date: {event.date}</p>
-          <p className={styles.eventDescription}>
+        <div key={index} style={eventCardStyle}>
+          <h3 style={eventTitleStyle}>{event.title}</h3>
+          <p style={eventDateDescriptionStyle}>Date: {event.date}</p>
+          <p style={eventDateDescriptionStyle}>
             Description: {event.description}
           </p>
         </div>
