@@ -71,13 +71,17 @@ const CohortSelection = () => {
         contentLabel="Cohort Modal"
         style={{
           content: {
-            width: "600px",
-            height: "500px",
+            width: "1100px",
+            height: "380px",
             margin: "auto",
+            backgroundColor: "#22577a",
+            color: "white",
           },
         }}
       >
-        <button onClick={handleCloseModal} style={{backgroundColor: "red"}}>Close</button>
+        <button onClick={handleCloseModal} style={{ backgroundColor: "red" }}>
+          Close
+        </button>
         <div className="cohort-container">
           {cohorts.map((cohort, index) => (
             <Cohort key={index} cohort={cohort} onView={handleView} />

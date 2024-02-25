@@ -1,47 +1,153 @@
-import React from "react";
+import React, { useContext, useEffect, useState } from "react";
 import "../index.css";
 import { AuthContext } from "./AuthContext";
 import { useNavigate } from "react-router-dom";
+import Modal from "react-modal";
+
+function SettingsModal({ isOpen, onRequestClose }) {
+  const [theme, setTheme] = useState("light");
+
+  const toggleTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
+  return (
+    <Modal
+      isOpen={isOpen}
+      onRequestClose={onRequestClose}
+      contentLabel="Settings Modal"
+      style={{
+        overlay: {
+          zIndex: 9999,
+        },
+        content: {
+          width: "400px",
+          height: "300px",
+          margin: "auto",
+        },
+      }}
+    >
+      <h2>Settings</h2>
+      <div>
+        <label>
+          <input
+            type="radio"
+            value="light"
+            checked={theme === "light"}
+            onChange={toggleTheme}
+          />{" "}
+          Light Mode
+        </label>
+        <br />
+        <label>
+          <input
+            type="radio"
+            value="dark"
+            checked={theme === "dark"}
+            onChange={toggleTheme}
+          />{" "}
+          Dark Mode
+        </label>
+      </div>
+    </Modal>
+  );
+}
+
+function Profile({ userDetails }) {
+  const [showModal, setShowModal] = useState(false);
+
+  const handleCloseModal = () => {
+    setShowModal(false);
+  };
+
+  return (
+    <div>
+      <text onClick={() => setShowModal(true)}>Profile</text>
+      <Modal
+        isOpen={showModal}
+        onRequestClose={handleCloseModal}
+        contentLabel="Profile Modal"
+        style={{
+          content: {
+            width: "400px",
+            height: "300px",
+            margin: "auto",
+            backgroundColor: "#22577a",
+            color: "white",
+          },
+        }}
+        overlayClassName="modal-overlay"
+      >
+        <button className="close-modal-button" onClick={handleCloseModal}>
+          X
+        </button>
+        <h2>My Profile</h2>
+        <div>
+          <ul>
+            <li>First Name: {userDetails.first_name}</li>
+            <li>Last Name: {userDetails.last_name}</li>
+            <li>Username: {userDetails.username}</li>
+            <li>Gender: {userDetails.gender}</li>
+            <li>Email: {userDetails.email}</li>
+            <li>Phone Number: {userDetails.phone}</li>
+          </ul>
+        </div>
+      </Modal>
+    </div>
+  );
+}
 
 const Navbar = () => {
-   const { logout } = React.useContext(AuthContext);
-   const userId = localStorage.getItem("userId");
-   const [userDetails, setUserDetails] = React.useState();
-   const navigate = useNavigate();
+  const { logout } = useContext(AuthContext);
+  const userId = localStorage.getItem("userId");
+  const [userDetails, setUserDetails] = useState();
+  const navigate = useNavigate();
+  const [settingsModalOpen, setSettingsModalOpen] = useState(false);
 
-   const fetchUserDetails = async () => {
-     if (userId) {
-       try {
-         const response = await fetch(
-           `http://127.0.0.1:5555/register/${userId}`
-         );
-         if (response.ok) {
-           const data = await response.json();
-           setUserDetails(data);
-         } else {
-           // Handle non-OK responses
-         }
-       } catch (error) {
-         // Handle fetch errors
-         console.error("Error fetching user details:", error);
-       }
-     }
-   };
+  const toggleSettingsModal = () => {
+    setSettingsModalOpen(!settingsModalOpen);
+  };
 
-   React.useEffect(() => {
-     if (userId) {
-       fetchUserDetails();
-     }
-   }, [userId]);
+  const fetchUserDetails = async () => {
+    if (userId) {
+      try {
+        const response = await fetch(
+          `http://127.0.0.1:5555/register/${userId}`
+        );
+        if (response.ok) {
+          const data = await response.json();
+          setUserDetails(data);
+        } else {
+          // Handle non-OK responses
+        }
+      } catch (error) {
+        // Handle fetch errors
+        console.error("Error fetching user details:", error);
+      }
+    }
+  };
 
-   const handleLogout = () => {
-     localStorage.removeItem("userId");
-     logout();
-     // Show toast message
-     alert("Logged out");
-     // Redirect to LearnersLogin page
-     navigate("/LearnersLogin");
-   };
+  useEffect(() => {
+    if (userId) {
+      fetchUserDetails();
+    }
+  }, [userId]);
+
+  const getAbbreviation = (name) => {
+    return name ? name.charAt(0).toUpperCase() : "";
+  };
+
+  const getCircleColor = () => {
+    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
+      Math.random() * 256
+    )}, ${Math.floor(Math.random() * 256)})`;
+  };
+
+  const handleLogout = () => {
+    logout();
+    alert("Logged out");
+    navigate("/LearnersLogin");
+  };
 
   return (
     <div className="navbar">
@@ -66,27 +172,36 @@ const Navbar = () => {
       <div className="right-section">
         {userDetails && (
           <>
-            <i onClick={fetchUserDetails}>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                fill="currentColor"
-                class="bi bi-person-circle"
-                viewBox="0 0 16 16"
-              >
-                <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0" />
-                <path
-                  fill-rule="evenodd"
-                  d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8m8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1"
-                />
-              </svg>
-              <span>{`Hello ${userDetails.username}`}</span>
-            </i>
-            <button onClick={handleLogout}>Logout</button>
+            <div
+              className="user-icon"
+              style={{
+                backgroundColor: getCircleColor(),
+              }}
+            >
+              {getAbbreviation(userDetails.first_name)}
+            </div>
+            <span>{`Hello ${userDetails.username}`}</span>
+            <div
+              className="learners-user-dropdown"
+              style={{ cursor: "pointer" }}
+            >
+              <ul>
+                <li>
+                  <Profile userDetails={userDetails} />
+                </li>
+                <li>
+                  <li onClick={toggleSettingsModal}>Settings</li>
+                </li>
+                <li onClick={handleLogout}>Logout</li>
+              </ul>
+            </div>
           </>
         )}
       </div>
+      <SettingsModal
+        isOpen={settingsModalOpen}
+        onRequestClose={toggleSettingsModal}
+      />
     </div>
   );
 };

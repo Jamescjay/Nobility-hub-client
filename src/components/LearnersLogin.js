@@ -1,14 +1,15 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import "../App.css";
 import wideImage from "./wider-image.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "./AuthContext";
 
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [userId, setUserId] = useState(null); 
+  const { login } = useContext(AuthContext); // Accessing login function from AuthContext
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -24,9 +25,7 @@ const LearnersLogin = () => {
 
       if (response.ok) {
         const { id, access_token } = await response.json();
-        setUserId(id);
-        localStorage.setItem("userId", id);
-        localStorage.setItem("accessToken", access_token);
+        login(id, access_token);
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
