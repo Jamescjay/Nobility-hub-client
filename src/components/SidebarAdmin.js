@@ -1,6 +1,9 @@
 import React from 'react';
-import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
+
 import { Link } from 'react-router-dom';
+import SignupForm from './SignUp';
+import CohortSelection from './Cohort';
+import Learners from './Learners';
 
 const SidebarAdmin = ({
   handleSectionClick,
@@ -10,7 +13,7 @@ const SidebarAdmin = ({
   setChannelsOpen,
   studentsDropdownOpen,
   setStudentsDropdownOpen,
-  directMessagesOpen
+ 
 }) => {
  
 
@@ -77,8 +80,8 @@ const SidebarAdmin = ({
         {studentsDropdownOpen && (
           <div className="learners-students-dropdown">
             <ul>
-              <li>Add New Learners</li>
-              <li>View Learners</li>
+              <li><SignupForm/></li>
+              <li><Learners/></li>
             </ul>
           </div>
         )}
@@ -98,20 +101,12 @@ const SidebarAdmin = ({
         {studentsDropdownOpen && (
           <div className="learners-students-dropdown">
             <ul>
-              <li>cohorts</li>
+              <li><CohortSelection/></li>
             </ul>
           </div>
         )}
       </div>
-      {/* Direct Messages Section */}
-      <div className="learners-direct-messages" onClick={() => handleSectionClick('directMessages')}>
-        <div className="learners-dm-label">Direct Messages</div>
-        {directMessagesOpen && (
-          <div className="learners-direct-messages-content">
-            <DirectMessagesContent />
-          </div>
-        )}
-      </div>
+      
     </div>
   );
 };

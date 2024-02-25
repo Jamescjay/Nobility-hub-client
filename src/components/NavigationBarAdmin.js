@@ -54,6 +54,7 @@ const NavigationBarAdmin = ({ handleDirectMessagesToggle }) => {
   };
   
 
+const NavigationBarAdmin = ({  handleLogout }) => {
   return (
     <div className="learners-top-nav">
       <div className="learners-left-section">
@@ -65,23 +66,16 @@ const NavigationBarAdmin = ({ handleDirectMessagesToggle }) => {
         <i className="uil uil-search-alt"></i>
         <input type="text" placeholder="Type to Search..." />
       </div>
-      <div className="user-profile">
-        {userDetails && (
-          <>
-            <i onClick={fetchUserDetails}>
-              <div
-                className="user-circle"
-                style={{
-                  backgroundColor: getCircleColor(),
-                }}
-              >
-                {getAbbreviation(userDetails.first_name) + getAbbreviation(userDetails.last_name)}
-              </div>
-              {/*<span>{userDetails.username}</span>*/}
-            </i>
-            <button onClick={handleLogout}>Logout</button>
-          </>
-        )}
+
+      <div className="learners-user-profile" >
+        <i className="uil uil-user"></i>
+        <div className="learners-user-dropdown">
+          <ul>
+            <li><i className="uil uil-user-circle"></i> Profile</li>
+            <li><i className="uil uil-setting"></i> Settings</li>
+            <li onClick={handleLogout}><i className="uil uil-sign-out-alt"></i> Logout</li>
+          </ul>
+        </div>
       </div>
     </div>
   );
