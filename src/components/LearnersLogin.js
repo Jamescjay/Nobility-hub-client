@@ -1,13 +1,15 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import "../App.css";
 import wideImage from "./wider-image.jpg";
 import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "./AuthContext";
 
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {login} = useContext(AuthContext)
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -22,6 +24,8 @@ const LearnersLogin = () => {
       });
 
       if (response.ok) {
+        const { id, access_token } = await response.json();
+        login(id, access_token);
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
@@ -71,7 +75,7 @@ const LearnersLogin = () => {
           <h1>Welcome to Nobility Hub</h1>
         </div>
         <div className="image-section">
-          <img src={wideImage} alt="Wide Image" className="wide-image" />
+          <img src={wideImage} alt="" className="wide-image" />
         </div>
         <div className="description-section">
           <p>
