@@ -79,6 +79,8 @@ const NavigationBarAdmin = ({  handleLogout }) => {
       </div>
     </div>
   );
-};
+}
+
+}
 
 export default NavigationBarAdmin;
