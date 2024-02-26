@@ -14,6 +14,8 @@ const NavigationBarAdmin = ({  handleLogout }) => {
         <i className="uil uil-search-alt"></i>
         <input type="text" placeholder="Type to Search..." />
       </div>
+
+
       <div className="learners-user-profile" >
         <i className="uil uil-user"></i>
         <div className="learners-user-dropdown">

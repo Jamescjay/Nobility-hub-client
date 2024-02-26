@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import NavigationBarLearner from './NavigationBarLearner';
 import SidebarLearner from './SidebarLearner';
+import MessagingSection from './messaging/MessagingSection';
 
 import '../styling/Dashboard.css';
 
@@ -24,17 +25,19 @@ const Learnersdashboard = () => {
   return (
     <div className="learners-dashboard-container">
       <NavigationBarLearner  handleLogout={handleLogout} />
-      <SidebarLearner
-        handleSectionClick={handleSectionClick}
-        nobilityHubOpen={nobilityHubOpen}
-        setNobilityHubOpen={setNobilityHubOpen}
-        channelsOpen={channelsOpen}
-        setChannelsOpen={setChannelsOpen}
-        studentsDropdownOpen={studentsDropdownOpen}
-        setStudentsDropdownOpen={setStudentsDropdownOpen}
-        
-      />
-     
+      <div className="learners-main-content">
+        <SidebarLearner
+          handleSectionClick={handleSectionClick}
+          nobilityHubOpen={nobilityHubOpen}
+          setNobilityHubOpen={setNobilityHubOpen}
+          channelsOpen={channelsOpen}
+          setChannelsOpen={setChannelsOpen}
+          studentsDropdownOpen={studentsDropdownOpen}
+          setStudentsDropdownOpen={setStudentsDropdownOpen}
+          
+        />
+        <MessagingSection />
+      </div>
     </div>
   );
 };
