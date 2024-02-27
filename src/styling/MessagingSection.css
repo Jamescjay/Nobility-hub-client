@@ -1,197 +1,41 @@
-/* MessagingSection.css */
+/* WebSocketCall.css */
 
- 
- 
- .sent-button {
-  font-family: inherit;
-  font-size: 18px;
-  background: linear-gradient(to bottom, #4dc7d9 0%, #66a6ff 100%);
-  color: white;
-  padding: 0.8em 1.2em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: none;
-  border-radius: 25px;
-  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-  transition: all 0.3s;
-  cursor: pointer;
-  margin-left: 10px;
- }
- 
- 
- .sent-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
- }
- 
- 
- .sent-button:active {
-  transform: scale(0.95);
-  box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
- }
- 
- 
- .sent-button span {
-  display: block;
-  margin-left: 0.4em;
-  transition: all 0.3s;
- }
- 
- 
- .sent-button svg {
-  width: 18px;
-  height: 18px;
-  fill: white;
-  transition: all 0.3s;
- }
- 
- 
- .sent-button .svg-wrapper {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 30px;
-  height: 30px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.2);
-  margin-right: 0.5em;
-  transition: all 0.3s;
- }
- 
- 
- .sent-button:hover .svg-wrapper {
-  background-color: rgba(255, 255, 255, 0.5);
- }
- 
- 
- .sent-button:hover svg {
-  transform: rotate(45deg);
- }
- 
- 
- 
- .input-container {
+.chat-container {
     display: flex;
-    align-items: center;
+    flex-direction: column;
+    height: 100%;
   }
-
-
-/* MessagingSection.css */
-
-.messages-container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.incoming-messages, .outgoing-messages {
-    list-style: none;
-    padding: 0;
-    width: 100%;
-}
-
-.incoming-message, .outgoing-message {
-    background-color: #e1e1e1;
-    padding: 10px;
-    border-radius: 10px;
-    margin-bottom: 5px;
-    max-width: 70%;
-}
-
-.outgoing-message {
-    background-color: #4dc7d9;
-    color: white;
-    align-self: flex-end;
-}
-
-.sent-button {
-    font-family: inherit;
-    font-size: 18px;
-    background: linear-gradient(to bottom, #4dc7d9 0%, #66a6ff 100%);
-    color: white;
-    padding: 0.8em 1.2em;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    border-radius: 25px;
-    box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
-    transition: all 0.3s;
-    cursor: pointer;
-    margin-left: 10px;
-}
-
-.sent-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
-}
-
-.sent-button:active {
-    transform: scale(0.95);
-    box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
-}
-
-.sent-button span {
-    display: block;
-    margin-left: 0.4em;
-    transition: all 0.3s;
-}
-
-.sent-button svg {
-    width: 18px;
-    height: 18px;
-    fill: white;
-    transition: all 0.3s;
-}
-
-.sent-button .svg-wrapper {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    background-color: rgba(255, 255, 255, 0.2);
-    margin-right: 0.5em;
-    transition: all 0.3s;
-}
-
-.sent-button:hover .svg-wrapper {
-    background-color: rgba(255, 255, 255, 0.5);
-}
-
-.sent-button:hover svg {
-    transform: rotate(45deg);
-}
-
-
   
-  /* MessagingSection.css */
-
-.message-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.messages-container {
+  .message-list {
+    flex-grow: 1;
     width: 100%;
-}
-
-.incoming-message, .outgoing-message {
-    background-color: #e1e1e1;
-    padding: 10px;
+    max-height: 500px;
+    overflow-y: auto;
+    border: 1px solid #e1e1e1;
     border-radius: 10px;
-    margin-bottom: 5px;
-    max-width: 70%;
-}
-
-.outgoing-message {
+  }
+  
+  .input-container {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-top: 1px solid #e1e1e1;
+  }
+  
+  .send-button {
+    font-family: inherit;
+    font-size: 16px;
     background-color: #4dc7d9;
     color: white;
-    align-self: flex-end;
-}
-
-/* Rest of your existing CSS */
-
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    margin-left: 10px;
+  }
+  
+  .send-button:hover {
+    background-color: #66a6ff;
+  }
+  

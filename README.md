@@ -12,3 +12,4 @@ modules to install:
  3. npm install react-icons
 
 npm i socket.io socket.io-client
+npm install react-chat-elements

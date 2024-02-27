@@ -1,8 +1,7 @@
-//  MessagingSection.js 
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import HttpCall from './HttpCall';
-import WebSocketCall from './WebSocketCall';
+import ChatComponent from './ChatComponent'; // Import ChatComponent
 
 function MessagingSection() {
   const [socketInstance, setSocketInstance] = useState(null);
@@ -53,7 +52,7 @@ function MessagingSection() {
         <>
           <button onClick={handleClick}>Turn Chat off</button>
           <div className='line'>
-            {!loading && <WebSocketCall socket={socketInstance} />}
+            {!loading && <ChatComponent socket={socketInstance} />} {/* Use ChatComponent */}
           </div>
         </>
       )}
