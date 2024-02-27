@@ -1,4 +1,4 @@
-// Assuming MessagingSectionAdmin.js is in the messaging folder
+//  MessagingSection.js 
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import HttpCall from './HttpCall';
