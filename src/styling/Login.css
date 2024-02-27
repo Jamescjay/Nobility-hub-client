@@ -145,10 +145,7 @@
   }
 
   .form .forgot-password a,
-.agreement a {
-  font-size: 14px; 
+.agreement a, .social-account-container .title  {
+  font-size: 18px; 
 }
 
-.social-account-container .title {
-  font-size: 12px;
-}
