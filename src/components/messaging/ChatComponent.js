@@ -18,7 +18,6 @@ function ChatComponent({ socket }) {
       return;
     }
 
-    // Emit the message as a JSON string
     socket.emit('data', JSON.stringify({ data: message }));
     setMessage("");
   };
@@ -27,7 +26,7 @@ function ChatComponent({ socket }) {
     const handleReceivedData = (data) => {
       try {
         const parsedData = JSON.parse(data.data);
-        setMessages((prevMessages) => [...prevMessages, { text: parsedData.data, id: parsedData.id }]);
+        setMessages((prevMessages) => [...prevMessages, { text: parsedData.data, id: parsedData.id, date: parsedData.timestamp }]);
       } catch (error) {
         console.error("Error parsing JSON data:", error);
       }
@@ -36,7 +35,7 @@ function ChatComponent({ socket }) {
     socket.on('data', handleReceivedData);
 
     return () => {
-      socket.off('data', handleReceivedData);  // Remove the specific 'data' event listener
+      socket.off('data', handleReceivedData);
     };
   }, [socket]);
 
@@ -46,11 +45,13 @@ function ChatComponent({ socket }) {
         className="message-list"
         lockable={true}
         toBottomHeight={'100%'}
-        dataSource={messages.map(msg => ({
+        dataSource={messages.map((msg, index) => ({
           position: msg.id === socket.id ? 'right' : 'left',
           type: 'text',
           text: msg.text,
-          date: new Date(),
+          date: new Date(msg.date),
+          dateString: msg.date,
+          key: index, // Make sure each element has a unique key
         }))}
       />
 
@@ -61,25 +62,25 @@ function ChatComponent({ socket }) {
           onChange={handleInputChange}
           value={message}
           rightButtons={
-            <button onClick={handleSendMessage}className="sent-button">
-            <div className="svg-wrapper-1">
-              <div className="svg-wrapper">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  width="24"
-                  height="24"
-                >
-                  <path fill="none" d="M0 0h24v24H0z"></path>
-                  <path
-                    fill="currentColor"
-                    d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
-                  ></path>
-                </svg>
+            <button onClick={handleSendMessage} className="sent-button">
+              <div className="svg-wrapper-1">
+                <div className="svg-wrapper">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    width="24"
+                    height="24"
+                  >
+                    <path fill="none" d="M0 0h24v24H0z"></path>
+                    <path
+                      fill="currentColor"
+                      d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l6-8-8 6-8.054-2.685z"
+                    ></path>
+                  </svg>
+                </div>
               </div>
-            </div>
-            <span>Send</span>
-          </button>
+              <span>Send</span>
+            </button>
           }
         />
       </div>
