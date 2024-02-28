@@ -1,28 +1,32 @@
 /* WebSocketCall.css */
 
 .chat-container {
-    display: flex;
-    flex-direction: column;
-    height: 100%;
-  }
-  
-  .message-list {
-    flex-grow: 1;
-    width: 100%;
-    max-height: 500px;
-    overflow-y: auto;
-    border: 1px solid #e1e1e1;
-    border-radius: 10px;
-  }
-  
-  .input-container {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border-top: 1px solid #e1e1e1;
-  }
-  
-  .sent-button {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.message-list {
+  flex-grow: 1;
+  width: 100%;
+  max-height: 500px;
+  overflow-y: auto;
+  border: 1px solid #e1e1e1;
+  border-radius: 10px;
+}
+
+.input-container {
+  display: flex;
+  flex-direction: column; /* Change flex direction to column */
+  align-items: flex-end;  /* Align items to the right */
+  padding: 10px;
+  border-top: 1px solid #e1e1e1;
+  margin-right: 10px; /* Add margin to the right */
+  margin-bottom: 90px; /* Add margin to the bottom */
+}
+
+
+.sent-button {
   font-family: inherit;
   font-size: 18px;
   background: linear-gradient(to bottom, #4dc7d9 0%, #66a6ff 100%);
@@ -37,37 +41,32 @@
   transition: all 0.3s;
   cursor: pointer;
   margin-left: 10px;
- }
- 
- 
- .sent-button:hover {
+}
+
+.sent-button:hover {
   transform: translateY(-3px);
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.3);
- }
- 
- 
- .sent-button:active {
+}
+
+.sent-button:active {
   transform: scale(0.95);
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
- }
- 
- 
- .sent-button span {
+}
+
+.sent-button span {
   display: block;
   margin-left: 0.4em;
   transition: all 0.3s;
- }
- 
- 
- .sent-button svg {
+}
+
+.sent-button svg {
   width: 18px;
   height: 18px;
   fill: white;
   transition: all 0.3s;
- }
- 
- 
- .sent-button .svg-wrapper {
+}
+
+.sent-button .svg-wrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -77,15 +76,12 @@
   background-color: rgba(255, 255, 255, 0.2);
   margin-right: 0.5em;
   transition: all 0.3s;
- }
- 
- 
- .sent-button:hover .svg-wrapper {
+}
+
+.sent-button:hover .svg-wrapper {
   background-color: rgba(255, 255, 255, 0.5);
- }
- 
- 
- .sent-button:hover svg {
+}
+
+.sent-button:hover svg {
   transform: rotate(45deg);
- }
- 
+}

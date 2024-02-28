@@ -4,7 +4,7 @@ import "react-toastify/dist/ReactToastify.css";
 import '../styling/ForgotPassword.css';
 
 const ForgotPassword = () => {
-  const [userType, setUserType] = useState("student");
+  const [userType, setUserType] = useState(null);
   const [email, setEmail] = useState("");
 
   const handleNext = () => {

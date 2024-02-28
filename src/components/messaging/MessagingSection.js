@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import io from 'socket.io-client';
 import HttpCall from './HttpCall';
-import ChatComponent from './ChatComponent'; // Import ChatComponent
+import ChatComponent from './ChatComponent'; 
 
 function MessagingSection() {
   const [socketInstance, setSocketInstance] = useState(null);
