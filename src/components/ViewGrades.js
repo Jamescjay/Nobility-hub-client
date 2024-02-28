@@ -16,33 +16,6 @@ import {
   faTrophy,
 } from "@fortawesome/free-solid-svg-icons";
 
-
-const GradesTable = ({ gradesData }) => {
-  return (
-    <div className="grades-overview">
-      <h3 className="section-heading">Grades Overview</h3>
-      <table className="grades-table">
-        <thead>
-          <tr>
-            <th>Type</th>
-            <th>Count</th>
-            <th>Grades</th>
-          </tr>
-        </thead>
-        <tbody>
-          {gradesData.map((data, index) => (
-            <tr key={index}>
-              <td>{data.type}</td>
-              <td>{data.count || 1}</td>
-              <td>{data.grades.join(", ")}</td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
-  );
-};
-
 const Grades = () => {
   const user = {
     name: "Admin",
@@ -96,9 +69,14 @@ const Grades = () => {
 
   const simulateStudentSearch = (name) => {
     const studentsDatabase = [
-      { id: 1, name: "John Doe", age: 20, grade: "A" },
-      { id: 2, name: "Jane Smith", age: 21, grade: "B" },
-      { id: 3, name: "Bob Johnson", age: 22, grade: "C" },
+      { id: 1, name: "James Ekasiba", age: 20, grade: "A" },
+      { id: 2, name: "Yussuf Safia", age: 35, grade: "B" },
+      { id: 3, name: "Festus Sulumeti", age: 22, grade: "A" },
+      { id: 4, name: "Eve Mututa", age: 24, grade: "A" },
+      { id: 5, name: "Emmanuel Hillary", age: 22, grade: "C" },
+      { id: 6, name: "Reagan Ongaya", age: 22, grade: "C" },
+      { id: 7, name: "Herbert Navas", age: 22, grade: "A" },
+     
     ];
 
     return studentsDatabase.find(
@@ -111,14 +89,32 @@ const Grades = () => {
       <h2 className={styles.mainTitle}>Admin Dashboard</h2>
       <hr className={styles.sectionDivider} />
 
-      <div style={{ marginBottom: "20px" }}>
-        <input
-          type="text"
-          placeholder="Enter student name"
-          value={searchInput}
-          onChange={(e) => setSearchInput(e.target.value)}
-        />
-        <button onClick={handleSearch}>Search</button>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          alignItems: "center",
+          marginBottom: "20px",
+        }}
+      >
+        <div style={{ marginRight: "20px" }}>
+          <input
+            type="text"
+            placeholder="Enter student name"
+            value={searchInput}
+            onChange={(e) => setSearchInput(e.target.value)}
+          />
+        </div>
+        <button
+          style={{
+            backgroundColor: "#3498db",
+            color: "#ffffff",
+            cursor: "pointer",
+          }}
+          onClick={handleSearch}
+        >
+          Search
+        </button>
       </div>
 
       {filteredStudent ? (
@@ -174,10 +170,6 @@ const Grades = () => {
       </div>
 
       <hr className={styles.sectionDivider} />
-
-      <div className={styles.gradesTableContainer}>
-        <GradesTable gradesData={gradesData} />
-      </div>
     </div>
   );
 };

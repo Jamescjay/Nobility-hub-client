@@ -10,7 +10,7 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import CanvasAdminHome from "../CanvasAdminHome";
 import ManageCourses from "../ManageCourses";
-import Grades from "../Grades";
+import Grades from "../ViewGrades";
 import Calendar from "../Calendar";
 import { Navbar, Container, Nav, Row, Col } from "react-bootstrap";
 import styles from "./Canvas.css";
@@ -44,7 +44,7 @@ const CanvasDashboard = () => {
                 <FontAwesomeIcon icon={faUser} /> View Grades
               </Nav.Link>
               <Nav.Link
-                href="/Canvas/eventcalendar"
+                href="/Canvas/calendar"
                 className={styles.sidebarLink}
               >
                 <FontAwesomeIcon icon={faCalendar} /> Event Calendar
@@ -56,7 +56,7 @@ const CanvasDashboard = () => {
               <Route path="*" element={<CanvasAdminHome />} />
               <Route path="/managecourses" element={<ManageCourses />} />
               <Route path="/viewgrades" element={<Grades />} />
-              <Route path="/eventcalendar" element={<Calendar />} />
+              <Route path="/calendar" element={<Calendar />} />
             </Routes>
           </Col>
         </Row>

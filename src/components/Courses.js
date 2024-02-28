@@ -20,7 +20,8 @@ const Courses = () => {
       title: "Software Engineering FT 06 Phase 1",
       phase: 1,
       description: "Building a Strong Foundation",
-      course_url: "https://your-cohort-url.com",
+      course_url:
+        "https://docs.google.com/document/d/11BTyO0k7fmmh53g-3A-ex8LbpCe4XadkQTxf7qauWEc/edit?usp=sharing",
       materials: [{ title: "Phase 1 Overview", content: "Your content here" }],
     },
     {
@@ -28,7 +29,8 @@ const Courses = () => {
       title: "Software Engineering FT 06 Phase 2",
       phase: 2,
       description: "Exploring Advanced Topics",
-      course_url: "https://your-cohort-url.com",
+      course_url:
+        "https://docs.google.com/document/d/1uKyFLR2ldo3_7cqQ4HNC0YofOy-L-LCC34sXlSB-fKc/edit?usp=sharing",
       materials: [{ title: "Phase 2 Overview", content: "Your content here" }],
     },
     {
@@ -36,7 +38,8 @@ const Courses = () => {
       title: "Software Engineering FT 06 Phase 3",
       phase: 3,
       description: "Practical Application of Skills",
-      course_url: "https://your-cohort-url.com",
+      course_url:
+        "https://docs.google.com/document/d/1fXPn5D9ZYeCuqxqNgkEeyb4tRvMkyLeLyzEOsdkZ_6M/edit?usp=sharing",
       materials: [{ title: "Phase 3 Overview", content: "Your content here" }],
     },
     {
@@ -44,7 +47,8 @@ const Courses = () => {
       title: "Software Engineering FT 06 Phase 4",
       phase: 4,
       description: "Codility",
-      course_url: "https://your-cohort-url.com",
+      course_url:
+        "https://docs.google.com/document/d/1lOTbWxscjrnZCX-76Ek2d2qFm7jzeNeqKhdxwptFvT0/edit?usp=sharing",
       materials: [{ title: "Phase 4 Overview", content: "Your content here" }],
     },
     {
@@ -52,7 +56,8 @@ const Courses = () => {
       title: "Software Engineering FT 06 Phase 5",
       phase: 5,
       description: "Capstone Project Development",
-      course_url: "https://your-cohort-url.com",
+      course_url:
+        "https://docs.google.com/document/d/1JIJ5u1yDYOiZjOl96_iXfJPCUkl0FxTOU_viH_Zg3OM/edit?usp=sharing",
       materials: [{ title: "Phase 5 Overview", content: "Your content here" }],
     },
   ]);

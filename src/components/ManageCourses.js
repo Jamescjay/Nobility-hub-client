@@ -16,7 +16,7 @@ const AdminCourses = () => {
     course_url: "",
   });
 
-  // Simulate fetching data from a server
+  
   const fetchCourses = async () => {
   try {
     const response = await fetch("https://URL/courses");
@@ -30,7 +30,7 @@ const AdminCourses = () => {
     console.error("Error fetching courses:", error.message);
   }
 
-    // Simulate an asynchronous API call with setTimeout
+    
     setTimeout(() => {
       const mockData = [
         {
@@ -49,7 +49,8 @@ const AdminCourses = () => {
           title: "Software Engineering FT 06 Phase 1",
           phase: 1,
           description: "Building a Strong Foundation",
-          course_url: "https://your-cohort-url.com",
+          course_url:
+            "https://docs.google.com/document/d/11BTyO0k7fmmh53g-3A-ex8LbpCe4XadkQTxf7qauWEc/edit?usp=sharing",
           materials: [
             { title: "Phase 1 Overview", content: "Your content here" },
           ],
@@ -57,7 +58,7 @@ const AdminCourses = () => {
       ];
 
       setCourses(mockData);
-    }, 1000); 
+    }, 1); 
   };
 
   

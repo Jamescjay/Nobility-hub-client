@@ -15,7 +15,7 @@ const NavigationBar = () => {
           <Link to="/viewgrades">Grades</Link>
         </li>
         <li>
-          <Link to="/eventcalendar">Calendar</Link>
+          <Link to="/calendar">Calendar</Link>
         </li>
       </ul>
     </nav>
