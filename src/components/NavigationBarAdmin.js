@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useContext } from 'react';
 import '../styling/Navigation.css';
 import { useNavigate} from "react-router-dom";
-//import { toast } from "react-toastify";
 import { AuthContext } from './AuthContext';
 
 const NavigationBarAdmin = ({ handleDirectMessagesToggle }) => {
@@ -80,5 +79,7 @@ const NavigationBarAdmin = ({  handleLogout }) => {
     </div>
   );
 };
+
+}
 
 export default NavigationBarAdmin;
