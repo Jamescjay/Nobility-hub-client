@@ -8,6 +8,9 @@ modules to install:
  7. npm install --save @fortawesome/free-solid-svg-icons
  8. npm install --save @fortawesome/react-fontawesome
  9. npm install recharts
- 10. npm install lucide-react
- 11. npm install react-icons
+ 2. npm install lucide-react
+ 3. npm install react-icons
+
+npm i socket.io socket.io-client
+npm install react-chat-elements
  12. npm install react-modal
