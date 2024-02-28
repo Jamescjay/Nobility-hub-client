@@ -9,6 +9,7 @@ import LearnersDashboard from "./components/Learnersdashboard";
 import Canvas from "./components/sidebarAdmin/Canvas";
 import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 import Overall from "./components/sidebarAdmin/Overall";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/Learnersdashboard" element={<LearnersDashboard />} />
         <Route path="/CanvasHome/*" element={<CanvasHome />} />
         <Route path="/LearnersLogin" element={<LearnersLogin />} />
+        <Route path="/aboutus" element={<AboutUs />} />
       </Routes>
     </Router>
   );
