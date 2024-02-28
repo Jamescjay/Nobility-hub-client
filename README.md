@@ -13,3 +13,4 @@ modules to install:
 
 npm i socket.io socket.io-client
 npm install react-chat-elements
+ 12. npm install react-modal

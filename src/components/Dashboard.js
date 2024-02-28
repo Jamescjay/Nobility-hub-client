@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import NavigationBarAdmin from './NavigationBarAdmin';
 import SidebarAdmin from './SidebarAdmin';
-import MessagingSection from './messaging/MessagingSection';
+import MessagingSection from './messaging/MessagingSection'; 
 import '../styling/Dashboard.css';
 
 
@@ -42,8 +42,4 @@ const Admindashboard = () => {
  );
 };
 
-
 export default Admindashboard;
-
-
-

@@ -6,6 +6,7 @@ import {
   faBook,
   faUser,
   faCalendar,
+  faStar,
 } from "@fortawesome/free-solid-svg-icons";
 import CanvasHome from "../CanvasHomePage";
 import Courses from "../Courses";
@@ -18,7 +19,9 @@ const CanvasDashboard = () => {
   return (
     <div>
       <Navbar bg="dark" variant="dark">
-        <Navbar.Brand href="#home">Nob-hub Logo</Navbar.Brand>
+        <Navbar.Brand href="#home">
+          <FontAwesomeIcon icon={faStar} /> Nob-hub
+        </Navbar.Brand>
       </Navbar>
 
       <Container fluid>

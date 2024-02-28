@@ -1,13 +1,17 @@
+
 import React, { useState } from "react";
-import { FcGoogle } from "react-icons/fc";
 import { ToastContainer, toast } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 import '../styling/Login.css';
 import { Link } from "react-router-dom";
+import { FcGoogle } from "react-icons/fc";
+import "react-toastify/dist/ReactToastify.css";
+import { AuthContext } from "./AuthContext";
+
 
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const {login} = useContext(AuthContext)
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -22,6 +26,8 @@ const LearnersLogin = () => {
       });
 
       if (response.ok) {
+        const { id, access_token } = await response.json();
+        login(id, access_token);
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {
@@ -96,7 +102,7 @@ const LearnersLogin = () => {
               <path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"></path>
             </svg>
           </button>
-         
+ 
           </div>
         </div>
         <span className="agreement">

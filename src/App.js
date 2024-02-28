@@ -6,10 +6,12 @@ import LearnersLogin from "./components/LearnersLogin";
 import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import LearnersDashboard from "./components/Learnersdashboard";
-import Canvas from "./components/sidebarAdmin/Canvas";
+import Canvas from "./components/sidebarAdmin/CanvasAdminDashboard";
 import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 import Overall from "./components/sidebarAdmin/Overall";
 import ForgotPassword from "./components/ForgotPassword";
+import CanvasAdminHome from "./components/CanvasAdminHome";
+
 
 function App() {
   return (
@@ -26,6 +28,7 @@ function App() {
 
         <Route path="/Learnersdashboard" element={<LearnersDashboard />} />
         <Route path="/CanvasHome/*" element={<CanvasHome />} />
+        <Route path="/Canvas/*" element={<Canvas />} />
         <Route path="/LearnersLogin" element={<LearnersLogin />} />
       </Routes>
     </Router>
