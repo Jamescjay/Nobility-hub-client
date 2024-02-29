@@ -50,7 +50,7 @@
   width: 230px;
   height: 650px;
   color: #080115;
-  background-color:#0c9e9b;
+  background-color: var(--secondary-color);
   padding: 1rem;
  }
  
@@ -260,17 +260,6 @@
  
  
  
- 
- 
- 
- 
- 
- /* Dashboard.css */
- 
- 
- /* ... (previous styles) ... */
- 
- 
  /* Right Content Section */
  .learners-right-content {
   flex: 1; /* Allow this section to take up the remaining space */
@@ -280,6 +269,4 @@
   overflow: auto; /* Allow content to be scrollable if it exceeds the height */
  }
  
- 
- /* ... (remaining styles) ... */
 
