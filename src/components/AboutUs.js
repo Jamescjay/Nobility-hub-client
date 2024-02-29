@@ -37,9 +37,9 @@ const AboutUs = () => {
             Our vision is one that strives to connect our African people to the future they envision for themselves.  This is the goal in-front of us and it keeps us striving for more. Simply put…we will know we are succeeding when people working in tech in Africa have the same earning potential as their global counterparts possessing the same attitude and mindset.</p>
         </div>
       </div>
-       
-          <section className='section-white' >
-              <div className='container' style={{ backgroundColor: 'transparent', paddingTop: '4%', borderRadius: '45px', width: '90%' }}>
+
+      <div>
+      <div className='container' style={{ backgroundColor: 'transparent', paddingTop: '4%', borderRadius: '45px', width: '90%' }}>
                   <div className='row' style={{ justifyContent: 'space-between' }}>
                       <div className='col-md-12 text-center'>
                           <h2 className='secttion-title' >
@@ -328,7 +328,7 @@ const AboutUs = () => {
 
                   </div>
               </div>
-          </section>
+      </div>
 
       <footer style={footerStyle}>
         &copy; 2024 Company Name. All Rights Reserved.

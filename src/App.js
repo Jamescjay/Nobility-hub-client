@@ -11,6 +11,8 @@ import Overall from "./components/sidebarAdmin/Overall";
 import AboutUs from "./components/AboutUs";
 import ForgotPassword from "./components/ForgotPassword";
 import CanvasAdminHome from "./components/CanvasAdminHome";
+import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
+
 
 function App() {
   return (
