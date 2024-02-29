@@ -1,6 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap');
+
 .home-container {
+    font-family: 'Roboto', sans-serif;
     margin-bottom: 12px;
-    margin-top: 28px;
+    margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -10,8 +13,9 @@
   
   .main-heading {
     max-width: 4xl;
-    font-size: 5xl;
+    font-size: 12xl;
     font-weight: bold;
+    color: #000000;
     @media (min-width: 768px) {
       font-size: 6xl;
     }
@@ -20,14 +24,15 @@
     }
   
     .text-blue-600 {
-      color: #4299e1;
+      color: #073aba;
     }
   }
   
   .sub-text {
-    margin-top: 5px;
+    margin-top: 25px;
     max-width: prose;
-    font-size: zinc-700;
+    font-size: 900;
+    color: #01030a;
     @media (min-width: 640px) {
       font-size: lg;
     }
@@ -36,8 +41,9 @@
   .button-container {
     display: flex;
     align-items: center;
-    gap: 4px;
-    margin-top: 4px;
+    gap: 20px;
+    margin-top: 55px;
+    border-radius: 20px;
   }
   
   .primary-button,
@@ -45,22 +51,31 @@
     /* Add your button styles here using Tailwind CSS or other styles */
     /* Example styles for primary button */
     padding: 10px 20px;
-    background-color: #4299e1;
+    background-color: #073aba;
     color: #ffffff;
     border: none;
-    border-radius: 5px;
+    border-radius: 12px;
     text-decoration: none;
     cursor: pointer;
     transition: background-color 0.3s ease;
   
     &:hover {
-      background-color: #2b6cb0;
+      background-color:#fb5204;
     }
   
     .arrow-icon {
       margin-left: 2px;
-      height: 20px;
+      height: 16px;
       width: 20px;
     }
   }
-  
+
+  /* Add hover effect for headings */
+.main-heading:hover {
+  color:#fb5204;
+}
+
+/*Hovering for the sub-text  */
+.sub-text:hover {
+  color:#060cc6;
+}

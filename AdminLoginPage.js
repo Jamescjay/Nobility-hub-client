@@ -72,7 +72,7 @@ const LearnersLogin = () => {
           <h1>Welcome to Nobility Hub</h1>
         </div>
         <div className="image-section">
-          <img src={wideImage} alt="Wide" className="wide-image" />
+          <img src={wideImage} alt="Wide Image" className="wide-image" />
         </div>
         <div className="description-section">
           <p>

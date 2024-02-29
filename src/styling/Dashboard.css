@@ -1,130 +1,167 @@
 /* Dashboard.css */
 
+
 :root {
-  --primary-color: #3498db; /* Blue as the primary color */
+  --primary-color: #09052a; /* Blue as the primary color */
   --secondary-color: #ecf0f1; /* Light gray as the secondary color */
   --accent-color: #e74c3c; /* Red as the accent color */
-}
-
-.learners-dashboard-container {
+ }
+ 
+ 
+ .learners-dashboard-container {
   display: flex;
   flex-direction: column;
   height: 100vh;
-}
-
-/* Top Navigation Bar */
-.learners-top-nav {
+ }
+ 
+ 
+ .learners-main-content {
+  display: flex; /* Use flexbox for layout */
+ }
+ 
+ 
+ /* Top Navigation Bar */
+ .learners-top-nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem;
+  padding: 10px;
   background-color: var(--primary-color);
   color: #fff;
-}
-
-.learners-left-section {
+ }
+ 
+ 
+ .learners-left-section {
   display: flex;
   align-items: center;
+  font-weight: bold;
 }
 
 .learners-channels-icon,
 .learners-search-bar,
 .learners-user-profile {
   margin: 0 1rem;
-}
-
-/* Sidebar */
-.learners-sidebar {
+ }
+ 
+ 
+ /* Sidebar */
+ .learners-sidebar {
   display: flex;
   flex-direction: column;
-  width: 250px;
+  width: 230px;
   height: 650px;
-  background-color: var(--secondary-color);
+  color: #080115;
+  background-color:#0c9e9b;
   padding: 1rem;
-}
-
-/* Nobility Hub */
-.learners-nobility-hub {
+ }
+ 
+ 
+ /* Nobility Hub */
+ .learners-nobility-hub {
   margin-bottom: 1rem;
-}
-
-.learners-hub-label {
+ }
+ 
+ 
+ .learners-hub-label {
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
-
-.learners-hub-dropdown ul {
+ }
+ 
+ 
+ .learners-hub-dropdown ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   max-height: 200px; /* Set an initial max-height value */
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-}
-
-.learners-hub-dropdown:hover ul {
+ }
+ 
+ 
+ .learners-hub-dropdown:hover ul {
   max-height: 200px; /* Adjust the value based on your content height */
-}
-
-.learners-hub-dropdown li {
+ }
+ 
+ 
+ .learners-hub-dropdown li {
   cursor: pointer;
   padding: 0.5rem;
   transition: background-color 0.3s;
-}
-
-.learners-hub-dropdown li:hover {
+ }
+ 
+ 
+ .learners-hub-dropdown li:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color); /* Change text color on hover */
-}
-
-/* Channels Section */
-.learners-channels-section {
+ }
+ 
+ 
+ /* Channels Section */
+ .learners-channels-section {
   margin-bottom: 1rem;
-}
-
-.learners-channels-label {
+ }
+ 
+ 
+ .learners-channels-label {
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
-
-.learners-channels-dropdown ul {
+ }
+ 
+ 
+ .learners-channels-dropdown ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   max-height: 200px; /* Set an initial max-height value */
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-}
-
-.learners-channels-dropdown:hover ul {
+ }
+ 
+ 
+ .learners-channels-dropdown:hover ul {
   max-height: 200px; /* Adjust the value based on your content height */
-}
-
-.learners-channels-dropdown li {
+ }
+ 
+ 
+ .learners-channels-dropdown li {
   cursor: pointer;
   padding: 0.5rem;
   transition: background-color 0.3s;
-}
-
-.learners-channels-dropdown li:hover {
+ }
+ 
+ 
+ .learners-channels-dropdown li:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color); /* Change text color on hover */
-}
-
-/* Direct Messages */
-.learners-direct-messages {
+ }
+ 
+ 
+ /* Direct Messages */
+ .learners-direct-messages {
   margin-bottom: 1rem;
-}
-
-.learners-dm-label {
+ }
+ 
+ 
+ .learners-dm-label {
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
-
-/* Search Bar Styles */
-.learners-search-bar {
+ }
+ 
+ 
+ /* Search Bar Styles */
+ .learners-search-bar {
   display: flex;
   align-items: center;
+  width: 440px;
+}
+
+.input {
+  margin-top: 20px;
+  border-radius: 20px;
+}
+
+.uil-search-alt{
+  margin-left:250px;
 }
 
 .learners-search-bar input {
@@ -134,16 +171,18 @@
   padding: 5px;
   font-size: 14px;
   flex: 1; /* Allow input to grow and take available space */
-}
-
-.learners-search-bar i {
+ }
+ 
+ 
+ .learners-search-bar i {
   margin-right: 5px;
   flex-shrink: 0; /* Prevent the icon from shrinking */
   color: var(--secondary-color); /* Use secondary color for the search icon */
-}
-
-/* User Profile Dropdown */
-.learners-user-dropdown {
+ }
+ 
+ 
+ /* User Profile Dropdown */
+ .learners-user-dropdown {
   position: absolute;
   top: 30px;
   right: 10px;
@@ -152,76 +191,96 @@
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
   display: none;
   color: #000; /* Set text color to black */
-}
-
-.learners-user-profile:hover .learners-user-dropdown {
+ }
+ 
+ 
+ .learners-user-profile:hover .learners-user-dropdown {
   display: block;
-}
-
-.learners-user-dropdown ul {
+ }
+ 
+ 
+ .learners-user-dropdown ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-}
-
-.learners-user-dropdown li {
+ }
+ 
+ 
+ .learners-user-dropdown li {
   padding: 10px;
   cursor: pointer;
-}
-
-.learners-user-dropdown li:hover {
+ }
+ 
+ 
+ .learners-user-dropdown li:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color);
-}
-
-
-/* Students Section */
-.learners-students-section {
+ }
+ 
+ 
+ 
+ 
+ /* Students Section */
+ .learners-students-section {
   margin-bottom: 1rem;
-}
-
-.learners-students-label {
+ }
+ 
+ 
+ .learners-students-label {
   font-weight: bold;
   margin-bottom: 0.5rem;
-}
-
-.learners-students-dropdown ul {
+ }
+ 
+ 
+ .learners-students-dropdown ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
   max-height: 200px; /* Set an initial max-height value */
   overflow: hidden;
   transition: max-height 0.3s ease-out;
-}
-
-.learners-students-dropdown:hover ul {
+ }
+ 
+ 
+ .learners-students-dropdown:hover ul {
   max-height: 200px; /* Adjust the value based on your content height */
-}
-
-.learners-students-dropdown li {
+ }
+ 
+ 
+ .learners-students-dropdown li {
   cursor: pointer;
   padding: 0.5rem;
   transition: background-color 0.3s;
-}
-
-.learners-students-dropdown li:hover {
+ }
+ 
+ 
+ .learners-students-dropdown li:hover {
   background-color: var(--secondary-color);
   color: var(--primary-color); /* Change text color on hover */
-}
-
-
-
-
-/* Dashboard.css */
-
-/* ... (previous styles) ... */
-
-/* Right Content Section */
-.learners-right-content {
+ }
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /* Dashboard.css */
+ 
+ 
+ /* ... (previous styles) ... */
+ 
+ 
+ /* Right Content Section */
+ .learners-right-content {
   flex: 1; /* Allow this section to take up the remaining space */
   padding: 1rem;
-  background-color: white; /* Set a background color if needed */
+  color: #080115;
+  background-color: rgb(16, 24, 85); /* Set a background color if needed */
   overflow: auto; /* Allow content to be scrollable if it exceeds the height */
-}
-
-/* ... (remaining styles) ... */
+ }
+ 
+ 
+ /* ... (remaining styles) ... */
+ 

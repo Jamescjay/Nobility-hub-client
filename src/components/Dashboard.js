@@ -2,24 +2,20 @@ import React, { useState } from "react";
 import NavigationBar from "./NavigationBarAdmin";
 import SidebarAdmin from "./SidebarAdmin";
 import DirectMessagesContent from "./sidebarAdmin/DirectMessagesContent";
-import Canvas from "./sidebarAdmin/CanvasAdminDashboard"; // Import Canvas component
+import Canvas from "./sidebarAdmin/CanvasAdminDashboard"; 
 import "../styling/Dashboard.css";
 
 const Admindashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
   const [channelsOpen, setChannelsOpen] = useState(false);
   const [studentsDropdownOpen, setStudentsDropdownOpen] = useState(false);
-  const [directMessagesOpen, setDirectMessagesOpen] = useState(false);
   const [selectedSection, setSelectedSection] = useState(null);
+  const [directMessagesOpen, setDirectMessagesOpen] = useState(false);
 
   const handleLogout = () => {
     console.log("Logout clicked");
     // Implement your logout logic here
   };
-
-  // const handleSectionClick = (section) => {
-  //   setSelectedSection(section);
-  // };
 
   const handleSectionClick = (section) => {
     setSelectedSection(section);
