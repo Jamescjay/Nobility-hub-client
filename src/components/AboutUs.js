@@ -5,13 +5,13 @@ import pinterest from './AboutLogo/pinterest.png';
 import facebook from './AboutLogo/facebook.png';
 
 import jake from './TeamPic/jake.jpg';
-//import safia from './AboutLogo/safia.png';
+import safia from './AboutLogo/safia.jpeg';
 import hillary from './TeamPic/hillary.jpeg';
 import eve from './TeamPic/eve.jpeg';
 import festus from './TeamPic/festus.jpeg';
 import herbert from './TeamPic/herbert.jpeg';
-import james from './TeamPic/james.webp';
-import dash from './TeamPic/user.webp';
+import jamie from './TeamPic/Jamie.jpeg';
+//import dash from './TeamPic/user.webp';
 
 
 const AboutUs = () => {
@@ -29,8 +29,13 @@ const AboutUs = () => {
                 </p>
             </div>
 
-            <div className='col-sm-6 col-md-4'>
-                <div className='team-item' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <div className='col-sm-6 col-md-4' >
+                <div className='team-item' 
+                style={{ 
+                     display: 'flex', 
+                     flexDirection: 'column', 
+                     alignItems: 'center',
+                     }}>
                     <img 
                       src= {jake} 
                       alt='reagan' 
@@ -68,9 +73,14 @@ const AboutUs = () => {
             </div>
 
             <div className='col-sm-6 col-md-4'>
-                <div className='team-item' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                <div className='team-item'
+                 style={{ 
+                    display: 'flex', 
+                    flexDirection: 'column', 
+                    alignItems: 'center',
+                    }}>
                     <img 
-                       src= {dash} 
+                       src= {safia} 
                        alt='safia' 
                        className='team-member1' 
                        style={{
@@ -260,7 +270,7 @@ const AboutUs = () => {
             <div className='col-sm-6 col-md-4'>
                 <div className='team-item' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                     <img 
-                       src= {james} 
+                       src= {jamie} 
                        alt='james' 
                        className='team-member1'  
                        style={{
