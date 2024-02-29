@@ -20,7 +20,7 @@ const NavigationBarAdmin = () => {
     <div className="learners-top-nav">
       <div className="learners-left-section">
         <div className="learners-channels-icon">
-          <i className="uil uil-chat"></i> Nob Hub
+          <i className="uil uil-chat"></i> Nobility Hub
         </div>
       </div>
       <div className="learners-search-bar">
