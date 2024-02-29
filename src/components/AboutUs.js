@@ -80,7 +80,7 @@ const AboutUs = () => {
                     alignItems: 'center',
                     }}>
                     <img 
-                       src= {safia} 
+                       src={safia} 
                        alt='safia' 
                        className='team-member1' 
                        style={{
