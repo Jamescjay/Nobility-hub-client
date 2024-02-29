@@ -60,7 +60,7 @@ const Home = () => {
                 Nobility Hub <span className="text-blue-600">worksession</span>
               </h1>
               <p className="sub-text">
-                Study online and become a Nobility hub certified Software Engineer
+                Study online and become a Nobility hub certified Software Engineer in:
               </p>
             </div>
           </section>
