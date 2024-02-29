@@ -5,7 +5,7 @@ import pinterest from './AboutLogo/pinterest.png';
 import facebook from './AboutLogo/facebook.png';
 
 import jake from './TeamPic/jake.jpg';
-import safia from './AboutLogo/safia.jpeg';
+import safia from './TeamPic/safia.jpeg';
 import hillary from './TeamPic/hillary.jpeg';
 import eve from './TeamPic/eve.jpeg';
 import festus from './TeamPic/festus.jpeg';
