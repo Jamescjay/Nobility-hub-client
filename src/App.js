@@ -1,5 +1,5 @@
 import React from "react";
-import "./App.css";
+
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AdminLoginPage from "./components/AdminLoginPage";
 import LearnersLogin from "./components/LearnersLogin";
@@ -10,7 +10,7 @@ import Canvas from "./components/sidebarAdmin/CanvasAdminDashboard";
 import Overall from "./components/sidebarAdmin/Overall";
 import AboutUs from "./components/AboutUs";
 import ForgotPassword from "./components/ForgotPassword";
-import CanvasAdminHome from "./components/CanvasAdminHome";
+
 import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 
 
