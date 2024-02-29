@@ -1,32 +1,41 @@
-// src/components/Dashboard.js
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from "react";
+import SidebarAdmin from "./SidebarAdmin";
+import MessagingSection from "./messaging/MessagingSection";
+import "../styling/Dashboard.css";
+import NavigationBarAdmin from "./NavigationBarAdmin";
 
-const Dashboard = ({ user }) => {
-  const navigate = useNavigate();
-
-  // Check if user is defined before accessing properties
-  if (!user || !user.email || !user.role) {
-    return (
-      <div>
-        <p>Error: User data is not available.</p>
-        <button onClick={() => navigate('/adminlogin')}>Go to Login</button>
-      </div>
-    );
-  }
+const Admindashboard = () => {
+  const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
+  const [channelsOpen, setChannelsOpen] = useState(false);
+  const [studentsDropdownOpen, setStudentsDropdownOpen] = useState(false);
+  const [selectedSection, setSelectedSection] = useState(null);
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    navigate('/adminlogin');
+    console.log("Logout clicked");
+    // Implement your logout logic here
+  };
+
+  const handleSectionClick = (section) => {
+    setSelectedSection(section);
   };
 
   return (
-    <div>
-      <h1>Welcome to the Dashboard, {user.email}!</h1>
-      <p>Role: {user.role}</p>
-      <button onClick={handleLogout}>Logout</button>
+    <div className="learners-dashboard-container">
+      <NavigationBarAdmin />
+      <div className="learners-main-content">
+        <SidebarAdmin
+          handleSectionClick={handleSectionClick}
+          nobilityHubOpen={nobilityHubOpen}
+          setNobilityHubOpen={setNobilityHubOpen}
+          channelsOpen={channelsOpen}
+          setChannelsOpen={setChannelsOpen}
+          studentsDropdownOpen={studentsDropdownOpen}
+          setStudentsDropdownOpen={setStudentsDropdownOpen}
+        />
+        <MessagingSection />
+      </div>
     </div>
   );
 };
 
-export default Dashboard;
+export default Admindashboard;

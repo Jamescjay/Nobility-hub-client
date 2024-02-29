@@ -62,20 +62,26 @@ const SignupForm = () => {
 
   return (
     <div>
-      <button onClick={() => setShowSignup(true)}>Open Signup Modal</button>
+      <button onClick={() => setShowSignup(true)}>Add New Learners</button>
       <Modal
         isOpen={showSignup}
         onRequestClose={() => setShowSignup(false)}
         contentLabel="Signup Modal"
         style={{
           content: {
-            width: "600px",
-            height: "400px",
+            width: "800px",
+            height: "600px",
             margin: "auto",
+            backgroundColor: "#22577a",
           },
         }}
       >
-        <button style={{backgroundColor: "red"}} onClick={() => setShowSignup(false)}>Close</button>
+        <button
+          style={{ backgroundColor: "red" }}
+          onClick={() => setShowSignup(false)}
+        >
+          Close
+        </button>
         <h2>Register Learner</h2>
         <form onSubmit={handleSubmit} style={styles.form}>
           <label style={styles.label}>
@@ -166,7 +172,7 @@ const SignupForm = () => {
 
 const styles = {
   form: {
-    maxWidth: "400px",
+    maxWidth: "600px",
     margin: "0 auto",
     padding: "20px",
     borderRadius: "5px",

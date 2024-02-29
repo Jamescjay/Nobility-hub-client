@@ -11,14 +11,24 @@ export const AuthProvider = ({ children }) => {
     setUserId(id);
   };
 
+  const adminLogin = (accessToken) => {
+    localStorage.setItem("access_token", accessToken);
+  };
+
   const logout = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("accessToken");
     setUserId(null);
   };
 
+  const adminLogout = () => {
+    localStorage.removeItem("access_token");
+  };
+
   return (
-    <AuthContext.Provider value={{ userId, login, logout }}>
+    <AuthContext.Provider
+      value={{ userId, login, logout, adminLogin, adminLogout }}
+    >
       {children}
     </AuthContext.Provider>
   );

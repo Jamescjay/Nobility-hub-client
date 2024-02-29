@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Modal from "react-modal";
-import "../Css/Cohort.css";
+import "../styling/Cohort.css";
 
 const Cohort = ({ cohort, onView }) => {
   const { name, status, startDate, endDate } = cohort;
@@ -64,7 +64,7 @@ const CohortSelection = () => {
 
   return (
     <div>
-      <button onClick={() => setShowModal(true)}>Open Cohort Modal</button>
+      <button onClick={() => setShowModal(true)}>Cohorts</button>
       <Modal
         isOpen={showModal}
         onRequestClose={handleCloseModal}
@@ -72,7 +72,7 @@ const CohortSelection = () => {
         style={{
           content: {
             width: "1100px",
-            height: "380px",
+            height: "600px",
             margin: "auto",
             backgroundColor: "#22577a",
             color: "white",

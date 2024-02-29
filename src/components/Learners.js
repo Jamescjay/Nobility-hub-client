@@ -37,8 +37,8 @@ const Learners = () => {
             margin: "auto",
             backgroundColor: "#22577a",
             color: "white",
-            fontFamily: 'Roboto',
-            fontWeight: "bold"
+            fontFamily: "Roboto",
+            fontWeight: "bold",
           },
         }}
       >

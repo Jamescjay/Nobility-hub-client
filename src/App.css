@@ -2,8 +2,8 @@ body {
   margin: 0;
   padding: 0;
   font-family: "Arial", sans-serif;
-  background-color: #f7f7f7;
-  color: #444;
+  background-color: #f5f5f5;
+  color: #333;
 }
 
 .app-container {
@@ -13,24 +13,18 @@ body {
   margin: 0 auto;
 }
 
-.left-section {
-  flex: 1;
-  padding: 20px;
-}
-
+.left-section,
 .right-section {
   flex: 1;
   padding: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .title-section {
   margin-bottom: 15px;
   text-align: center;
-  font-family: "Helvetica", sans-serif;
+  font-family: 'Roboto', sans-serif;
   font-size: 1.3em; 
+
   font-weight: bold;
   color: #333;
 }
@@ -49,14 +43,14 @@ body {
 
 .wide-image {
   width: 100%;
-  max-width: 600px; 
-  border-radius: 20px; 
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3); 
+  max-width: 600px;
+  border-radius: 20px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
   transition: transform 0.3s ease;
 }
 
 .wide-image:hover {
-  transform: scale(1.08); 
+  transform: scale(1.08);
 }
 
 .cta-section {
@@ -67,63 +61,70 @@ body {
 
 .cta-tab {
   background-color: #fff;
-  border-radius: 20px; 
-  padding: 25px; 
-  box-shadow: 0 0 20px rgba(18, 18, 18, 0.3); 
+  border-radius: 20px;
+  padding: 25px;
+  box-shadow: 0 0 20px rgba(18, 18, 18, 0.3);
   text-align: center;
 }
 
-h1,
-h2 {
+h1, h2 {
   color: #333;
 }
 
-.sign-in-button {
-  background-color: #f16f10;
-  color: white;
-  padding: 20px 40px; 
-  font-size: 20px; 
-  cursor: pointer;
-  border: none;
-  outline: none;
-  border-radius: 10px; 
-  transition: background-color 0.3s ease;
-  margin-bottom: 10px; 
+.sign-in-button,
+.sign-in-button-google,
+button,
+a {
+  text-decoration: none;
+  color: #fff;
+  font-family: "Arial", sans-serif;
 }
 
-.sign-in-button:hover {
-  background-color: #cc3700;
-}
-
-.google-logo {
-  margin-right: 10px; 
-  width: 24px; 
-  height: 24px; 
-}
-
+.sign-in-button,
 .sign-in-button-google {
-  background-color: #4285f4; 
-  color: #ffffff;
-  padding: 19px 70px;
   font-size: 20px;
   cursor: pointer;
   border: none;
   outline: none;
   border-radius: 10px;
   transition: background-color 0.3s ease;
-  align-items: center;
+  display: inline-block;
+  margin-bottom: 10px;
+}
+
+.sign-in-button:hover,
+.sign-in-button-google:hover,
+button:hover,
+a:hover {
+  text-decoration: none;
+  color: #fff;
+}
+
+.sign-in-button {
+  background-color: #f16f10;
+  padding: 15px 30px;
+}
+
+.sign-in-button:hover {
+  background-color: #cc3700;
+}
+
+.sign-in-button-google {
+  background-color: #4285f4;
+  padding: 14px 60px;
 }
 
 .sign-in-button-google:hover {
-  background-color: #3b79cb; 
+  background-color: #3b79cb;
 }
 
 input {
   width: 100%;
-  padding: 15px; 
-  margin-bottom: 20px; 
+  padding: 15px;
+  margin-bottom: 20px;
   box-sizing: border-box;
-  border: 1px solid #ccc; 
-  border-radius: 8px; 
-  font-size: 16px; 
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
 }
+
