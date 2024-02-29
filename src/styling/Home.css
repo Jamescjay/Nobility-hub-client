@@ -42,9 +42,7 @@
 
 .primary-button,
 .secondary-button {
-  /* Add your button styles here using Tailwind CSS or other styles */
-  /* Example styles for primary button */
-  padding: 10px 20px;
+   padding: 10px 20px;
   background-color: #4299e1;
   color: #ffffff;
   border: none;
