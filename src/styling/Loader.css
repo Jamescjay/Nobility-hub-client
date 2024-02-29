@@ -1,5 +1,6 @@
 /* Loader.css */
 .loader-container {
+  margin-top: 60px;
   position: fixed;
   top: 50%;
   left: 50%;
