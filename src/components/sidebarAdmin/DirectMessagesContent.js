@@ -3,7 +3,7 @@
 import React from 'react';
 //import '../styling/DirectMessagesContent.css'; // Import your styling for DirectMessagesContent
 
-const DirectMessagesContent = () => {
+const DirectMessagesContent = ({ data }) => {
   return (
     <div className="direct-messages-container">
       <h2>Direct Messages</h2>
