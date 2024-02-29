@@ -75,9 +75,9 @@ const Home = () => {
             </div>
           </section>
 
-          {/* Footer (Add your footer code here) */}
+          {/* Footer */}
           <footer className="footer-container">
-            {/* ... (footer content) */}
+            <p>&copy; 2024 Nobility Hub. All rights reserved.</p>
           </footer>
         </>
       )}
