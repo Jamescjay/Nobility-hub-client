@@ -1,60 +1,21 @@
-import React, { useState, useEffect, useContext } from 'react';
-import '../styling/Navigation.css';
-import { useNavigate} from "react-router-dom";
+import React, { useState, useContext } from "react";
+import "../styling/Navigation.css";
+import { useNavigate } from "react-router-dom";
 //import { toast } from "react-toastify";
-import { AuthContext } from './AuthContext';
+import { AuthContext } from "./AuthContext";
 
-const NavigationBarAdmin = ({ handleDirectMessagesToggle }) => {
+const NavigationBarAdmin = () => {
   const navigate = useNavigate();
-  const {logout} = useContext(AuthContext)
-  const userId = localStorage.getItem("userId")
-  const [userDetails, setUserDetails] = useState()
+  const { adminLogout } = useContext(AuthContext);
 
-  const fetchUserDetails = async () => {
-    if (userId) {
-      try {
-        const response = await fetch(
-          `http://127.0.0.1:5555/register/${userId}`
-        );
-        if (response.ok) {
-          const data = await response.json();
-          setUserDetails(data);
-        } else {
-         
-        }
-      } catch (error) {
-       
-        console.error("Error fetching user details:", error);
-      }
-    }
-  };
-
-  useEffect(() => {
-    if (userId) {
-      fetchUserDetails();
-    }
-  }, [userId]);
-
-  const getAbbreviation = (name) => {
-    return name ? name.charAt(0).toUpperCase() : "";
-  };
-
-  const getCircleColor = () => {
-    
-    return `rgb(${Math.floor(Math.random() * 256)}, ${Math.floor(
-      Math.random() * 256
-    )}, ${Math.floor(Math.random() * 256)})`;
-  };
   const handleLogout = () => {
-    logout(); 
-   
+    adminLogout();
+
     alert("Logged out");
-  
+
     navigate("/");
   };
-  
 
-const NavigationBarAdmin = ({  handleLogout }) => {
   return (
     <div className="learners-top-nav">
       <div className="learners-left-section">
@@ -67,20 +28,23 @@ const NavigationBarAdmin = ({  handleLogout }) => {
         <input type="text" placeholder="Type to Search..." />
       </div>
 
-      <div className="learners-user-profile" >
-        <i className="uil uil-user"></i>
+      <div className="learners-user-profile">
+        <i className="uil uil-user">
+          <text>Admin</text>
+        </i>
         <div className="learners-user-dropdown">
           <ul>
-            <li><i className="uil uil-user-circle"></i> Profile</li>
-            <li><i className="uil uil-setting"></i> Settings</li>
-            <li onClick={handleLogout}><i className="uil uil-sign-out-alt"></i> Logout</li>
+            <li>
+              <i className="uil uil-setting"></i> Settings
+            </li>
+            <li onClick={handleLogout}>
+              <i className="uil uil-sign-out-alt"></i> Logout
+            </li>
           </ul>
         </div>
       </div>
     </div>
   );
-}
-
-}
+};
 
 export default NavigationBarAdmin;
