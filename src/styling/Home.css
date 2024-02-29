@@ -28,6 +28,7 @@
   margin-top: 5px;
   max-width: prose;
   font-size: zinc-700;
+  font-weight: bold;
   @media (min-width: 640px) {
     font-size: lg;
   }
