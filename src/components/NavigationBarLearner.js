@@ -183,13 +183,16 @@ const NavigationBarLearner = () => {
   return (
     <div className="learners-top-nav">
       <div className="learners-left-section">
-        <img src="nobility.png" alt="" className="logo-image" />
-        Nob Hub
-      </div>
+        <div className="learners-channels-icon">
+          <i className="uil uil-chat"></i> Nobility Hub
+        </div>
 
-      <div className="learners-search-bar">
-        <input className="input" type="text" placeholder=" Search..." />
       </div>
+      <div className="learners-search-bar">
+        <i className="uil uil-search-alt"></i>
+        <input type="text" placeholder="Type to Search..." />
+      </div>
+      
       <div className="user-profile">
         {userDetails && (
           <>
