@@ -7,11 +7,10 @@ import Home from "./components/Home";
 import Dashboard from "./components/Dashboard";
 import LearnersDashboard from "./components/Learnersdashboard";
 import Canvas from "./components/sidebarAdmin/CanvasAdminDashboard";
-import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 import Overall from "./components/sidebarAdmin/Overall";
+import AboutUs from "./components/AboutUs";
 import ForgotPassword from "./components/ForgotPassword";
 import CanvasAdminHome from "./components/CanvasAdminHome";
-
 
 function App() {
   return (
@@ -20,8 +19,10 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/adminlogin" element={<AdminLoginPage />} />
-        <Route path="/ForgotPassword" element={<ForgotPassword />} />
         <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
+        <Route path="/ForgotPassword" element={<ForgotPassword />} />
+
 
         <Route path="/Canvas" element={<Canvas />} />
         <Route path="/Overall" element={<Overall />} />
