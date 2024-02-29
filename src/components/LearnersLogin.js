@@ -10,7 +10,7 @@ import { AuthContext } from "./AuthContext";
 const LearnersLogin = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const {login} = useContext(AuthContext)
+  const {login, setIsAuthenticated} = useContext(AuthContext)
 
   const handleSignIn = async (e) => {
     e.preventDefault();
@@ -25,8 +25,10 @@ const LearnersLogin = () => {
       });
 
       if (response.ok) {
-        const { id, access_token } = await response.json();
-        login(id, access_token);
+        const responseData = await response.json(); // Parse response JSON
+        const { id, access_token, ...sessionData } = responseData; // Destructure session data from response
+        login(id, access_token, sessionData); // Pass session data to login function
+        setIsAuthenticated(true);
         toast.success("Successfully signed in", {
           autoClose: 100,
           onClose: () => {

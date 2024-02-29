@@ -13,7 +13,6 @@ import ForgotPassword from "./components/ForgotPassword";
 import CanvasAdminHome from "./components/CanvasAdminHome";
 import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 
-
 function App() {
   return (
     <Router>
@@ -25,7 +24,6 @@ function App() {
         <Route path="/AboutUs" element={<AboutUs />} />
         <Route path="/ForgotPassword" element={<ForgotPassword />} />
 
-
         <Route path="/Canvas" element={<Canvas />} />
         <Route path="/Overall" element={<Overall />} />
 
@@ -33,9 +31,6 @@ function App() {
         <Route path="/CanvasHome/*" element={<CanvasHome />} />
         <Route path="/Canvas/*" element={<Canvas />} />
         <Route path="/LearnersLogin" element={<LearnersLogin />} />
-        <Route path="/landing-page" element={<Home  />}></Route>
-        <Route path="/chat" element={<Chat />}></Route>
-        <Route path="/signup" element={<SignupForm />} />
       </Routes>
     </Router>
   );
