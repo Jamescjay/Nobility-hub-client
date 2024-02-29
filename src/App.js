@@ -9,6 +9,7 @@ import LearnersDashboard from "./components/Learnersdashboard";
 import Canvas from "./components/sidebarAdmin/Canvas";
 import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 import Overall from "./components/sidebarAdmin/Overall";
+import AboutUs from "./components/AboutUs";
 
 function App() {
   return (
@@ -17,7 +18,8 @@ function App() {
         <Route path="/" element={<Home />} />
 
         <Route path="/adminlogin" element={<AdminLoginPage />} />
-        <Route path="/dashboard" element={<Dashboard />}></Route>
+        <Route path="/dashboard" element={<Dashboard />} />
+        <Route path="/AboutUs" element={<AboutUs />} />
 
         <Route path="/Canvas" element={<Canvas />} />
         <Route path="/Overall" element={<Overall />} />
