@@ -10,6 +10,7 @@ import Canvas from "./components/sidebarAdmin/Canvas";
 import CanvasHome from "./components/sidebarLearner/CanvasDashboard";
 import Overall from "./components/sidebarAdmin/Overall";
 
+
 function App() {
   return (
     <Router>
@@ -22,9 +23,15 @@ function App() {
         <Route path="/Canvas" element={<Canvas />} />
         <Route path="/Overall" element={<Overall />} />
 
-        <Route path="/Learnersdashboard" element={<LearnersDashboard />} />
+        <Route
+          path="/Learnersdashboard"
+          element={<LearnersDashboard />}
+        />
         <Route path="/CanvasHome/*" element={<CanvasHome />} />
-        <Route path="/LearnersLogin" element={<LearnersLogin />} />
+        <Route
+          path="/LearnersLogin"
+          element={<LearnersLogin />}
+        />
       </Routes>
     </Router>
   );

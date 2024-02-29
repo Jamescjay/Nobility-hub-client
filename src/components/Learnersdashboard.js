@@ -3,13 +3,16 @@ import NavigationBarLearner from './NavigationBarLearner';
 import SidebarLearner from './SidebarLearner';
 
 import '../styling/Dashboard.css';
+import Chatroom from './messaging/Chatroom';
 
-const Learnersdashboard = () => {
+
+const Learnersdashboard = ({user}) => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
   const [channelsOpen, setChannelsOpen] = useState(false);
   const [studentsDropdownOpen, setStudentsDropdownOpen] = useState(false);
   
   const [selectedSection, setSelectedSection] = useState(null);
+
 
   const handleLogout = () => {
     console.log('Logout clicked');
@@ -23,18 +26,19 @@ const Learnersdashboard = () => {
   
   return (
     <div className="learners-dashboard-container">
-      <NavigationBarLearner  handleLogout={handleLogout} />
-      <SidebarLearner
-        handleSectionClick={handleSectionClick}
-        nobilityHubOpen={nobilityHubOpen}
-        setNobilityHubOpen={setNobilityHubOpen}
-        channelsOpen={channelsOpen}
-        setChannelsOpen={setChannelsOpen}
-        studentsDropdownOpen={studentsDropdownOpen}
-        setStudentsDropdownOpen={setStudentsDropdownOpen}
-        
-      />
-     
+      <NavigationBarLearner handleLogout={handleLogout} />
+      <div className="learners-main-content">
+        <SidebarLearner
+          handleSectionClick={handleSectionClick}
+          nobilityHubOpen={nobilityHubOpen}
+          setNobilityHubOpen={setNobilityHubOpen}
+          channelsOpen={channelsOpen}
+          setChannelsOpen={setChannelsOpen}
+          studentsDropdownOpen={studentsDropdownOpen}
+          setStudentsDropdownOpen={setStudentsDropdownOpen}
+        />
+        <Chatroom />
+      </div>
     </div>
   );
 };
