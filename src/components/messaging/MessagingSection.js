@@ -42,7 +42,7 @@ function MessagingSection() {
 
   return (
     <div className="App">
-      <h1>Nobility chat</h1>
+      <h3>Nobility chat</h3>
       <div className='line'>
         <HttpCall />
       </div>

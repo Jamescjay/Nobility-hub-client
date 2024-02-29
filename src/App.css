@@ -101,12 +101,12 @@ a:hover {
 }
 
 .sign-in-button {
-  background-color: #f16f10;
+  background-color: #0099ff;
   padding: 15px 30px;
 }
 
 .sign-in-button:hover {
-  background-color: #cc3700;
+  background-color: #0099ff;
 }
 
 .sign-in-button-google {

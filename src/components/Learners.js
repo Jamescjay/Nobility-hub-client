@@ -35,7 +35,7 @@ const Learners = () => {
             width: "600px",
             height: "500px",
             margin: "auto",
-            backgroundColor: "#22577a",
+            backgroundColor: "#c3c3c3",
             color: "white",
             fontFamily: "Roboto",
             fontWeight: "bold",
