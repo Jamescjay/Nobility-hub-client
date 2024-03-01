@@ -290,3 +290,104 @@
 
 
 
+/* Home.css */
+
+.about-section {
+  position: relative;
+  background-color: #f4f4f4;
+  padding: 50px 20px;
+}
+
+.about-container {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.about-heading {
+  font-size: 2.5rem;
+  font-weight: bold;
+  color: #333;
+}
+
+.about-text {
+  font-size: 1.2rem;
+  color: #666;
+  line-height: 1.6;
+  font-weight: bold;
+  margin-top: 20px;
+}
+
+.new-loader-container {
+  position: absolute;
+  top: 50%;
+  right: 5%; /* Adjust the right distance as needed */
+  transform: translateY(-50%);
+  z-index: 1000; /* Set a higher z-index value */
+}
+
+.new-loader {
+  position: relative;
+  font-size: 20px; /* Increased font size for better visibility */
+  width: 30px; /* Adjust size as needed */
+  height: 30px; /* Adjust size as needed */
+}
+
+.new-loader:before {
+  content: '';
+  position: absolute;
+  transform: translate(-50%, -50%) rotate(45deg);
+  height: 100%;
+  width: 5px; /* Adjust thickness as needed */
+  background: #000; /* Adjust color as needed */
+  left: 50%;
+  top: 50%;
+}
+
+.new-loader:after {
+  content: '';
+  position: absolute;
+  left: 0.5em;
+  bottom: 0.45em;
+  width: 1em;
+  height: 1em;
+  background-color: #00ff00; /* Orange color */
+  border-radius: 50%; /* Circular shape */
+  animation: rollingRock 2.5s cubic-bezier(.79, 0, .47, .97) infinite;
+}
+
+@keyframes rollingRock {
+  0% {
+    transform: translate(0, -1em) rotate(-45deg)
+  }
+  5% {
+    transform: translate(0, -1em) rotate(-50deg)
+  }
+  20% {
+    transform: translate(1em, -2em) rotate(47deg)
+  }
+  25% {
+    transform: translate(1em, -2em) rotate(45deg)
+  }
+  30% {
+    transform: translate(1em, -2em) rotate(40deg)
+  }
+  45% {
+    transform: translate(2em, -3em) rotate(137deg)
+  }
+  50% {
+    transform: translate(2em, -3em) rotate(135deg)
+  }
+  55% {
+    transform: translate(2em, -3em) rotate(130deg)
+  }
+  70% {
+    transform: translate(3em, -4em) rotate(217deg)
+  }
+  75% {
+    transform: translate(3em, -4em) rotate(220deg)
+  }
+  100% {
+    transform: translate(0, -1em) rotate(-225deg)
+  }
+}

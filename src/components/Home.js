@@ -80,9 +80,12 @@ const Home = () => {
                 engineer. We also offer a variety of resources to help you learn and grow in your
                 career.
               </p>
-
             
             </div>
+             {/* New loader code */}
+             <div className="new-loader-container">
+                <div className="new-loader"></div>
+             </div>
           </section>
 
           <footer className="footer-container">
