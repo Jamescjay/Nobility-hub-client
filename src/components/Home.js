@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { ArrowRight } from "lucide-react";
 import "../styling/Home.css";
 
-import MyLoad from "../components/MyLoad"; // Import the MyLoad component
+import MyLoad from "../components/MyLoad";
 import Cash from "../components/loads/Cash";
 
 const Home = () => {
@@ -34,7 +34,9 @@ const Home = () => {
               <div className="logo">Nobility Hub</div>
               <div className="nav-links">
                 <Link to="/">Home</Link>
-                <Link to="/about">About</Link>
+                <a href="#about" className="scroll-link">
+                  About
+                </a>
                 <Link to="/contact">Contact Us</Link>
               </div>
               <div className="button-container">
@@ -49,7 +51,6 @@ const Home = () => {
           </header>
 
           <section className="home-container">
-            
             <div className="loader-left">
               <div className="loader"></div>
               <div className="loader"></div>
@@ -67,6 +68,21 @@ const Home = () => {
 
           <section className="cash-section">
             <Cash />
+          </section>
+
+          <section id="about" className="about-section">
+            <div className="about-container">
+              <h2 className="about-heading">About Us</h2>
+              <p className="about-text">
+                Nobility Hub is a platform providing a conducive learning and
+                development environment. Offering a wide range of courses tailored to meet our learners 
+                needs. Our courses are designed to help you become a certified software
+                engineer. We also offer a variety of resources to help you learn and grow in your
+                career.
+              </p>
+
+            
+            </div>
           </section>
 
           <footer className="footer-container">
