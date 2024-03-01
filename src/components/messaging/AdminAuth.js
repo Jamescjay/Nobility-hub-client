@@ -1,7 +1,7 @@
 import { useState } from "react";
 import axios from "axios";
 
-const AuthPage = (props) => {
+const AuthPage = ({ onAuth }) => {
   const [email, setEmail] = useState();
   const [password, setPassword] = useState();
 
@@ -9,14 +9,16 @@ const AuthPage = (props) => {
     e.preventDefault();
     axios
       .post("http://127.0.0.1:5555/admin-login", { email, password })
-      .then((r) => props.onAuth({ ...r.data, password })) // NOTE: over-ride secret
-      .catch((e) => console.log(JSON.stringify(e.response.data)));
+      .then((response) => {
+        const userData = response.data;
+        onAuth(userData);
+      })
+      .catch((error) => console.log(JSON.stringify(error.response.data)));
   };
 
   return (
     <div className="login-page">
       <div className="card">
-       
         <form onSubmit={onLogin}>
           <div className="title">Login</div>
           <input
