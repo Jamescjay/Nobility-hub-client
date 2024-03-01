@@ -52,8 +52,8 @@ const LearnersLogin = () => {
 
   return (
 
-    <div className="center-container">
-      <div className="container">
+    <div className="center1-container1">
+      <div className="container1">
         <div className="heading">Sign In</div>
         <form onSubmit={handleSignIn} className="form">
           <input
