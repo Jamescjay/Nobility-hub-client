@@ -1,29 +1,10 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBook, faEdit, faTrash } from "@fortawesome/free-solid-svg-icons";
 import { Container, Row, Col, Modal, Button, Form } from "react-bootstrap";
 
 const AdminCourses = () => {
-  const [courses, setCourses] = useState([
-    {
-      id: 1,
-      title: "Software Engineering FT 06 Phase 0",
-      phase: 0,
-      description: "Introduction to Software Engineering",
-      course_url:
-        "https://docs.google.com/document/d/1pwh_MLe5LBgDtsg2c2EI7nAd8kzLg4zN_aQ6Fojh_v8/edit",
-      materials: [{ title: "Phase 0 Overview", content: "Your content here" }],
-    },
-    {
-      id: 2,
-      title: "Software Engineering FT 06 Phase 1",
-      phase: 1,
-      description: "Building a Strong Foundation",
-      course_url: "https://your-cohort-url.com",
-      materials: [{ title: "Phase 1 Overview", content: "Your content here" }],
-    }
-  ]);
-
+  const [courses, setCourses] = useState([]);
   const [showModal, setShowModal] = useState(false);
   const [editingCourse, setEditingCourse] = useState(null);
   const [showDeleteModal, setShowDeleteModal] = useState(false);
@@ -35,6 +16,55 @@ const AdminCourses = () => {
     course_url: "",
   });
 
+  // Simulate fetching data from a server
+  const fetchCourses = async () => {
+  try {
+    const response = await fetch("https://URL/courses");
+    if (!response.ok) {
+      throw new Error("Failed to fetch courses");
+    }
+
+    const data = await response.json();
+    setCourses(data);
+  } catch (error) {
+    console.error("Error fetching courses:", error.message);
+  }
+
+    // Simulate an asynchronous API call with setTimeout
+    setTimeout(() => {
+      const mockData = [
+        {
+          id: 1,
+          title: "Software Engineering FT 06 Phase 0",
+          phase: 0,
+          description: "Introduction to Software Engineering",
+          course_url:
+            "https://docs.google.com/document/d/1pwh_MLe5LBgDtsg2c2EI7nAd8kzLg4zN_aQ6Fojh_v8/edit",
+          materials: [
+            { title: "Phase 0 Overview", content: "Your content here" },
+          ],
+        },
+        {
+          id: 2,
+          title: "Software Engineering FT 06 Phase 1",
+          phase: 1,
+          description: "Building a Strong Foundation",
+          course_url: "https://your-cohort-url.com",
+          materials: [
+            { title: "Phase 1 Overview", content: "Your content here" },
+          ],
+        },
+      ];
+
+      setCourses(mockData);
+    }, 1000); 
+  };
+
+  
+  useEffect(() => {
+    fetchCourses();
+  }, []);
+
   const handleCourseClick = (course) => {
     if (course.course_url) {
       window.open(course.course_url, "_blank");
@@ -44,8 +74,8 @@ const AdminCourses = () => {
   };
 
   const handleEditCourse = (course) => {
-    setEditingCourse(course); 
-    setShowModal(true); 
+    setEditingCourse(course);
+    setShowModal(true);
   };
 
   const handleDeleteCourse = (course) => {
