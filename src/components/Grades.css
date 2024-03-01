@@ -63,3 +63,81 @@
 .grades-table td {
   background-color: #fff;
 }
+
+.container {
+  padding: 20px;
+}
+
+.mainTitle {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.sectionDivider {
+  border: 1px solid #ddd;
+  margin: 20px 0;
+}
+
+.searchContainer {
+  margin-bottom: 20px;
+}
+
+.studentDetails {
+  margin-bottom: 20px;
+}
+
+.sectionHeading {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.attendanceIcon {
+  font-size: 16px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.chartContainer {
+  margin-bottom: 20px;
+}
+
+.gradesTableContainer {
+  margin-bottom: 20px;
+}
+
+.grades-overview {
+  margin-bottom: 20px;
+}
+
+.grades-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.grades-table th, .grades-table td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.grades-table th {
+  background-color: #f2f2f2;
+}
+
+.section-heading {
+  font-size: 18px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.attendance-icon {
+  font-size: 16px;
+  color: #666;
+  margin-right: 10px;
+}
+
+.chart-container {
+  margin-bottom: 20px;
+}

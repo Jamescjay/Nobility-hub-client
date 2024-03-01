@@ -1,0 +1,71 @@
+/* CanvasAdminHome.css */
+
+.adminHomeContainer {
+  max-width: 800px;
+  margin: 50px auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.starIcon {
+  color: #f39c12;
+  margin-right: 10px;
+}
+
+.featuredCoursesAdmin {
+  list-style: none;
+  padding: 0;
+}
+
+.featuredCoursesAdmin li {
+  margin-bottom: 15px;
+}
+
+.ctaSectionAdmin {
+  margin-top: 20px;
+}
+
+.ctaTabAdmin {
+  background-color: #f8f8f8;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 20px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+
+  &:hover {
+    background-color: #e0e0e0;
+    transform: scale(1.02);
+  }
+
+  h3 {
+    font-size: 1.4em;
+    color: #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    font-size: 1.1em;
+    line-height: 1.6;
+    color: #555;
+    margin-bottom: 15px;
+  }
+
+  .buttonAdmin {
+    background-color: #3498db;
+    color: #ffffff;
+    padding: 12px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    display: inline-block;
+    text-decoration: none;
+  }
+
+  .buttonAdmin:hover {
+    background-color: #2980b9;
+  }
+}

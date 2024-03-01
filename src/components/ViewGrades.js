@@ -1,4 +1,5 @@
-import React from "react";
+import styles from "./Grades.css";
+import React, { useState } from "react";
 import {
   BarChart,
   Bar,
@@ -13,9 +14,8 @@ import {
   faCheckCircle,
   faTimesCircle,
   faTrophy,
-  faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
-import styles from "./Grades.css"
+
 
 const GradesTable = ({ gradesData }) => {
   return (
@@ -45,8 +45,11 @@ const GradesTable = ({ gradesData }) => {
 
 const Grades = () => {
   const user = {
-    name: "Yussuf",
+    name: "Admin",
   };
+
+  const [searchInput, setSearchInput] = useState("");
+  const [filteredStudent, setFilteredStudent] = useState(null);
 
   const gradesData = [
     { type: "Challenge", count: 3, grades: [90, 85, 95] },
@@ -77,62 +80,61 @@ const Grades = () => {
   ).length;
   const attendancePercentage = (attendedClasses / totalClasses) * 100;
 
+  const handleSearch = () => {
+    const foundStudent = simulateStudentSearch(searchInput);
+
+    // Check if a student is found
+    if (foundStudent) {
+      setFilteredStudent(foundStudent);
+    } else {
+      // Handle case when no student is found
+      setFilteredStudent(null);
+      // You can optionally show a message or perform other actions
+      console.log("Student not found");
+    }
+  };
+
+  const simulateStudentSearch = (name) => {
+    const studentsDatabase = [
+      { id: 1, name: "John Doe", age: 20, grade: "A" },
+      { id: 2, name: "Jane Smith", age: 21, grade: "B" },
+      { id: 3, name: "Bob Johnson", age: 22, grade: "C" },
+    ];
+
+    return studentsDatabase.find(
+      (student) => student.name.toLowerCase() === name.toLowerCase()
+    );
+  };
+
   return (
-    <div>
-      <h2 className="main-title">Software Engineering FT 06 Phase 3</h2>
-      <hr style={{ borderTop: "1px solid #ddd", margin: "20px 0" }} />
-      <h4 className="section-heading">
-        Filter Options <FontAwesomeIcon icon={faInfoCircle} color="#3498db" />
-      </h4>
-      <div className="filter-options">
-        <div className="filter-group">
-          <label htmlFor="course">Course</label>
-          <select id="course" name="course">
-            <option value="Software Engineering FT 06 Phase 1 Remote">
-              Software Engineering FT 06 Phase 0 Remote
-            </option>
+    <div className={styles.container}>
+      <h2 className={styles.mainTitle}>Admin Dashboard</h2>
+      <hr className={styles.sectionDivider} />
 
-            <option value="Software Engineering FT 06 Phase 4 Remote">
-              Software Engineering FT 06 Phase 1 Remote
-            </option>
-
-            <option value="Software Engineering FT 06 Phase 2 Remote">
-              Software Engineering FT 06 Phase 2 Remote
-            </option>
-
-            <option value="Software Engineering FT 06 Phase 4 Remote">
-              Software Engineering FT 06 Phase 3 Remote
-            </option>
-
-            <option value="Software Engineering FT 06 Phase 4 Remote">
-              Software Engineering FT 06 Phase 4 Remote
-            </option>
-
-            <option value="Software Engineering FT 06 Phase 4 Remote">
-              Software Engineering FT 06 Phase 5 Remote
-            </option>
-          </select>
-        </div>
-
-        <div className="filter-group">
-          <label htmlFor="dueDate">Arrange By</label>
-          <select id="dueDate" name="dueDate">
-            <option value="Name">Name</option>
-            <option value=" Model">Model</option>
-            <option value=" Due Date">Due Date</option>
-            <option value="Assignment Group">Assignment Group</option>
-          </select>
-        </div>
-
-        <button className="inactive-button" disabled>
-          Apply
-        </button>
+      <div style={{ marginBottom: "20px" }}>
+        <input
+          type="text"
+          placeholder="Enter student name"
+          value={searchInput}
+          onChange={(e) => setSearchInput(e.target.value)}
+        />
+        <button onClick={handleSearch}>Search</button>
       </div>
 
-      <hr className="section-divider" />
+      {filteredStudent ? (
+        <div style={{ marginBottom: "20px" }}>
+          <h3>Student Details</h3>
+          <p>ID: {filteredStudent.id}</p>
+          <p>Name: {filteredStudent.name}</p>
+          <p>Age: {filteredStudent.age}</p>
+          <p>Grade: {filteredStudent.grade}</p>
+        </div>
+      ) : null}
+
+      <hr className={styles.sectionDivider} />
 
       <div>
-        <h4 className="section-heading">
+        <h4 className={styles.sectionHeading}>
           Attendance Overview{" "}
           {attendancePercentage >= 75 ? (
             <FontAwesomeIcon icon={faTrophy} color="#FFD700" />
@@ -147,7 +149,7 @@ const Grades = () => {
         </p>
         <p>
           {attendanceData.map((entry, index) => (
-            <span key={index} className="attendance-icon">
+            <span key={index} className={styles.attendanceIcon}>
               {entry.attended ? (
                 <FontAwesomeIcon icon={faCheckCircle} color="#4CAF50" />
               ) : (
@@ -159,9 +161,9 @@ const Grades = () => {
         </p>
       </div>
 
-      <div style={{ marginTop: "20px" }}>
+      <div className={styles.chartContainer}>
         <h4>Course-wise Performance</h4>
-        <BarChart width={500} height={300} data={chartData}>
+        <BarChart width={600} height={300} data={chartData}>
           <CartesianGrid strokeDasharray="3 3" />
           <XAxis dataKey="subject" />
           <YAxis />
@@ -171,9 +173,9 @@ const Grades = () => {
         </BarChart>
       </div>
 
-      <hr className="section-divider" />
+      <hr className={styles.sectionDivider} />
 
-      <div style={{ marginTop: "20px" }}>
+      <div className={styles.gradesTableContainer}>
         <GradesTable gradesData={gradesData} />
       </div>
     </div>

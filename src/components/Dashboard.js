@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
-import NavigationBar from './NavigationBarAdmin';
-import SidebarAdmin from './SidebarAdmin';
-import DirectMessagesContent from './sidebarAdmin/DirectMessagesContent';
-import Canvas from './sidebarAdmin/Canvas'; // Import Canvas component
-import '../styling/Dashboard.css';
+import React, { useState } from "react";
+import NavigationBar from "./NavigationBarAdmin";
+import SidebarAdmin from "./SidebarAdmin";
+import DirectMessagesContent from "./sidebarAdmin/DirectMessagesContent";
+import Canvas from "./sidebarAdmin/CanvasAdminDashboard"; // Import Canvas component
+import "../styling/Dashboard.css";
 
 const Admindashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
@@ -13,7 +13,7 @@ const Admindashboard = () => {
   const [selectedSection, setSelectedSection] = useState(null);
 
   const handleLogout = () => {
-    console.log('Logout clicked');
+    console.log("Logout clicked");
     // Implement your logout logic here
   };
 
@@ -22,7 +22,7 @@ const Admindashboard = () => {
   // };
 
   const handleSectionClick = (section) => {
-  setSelectedSection(section);
+    setSelectedSection(section);
   };
 
   const handleDirectMessagesToggle = () => {
@@ -31,7 +31,10 @@ const Admindashboard = () => {
 
   return (
     <div className="learners-dashboard-container">
-      <NavigationBar handleDirectMessagesToggle={handleDirectMessagesToggle} handleLogout={handleLogout} />
+      <NavigationBar
+        handleDirectMessagesToggle={handleDirectMessagesToggle}
+        handleLogout={handleLogout}
+      />
       <SidebarAdmin
         handleSectionClick={handleSectionClick}
         nobilityHubOpen={nobilityHubOpen}
@@ -44,8 +47,9 @@ const Admindashboard = () => {
       />
       <div className="learners-right-content">
         {/* Render content based on selectedSection */}
-        {selectedSection === 'Canvas' && <Canvas />} {/* Render Canvas component */}
-        {selectedSection === 'directMessages' && <DirectMessagesContent />}
+        {selectedSection === "Canvas" && <Canvas />}{" "}
+        {/* Render Canvas component */}
+        {selectedSection === "directMessages" && <DirectMessagesContent />}
         {/* Add conditions for other sections if needed */}
       </div>
     </div>
