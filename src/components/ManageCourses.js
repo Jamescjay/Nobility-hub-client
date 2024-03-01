@@ -22,7 +22,9 @@ const AdminCourses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5555/courses");
+        const response = await fetch(
+          "https://nobility-hub-backend.onrender.com/courses"
+        );
 
         if (!response.ok) {
           throw new Error("Failed to fetch courses");
@@ -59,7 +61,7 @@ const AdminCourses = () => {
       let response;
       if (editingCourse) {
         response = await fetch(
-          `http://127.0.0.1:5555/courses/${editingCourse.id}`,
+          `https://nobility-hub-backend.onrender.com/courses/${editingCourse.id}`,
           {
             method: "PUT",
             headers: {
@@ -69,13 +71,16 @@ const AdminCourses = () => {
           }
         );
       } else {
-        response = await fetch("http://127.0.0.1:5555/courses", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify(newCourse),
-        });
+        response = await fetch(
+          "https://nobility-hub-backend.onrender.com/courses",
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newCourse),
+          }
+        );
       }
       if (!response.ok) {
         throw new Error("Failed to save course");

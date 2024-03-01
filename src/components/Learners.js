@@ -9,7 +9,9 @@ const Learners = () => {
   useEffect(() => {
     const fetchLearners = async () => {
       try {
-        const response = await axios.get("http://127.0.0.1:5555/register");
+        const response = await axios.get(
+          "https://nobility-hub-backend.onrender.com/register"
+        );
         setLearners(response.data);
       } catch (error) {
         console.error("Error fetching learners:", error);

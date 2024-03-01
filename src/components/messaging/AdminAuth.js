@@ -8,7 +8,10 @@ const AuthPage = ({ onAuth }) => {
   const onLogin = (e) => {
     e.preventDefault();
     axios
-      .post("http://127.0.0.1:5555/admin-login", { email, password })
+      .post("https://nobility-hub-backend.onrender.com/admin-login", {
+        email,
+        password,
+      })
       .then((response) => {
         const userData = response.data;
         onAuth(userData);

@@ -7,7 +7,7 @@ const Courses = () => {
   useEffect(() => {
     const fetchCourses = async () => {
       try {
-        const response = await fetch("http://127.0.0.1:5555/courses");
+        const response = await fetch("https://nobility-hub-backend.onrender.com/courses");
         if (response.ok) {
           const data = await response.json();
           setCourses(data);
