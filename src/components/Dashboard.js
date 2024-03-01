@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import SidebarAdmin from "./SidebarAdmin";
-import MessagingSection from "./messaging/MessagingSection";
 import "../styling/Dashboard.css";
 import NavigationBarAdmin from "./NavigationBarAdmin";
+import Chatarea from "./messaging/Chatarea";
 
 const Admindashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
@@ -32,7 +32,7 @@ const Admindashboard = () => {
           studentsDropdownOpen={studentsDropdownOpen}
           setStudentsDropdownOpen={setStudentsDropdownOpen}
         />
-        <MessagingSection />
+        <Chatarea/>
       </div>
     </div>
   );

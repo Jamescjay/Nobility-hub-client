@@ -16,53 +16,27 @@ const AdminCourses = () => {
     course_url: "",
   });
 
-  
-  const fetchCourses = async () => {
-  try {
-    const response = await fetch("http://127.0.0.1:5555/courses");
-    if (!response.ok) {
-      throw new Error("Failed to fetch courses");
-    }
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
-    const data = await response.json();
-    setCourses(data);
-  } catch (error) {
-    console.error("Error fetching courses:", error.message);
-  }
-
-    
-    setTimeout(() => {
-      const mockData = [
-        {
-          id: 1,
-          title: "Software Engineering FT 06 Phase 0",
-          phase: 0,
-          description: "Introduction to Software Engineering",
-          course_url:
-            "https://docs.google.com/document/d/1pwh_MLe5LBgDtsg2c2EI7nAd8kzLg4zN_aQ6Fojh_v8/edit",
-          materials: [
-            { title: "Phase 0 Overview", content: "Your content here" },
-          ],
-        },
-        {
-          id: 2,
-          title: "Software Engineering FT 06 Phase 1",
-          phase: 1,
-          description: "Building a Strong Foundation",
-          course_url:
-            "https://docs.google.com/document/d/11BTyO0k7fmmh53g-3A-ex8LbpCe4XadkQTxf7qauWEc/edit?usp=sharing",
-          materials: [
-            { title: "Phase 1 Overview", content: "Your content here" },
-          ],
-        },
-      ];
-
-      setCourses(mockData);
-    }, 1); 
-  };
-
-  
   useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch("http://127.0.0.1:5555/courses");
+
+        if (!response.ok) {
+          throw new Error("Failed to fetch courses");
+        }
+
+        const data = await response.json();
+        setCourses(data);
+      } catch (error) {
+        setError(error.message);
+      } finally {
+        setLoading(false);
+      }
+    };
+
     fetchCourses();
   }, []);
 
@@ -76,7 +50,57 @@ const AdminCourses = () => {
 
   const handleEditCourse = (course) => {
     setEditingCourse(course);
+    setNewCourse(course);
     setShowModal(true);
+  };
+
+  const handleSaveCourse = async () => {
+    try {
+      let response;
+      if (editingCourse) {
+        response = await fetch(
+          `http://127.0.0.1:5555/courses/${editingCourse.id}`,
+          {
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newCourse),
+          }
+        );
+      } else {
+        response = await fetch("http://127.0.0.1:5555/courses", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(newCourse),
+        });
+      }
+      if (!response.ok) {
+        throw new Error("Failed to save course");
+      }
+      const savedCourse = await response.json();
+      if (editingCourse) {
+        setCourses(
+          courses.map((course) =>
+            course.id === savedCourse.id ? savedCourse : course
+          )
+        );
+      } else {
+        setCourses([...courses, savedCourse]);
+      }
+      setShowModal(false);
+      setNewCourse({
+        title: "",
+        phase: 0,
+        description: "",
+        course_url: "",
+      });
+      setEditingCourse(null);
+    } catch (error) {
+      console.error("Error saving course:", error.message);
+    }
   };
 
   const handleDeleteCourse = (course) => {
@@ -84,10 +108,23 @@ const AdminCourses = () => {
     setShowDeleteModal(true);
   };
 
-  const handleConfirmDelete = () => {
-    setCourses(courses.filter((course) => course.id !== selectedCourse.id));
-    setShowDeleteModal(false);
-    setSelectedCourse(null);
+  const handleConfirmDelete = async () => {
+    try {
+      const response = await fetch(
+        `http://127.0.0.1:5555/courses/${selectedCourse.id}`,
+        {
+          method: "DELETE",
+        }
+      );
+      if (!response.ok) {
+        throw new Error("Failed to delete course");
+      }
+      setCourses(courses.filter((course) => course.id !== selectedCourse.id));
+      setShowDeleteModal(false);
+      setSelectedCourse(null);
+    } catch (error) {
+      console.error("Error deleting course:", error.message);
+    }
   };
 
   const handleAddCourse = () => {
@@ -98,12 +135,6 @@ const AdminCourses = () => {
     setShowModal(false);
     setShowDeleteModal(false);
     setSelectedCourse(null);
-  };
-
-  const handleSaveCourse = () => {
-    setCourses([...courses, { id: courses.length + 1, ...newCourse }]);
-    setShowModal(false);
-    setNewCourse({ title: "", phase: 0, description: "", course_url: "" });
   };
 
   const handleInputChange = (e) => {
