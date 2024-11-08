@@ -14,7 +14,7 @@ const CanvasAdminHome = () => {
   };
 
   const starIconStyle = {
-    color: "#f39c12",
+    color: "#0099ff",
     marginRight: "10px",
   };
 
@@ -32,7 +32,7 @@ const CanvasAdminHome = () => {
   };
 
   const ctaTabStyle = {
-    backgroundColor: "#f8f8f8",
+    backgroundColor: "#0099ff",
     border: "1px solid #ddd",
     borderRadius: "8px",
     padding: "20px",
@@ -58,7 +58,7 @@ const CanvasAdminHome = () => {
   };
 
   const buttonStyle = {
-    backgroundColor: "#3498db",
+    backgroundColor: "#0099ff",
     color: "#ffffff",
     padding: "12px 20px",
     fontSize: "1em",
@@ -71,7 +71,7 @@ const CanvasAdminHome = () => {
   };
 
   const buttonHoverStyle = {
-    backgroundColor: "#e74c3c",
+    backgroundColor: "#0099ff",
   };
 
   return (

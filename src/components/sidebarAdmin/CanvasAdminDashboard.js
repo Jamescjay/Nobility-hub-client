@@ -18,7 +18,7 @@ import styles from "./Canvas.css";
 const CanvasDashboard = () => {
   return (
     <div>
-      <Navbar bg="dark" variant="dark">
+      <Navbar>
         <Navbar.Brand href="#home">
           <FontAwesomeIcon icon={faStar} /> Nob-hub
         </Navbar.Brand>

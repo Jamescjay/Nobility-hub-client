@@ -13,7 +13,7 @@ body {
   }
   
   .view-button {
-    background-color: #4CAF50;
+    background-color: #2196F3;
     border: none;
     color: white;
     padding: 10px 20px;
@@ -26,23 +26,17 @@ body {
   }
   
   .view-button:hover {
-    background-color: #45a049;
+    background-color: #2f302f;
   }
   
   .active {
-    background-color: #2196F3;
-    color: white;
-  }
-  
-  .active:hover {
-    background-color: #1e88e5;
+    background-color: #fefefe;
+    color: rgb(0, 0, 0);
   }
   
   .apply {
-    background-color: #FFC107;
-    color: white;
+    background-color: #ffffff;
+    color: rgb(0, 0, 0);
   }
   
-  .apply:hover {
-    background-color: #ffb300;
-  }
+ 

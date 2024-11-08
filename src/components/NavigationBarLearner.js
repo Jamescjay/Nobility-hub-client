@@ -140,7 +140,7 @@ const NavigationBarLearner = () => {
     if (userId) {
       try {
         const response = await fetch(
-          `http://127.0.0.1:5555/register/${userId}`
+          `https://nobility-hub-backend.onrender.com/register/${userId}`
         );
         if (response.ok) {
           const data = await response.json();
