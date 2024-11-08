@@ -18,11 +18,13 @@ export const AuthProvider = ({ children }) => {
   const logout = () => {
     localStorage.removeItem("userId");
     localStorage.removeItem("accessToken");
+    localStorage.removeItem("user");
     setUserId(null);
   };
 
   const adminLogout = () => {
     localStorage.removeItem("access_token");
+    localStorage.removeItem("user");
   };
 
   return (

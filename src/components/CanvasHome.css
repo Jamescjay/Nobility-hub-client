@@ -41,14 +41,14 @@
 
 .featured-courses a {
   display: inline-block;
-  color: #007bff;
+  color: #0099ff;
   text-decoration: none;
   font-weight: bold;
   transition: color 0.3s ease;
 }
 
 .featured-courses a:hover {
-  color: #f16f10;
+  color: #0099ff;
 }
 
 .cta-section {
@@ -69,7 +69,7 @@
 .button {
   display: inline-block;
   padding: 12px 24px;
-  background-color: #f16f10;
+  background-color: #0099ff;
   color: #fff;
   text-decoration: none;
   border-radius: 5px;
@@ -87,7 +87,7 @@
 }
 
 .action-buttons button {
-  background-color: #f16f10;
+  background-color: #0099ff;
   color: #fff;
   border: none;
   padding: 10px 20px;
@@ -96,11 +96,11 @@
 }
 
 .action-buttons button:hover {
-  background-color: #0056b3;
+  background-color: #0099ff;
 }
 
 .button:hover {
-  background-color: #0056b3;
+  background-color: #0099ff;
 }
 
 .star-icon {

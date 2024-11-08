@@ -74,12 +74,12 @@ const CohortSelection = () => {
             width: "1100px",
             height: "600px",
             margin: "auto",
-            backgroundColor: "#22577a",
+            backgroundColor: "grey",
             color: "white",
           },
         }}
       >
-        <button onClick={handleCloseModal} style={{ backgroundColor: "red" }}>
+        <button onClick={handleCloseModal} style={{ backgroundColor: "sky-blue" }}>
           Close
         </button>
         <div className="cohort-container">

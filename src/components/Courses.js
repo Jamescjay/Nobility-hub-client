@@ -1,66 +1,26 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faIconName } from "@fortawesome/free-solid-svg-icons";
-import { faBook } from "@fortawesome/free-solid-svg-icons";
+import React, { useState, useEffect } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 const Courses = () => {
-  const [courses, setCourses] = useState([
-    {
-      id: 1,
-      title: "Software Engineering FT 06 Phase 0",
-      phase: 0,
-      description: "Introduction to Software Engineering",
-      course_url:
-        "https://docs.google.com/document/d/1pwh_MLe5LBgDtsg2c2EI7nAd8kzLg4zN_aQ6Fojh_v8/edit",
-      materials: [{ title: "Phase 0 Overview", content: "Your content here" }],
-    },
-    {
-      id: 2,
-      title: "Software Engineering FT 06 Phase 1",
-      phase: 1,
-      description: "Building a Strong Foundation",
-      course_url:
-        "https://docs.google.com/document/d/11BTyO0k7fmmh53g-3A-ex8LbpCe4XadkQTxf7qauWEc/edit?usp=sharing",
-      materials: [{ title: "Phase 1 Overview", content: "Your content here" }],
-    },
-    {
-      id: 3,
-      title: "Software Engineering FT 06 Phase 2",
-      phase: 2,
-      description: "Exploring Advanced Topics",
-      course_url:
-        "https://docs.google.com/document/d/1uKyFLR2ldo3_7cqQ4HNC0YofOy-L-LCC34sXlSB-fKc/edit?usp=sharing",
-      materials: [{ title: "Phase 2 Overview", content: "Your content here" }],
-    },
-    {
-      id: 4,
-      title: "Software Engineering FT 06 Phase 3",
-      phase: 3,
-      description: "Practical Application of Skills",
-      course_url:
-        "https://docs.google.com/document/d/1fXPn5D9ZYeCuqxqNgkEeyb4tRvMkyLeLyzEOsdkZ_6M/edit?usp=sharing",
-      materials: [{ title: "Phase 3 Overview", content: "Your content here" }],
-    },
-    {
-      id: 5,
-      title: "Software Engineering FT 06 Phase 4",
-      phase: 4,
-      description: "Codility",
-      course_url:
-        "https://docs.google.com/document/d/1lOTbWxscjrnZCX-76Ek2d2qFm7jzeNeqKhdxwptFvT0/edit?usp=sharing",
-      materials: [{ title: "Phase 4 Overview", content: "Your content here" }],
-    },
-    {
-      id: 6,
-      title: "Software Engineering FT 06 Phase 5",
-      phase: 5,
-      description: "Capstone Project Development",
-      course_url:
-        "https://docs.google.com/document/d/1JIJ5u1yDYOiZjOl96_iXfJPCUkl0FxTOU_viH_Zg3OM/edit?usp=sharing",
-      materials: [{ title: "Phase 5 Overview", content: "Your content here" }],
-    },
-  ]);
+  const [courses, setCourses] = useState([]);
+
+  useEffect(() => {
+    const fetchCourses = async () => {
+      try {
+        const response = await fetch("https://nobility-hub-backend.onrender.com/courses");
+        if (response.ok) {
+          const data = await response.json();
+          setCourses(data);
+        } else {
+          console.error("Failed to fetch courses");
+        }
+      } catch (error) {
+        console.error("Error fetching courses:", error);
+      }
+    };
+
+    fetchCourses();
+  }, []);
 
   const handleCourseClick = (course) => {
     if (course.course_url) {

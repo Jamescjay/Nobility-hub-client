@@ -1,7 +1,7 @@
 import { PrettyChatWindow } from "react-chat-engine-pretty";
 import "../../styling/MessagingSection.css";
 
-const MessagePage = ({ user }) => {
+const ChatsPage = ({ user }) => {
   const projectId = "4c4af054-358b-4205-bbc1-f87bad0b0a81";
 
   return (
@@ -16,4 +16,4 @@ const MessagePage = ({ user }) => {
   );
 };
 
-export default MessagePage;
+export default ChatsPage;

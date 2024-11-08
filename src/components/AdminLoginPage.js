@@ -15,13 +15,16 @@ const AdminLogin = () => {
     e.preventDefault();
 
     try {
-      const response = await fetch("http://127.0.0.1:5555/admin-login", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ email, password }),
-      });
+      const response = await fetch(
+        "https://nobility-hub-backend.onrender.com/admin-login",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ email, password }),
+        }
+      );
 
       if (response.ok) {
         const { access_token } = await response.json();

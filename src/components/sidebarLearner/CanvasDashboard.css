@@ -1,6 +1,6 @@
 
 .navbar {
-  background-color: #a4a8a8;
+  background-color: #0099ff;
 }
 
 .navbar-brand,
@@ -9,7 +9,7 @@
 }
 
 .sidebar {
-  background-color: #0056b3;
+  background-color: #c3c3c3;
   padding-top: 20px;
 }
 
@@ -22,7 +22,7 @@
 }
 
 .sidebar a:hover {
-  color: #ffcc00;
+  color: #ffffff;
 }
 
 .content {
@@ -79,7 +79,7 @@
   }
 
   button {
-    background-color: #f16f10;
+    background-color: #0099ff;
     padding: 12px 20px;
     font-size: 1em;
     cursor: pointer;
@@ -90,7 +90,7 @@
   }
 
   button:hover {
-    background-color: #cc3700;
+    background-color: #0099ff;
   }
 
   a {

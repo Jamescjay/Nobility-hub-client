@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import NavigationBarLearner from './NavigationBarLearner';
 import SidebarLearner from './SidebarLearner';
-import MessagingSection from './messaging/MessagingSection';
+
 
 import '../styling/Dashboard.css';
+import Chatroom from './messaging/Chatroom';
 
 const Learnersdashboard = () => {
   const [nobilityHubOpen, setNobilityHubOpen] = useState(false);
@@ -36,7 +37,7 @@ const Learnersdashboard = () => {
           setStudentsDropdownOpen={setStudentsDropdownOpen}
           
         />
-        <MessagingSection />
+        <Chatroom/>
       </div>
     </div>
   );

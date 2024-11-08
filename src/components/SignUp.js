@@ -34,13 +34,16 @@ const SignupForm = () => {
 
     try {
       setLoading(true);
-      const response = await fetch("http://127.0.0.1:5555/register", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        "https://nobility-hub-backend.onrender.com/register",
+        {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify(formData),
+        }
+      );
 
       if (response.ok) {
         setSuccessMessage("Signup successful");
