@@ -66,22 +66,26 @@ To get started with the Nobility Hub project, follow these steps:
    cd Nobility-hub-client
 ```
 
-3. install the:
+3. install the dependancies:
 
 ```bash
    npm i
 ```
 
-## Optional note ( you can skip this step unless if the project is giving you errors when running is when you can come back)
+4. ## Optional note ( you can skip this step unless if the project is giving you errors when running is when you can come back)
  - incase of project failures, we can do an additional optional installation of dependancies
 
  ```bash
     npm install react-router-dom axios react-calendar react-bootstrap bootstrap @fortawesome/fontawesome-svg-core @fortawesome/free-solid-svg-icons @fortawesome/react-fontawesome recharts lucide-react react-icons socket.io socket.io-client react-chat-elements react-modal react-chat-engine-pretty
 ```
 
-4. Run the application:
+5. Run the application:
+
 ```bash
    npm start
 ```
+
  - The application should now be running on http://localhost:3000.
+
+
 
